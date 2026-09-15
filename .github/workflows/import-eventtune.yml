@@ -1,0 +1,49 @@
+name: Import pinned EventTune history
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/import-eventtune.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: eventtune-history-import
+  cancel-in-progress: false
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Import and verify every source-tracked file
+        shell: bash
+        env:
+          SOURCE_SHA: 3150cae1eecf2ee82e508d32fe7f2e80913f8149
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git remote add eventtune https://github.com/Yunbo-max/EventTune.git
+          git fetch eventtune main
+          git cat-file -e "$SOURCE_SHA^{commit}"
+          if git merge-base --is-ancestor "$SOURCE_SHA" HEAD; then
+            echo 'Pinned source history is already present; no import needed.'
+            exit 0
+          fi
+          git merge --no-ff --allow-unrelated-histories "$SOURCE_SHA" -m 'Import full EventTune history at 3150cae without rewriting the source'
+          python3 - <<'PY'
+          import os, subprocess
+          def tree(ref):
+              rows = subprocess.check_output(['git','ls-tree','-rz',ref]).split(b'\0')
+              return {r.split(b'\t',1)[1]: r.split(b'\t',1)[0] for r in rows if r}
+          source = tree(os.environ['SOURCE_SHA'])
+          target = tree('HEAD')
+          mismatches = [p.decode() for p, v in source.items() if target.get(p) != v]
+          if mismatches:
+              raise SystemExit('Import verification failed: ' + repr(mismatches))
+          print(f'Verified all {len(source)} tracked source entries byte-for-byte, including binary assets.')
+          PY
+          git push origin "$SOURCE_SHA:refs/heads/legacy/eventtune-3150cae"
+          git push origin HEAD:main
