@@ -1,0 +1,23 @@
+name: Visual Lens CPU checks
+on:
+  push:
+    branches: [main]
+    paths: ['src/**', 'scripts/**', 'configs/**', 'tests/**', 'tests_vigor/**', 'tests_lens/**', '.github/workflows/visual-lens-cpu.yml']
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  cpu:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+      - run: python -m pip install -e '.[test]'
+      - run: PYTHONPATH=src OMP_NUM_THREADS=2 python -m pytest tests tests_vigor tests_lens -q
+      - run: python scripts/run_visual_lens.py plan
+      - run: python -m compileall -q src scripts
+      - run: bash -n scripts/run_visual_lens_all.sh && bash -n scripts/run_vigor_all.sh
