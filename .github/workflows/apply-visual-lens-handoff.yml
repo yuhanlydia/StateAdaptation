@@ -1,0 +1,99 @@
+name: Integrate Visual Lens handoff
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/apply-visual-lens-handoff.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: visual-lens-handoff
+  cancel-in-progress: false
+jobs:
+  integrate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Verify and extract the reviewed source payload
+        run: |
+          python - <<'PY'
+          from pathlib import Path, PurePosixPath
+          import base64, hashlib, json, lzma, shutil
+          parts = sorted(Path('migration_payload').glob('lens_part*.b64'))
+          if len(parts) != 7:
+              raise SystemExit(f'Expected 7 payload parts, found {len(parts)}')
+          encoded = ''.join(p.read_text().strip() for p in parts)
+          raw = base64.b64decode(encoded, validate=True)
+          expected = 'a00488244dbeff08416e13990349f5c0ab6c221dc96b9721dfc8c51a9396c4da'
+          actual = hashlib.sha256(raw).hexdigest()
+          if actual != expected:
+              raise SystemExit(f'Payload checksum mismatch: {actual}')
+          files = json.loads(lzma.decompress(raw))
+          if len(files) != 35:
+              raise SystemExit('Unexpected file count')
+          Path('docs/legacy').mkdir(parents=True, exist_ok=True)
+          if not Path('docs/legacy/README_EventTune.md').exists():
+              shutil.copyfile('README.md', 'docs/legacy/README_EventTune.md')
+          hashes = {}
+          for name, text in files.items():
+              p = PurePosixPath(name)
+              if p.is_absolute() or '..' in p.parts or p.parts[0] == '.git':
+                  raise SystemExit(f'Unsafe payload path: {name}')
+              # The connector installs CI separately; Actions must not modify workflows.
+              if p.parts[0] == '.github':
+                  continue
+              allowed = p.parts[0] in ('src','scripts','tests_lens','tests_vigor','configs','docs') or name in ('README.md','AGENTS.md')
+              if not allowed:
+                  raise SystemExit(f'Unexpected payload path: {name}')
+              out = Path(name)
+              out.parent.mkdir(parents=True, exist_ok=True)
+              out.write_text(text, encoding='utf-8')
+              hashes[name] = hashlib.sha256(out.read_bytes()).hexdigest()
+          Path('docs/VISUAL_LENS_SOURCE_HASHES.json').write_text(json.dumps(hashes, indent=2)+'\n')
+          print(f'Verified archive checksum and installed {len(hashes)} plain source files.')
+          PY
+      - name: Install CPU-only verification dependencies
+        run: |
+          python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -e '.[test]'
+      - name: Run all original and new CPU tests
+        env:
+          PYTHONPATH: src
+          OMP_NUM_THREADS: '2'
+        run: |
+          python -m pytest tests tests_vigor tests_lens -q | tee /tmp/visual-lens-tests.txt
+          python -m compileall -q src scripts
+          bash -n scripts/run_visual_lens_all.sh
+          bash -n scripts/run_vigor_all.sh
+          python scripts/run_visual_lens.py plan
+          python scripts/summarize_visual_lens.py --bootstrap 10
+      - name: Commit plain sources without changing historical results
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          python - <<'PY'
+          import subprocess,json
+          from pathlib import Path
+          files=json.loads(Path('docs/VISUAL_LENS_SOURCE_HASHES.json').read_text())
+          subprocess.run(['git','add','--',*files,'docs/VISUAL_LENS_SOURCE_HASHES.json','docs/legacy/README_EventTune.md'],check=True)
+          PY
+          git rm -- migration_payload/lens_part*.b64
+          git diff --cached --stat
+          git commit -m 'feat: integrate matched Lens-LoRA, fixed-state image controls, and gradient-path audits'
+          git push origin HEAD:main
+      - name: Export verified source snapshot
+        run: git archive --format=zip HEAD -o /tmp/StateAdaptation-visual-lens.zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: StateAdaptation-verified-handoff
+          path: |
+            /tmp/StateAdaptation-visual-lens.zip
+            /tmp/visual-lens-tests.txt
+          retention-days: 7
