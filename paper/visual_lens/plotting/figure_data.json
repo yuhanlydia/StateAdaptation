@@ -1,0 +1,42 @@
+{
+  "repository": "Yunbo-max/EventTune",
+  "commit": "3150cae1eecf2ee82e508d32fe7f2e80913f8149",
+  "status": "Transcribed from archived reports; no new model evaluations",
+  "primary": {
+    "source": "paper/tables/main_table.tex",
+    "protocol": "Qwen2.5-VL-7B; support24/query300 per event; four events; one locked support each",
+    "frozen_macro_f1": 0.2234,
+    "methods": [
+      {"name": "Diagonal lens", "scalars": 64, "macro_f1": 0.2794},
+      {"name": "Full visual lens", "scalars": 1024, "macro_f1": 0.3208},
+      {"name": "LoRA", "scalars": 10092544, "macro_f1": 0.2986}
+    ],
+    "uncertainty": "No matched repeated primary estimates; do not fabricate error bars"
+  },
+  "basis_control": {
+    "source": "reports/extended_neurips_results.md",
+    "protocol": "Qwen2.5-VL-7B; four-event mean; compact Full controller; alpha3",
+    "methods": [
+      {"name": "Random", "rank": 5, "macro_f1": 0.2414, "basis_seeds": 3},
+      {"name": "Mean gradient", "rank": 1, "macro_f1": 0.2506, "basis_seeds": 1},
+      {"name": "Centered", "rank": 5, "macro_f1": 0.2721, "basis_seeds": 1},
+      {"name": "Second moment", "rank": 5, "macro_f1": 0.2964, "basis_seeds": 1}
+    ],
+    "uncertainty": "Mean-gradient control is not rank matched; reported means only"
+  },
+  "prior_reweighting": {
+    "source": "reports/task_subspace_diagnostics.md",
+    "protocol": "RoboFail InternVL3; QKVO diagnostic; fixed aggregate support basis; query labels used only in diagnostic prior",
+    "seed": [0,1,2],
+    "original_kappa": [-0.2065,0.3866,0.4475],
+    "reweighted_kappa": [0.9070,0.9375,0.9574],
+    "statistic": "Query-energy-weighted average of module-level projected mean-gradient cosines; not classification performance"
+  },
+  "module_alignment": {
+    "source": "reports/task_subspace_diagnostics.md",
+    "protocol": "InternVL3; three-support-seed averages; query-label diagnostic",
+    "tasks": ["Camelyon17","RoboFail","ManipBench (pick)"],
+    "modules": ["Q","K","V","O"],
+    "kappa": [[0.9801,0.9676,0.9905,0.9904],[0.425,0.438,0.034,-0.120],[0.863,0.626,0.838,0.881]]
+  }
+}

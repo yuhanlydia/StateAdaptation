@@ -1,0 +1,25 @@
+{
+  "source_repository": "Yunbo-max/EventTune",
+  "source_commit": "3150cae1eecf2ee82e508d32fe7f2e80913f8149",
+  "destination_repository": "yuhanlydia/StateAdaptation",
+  "historical_source_tests_reports_unchanged": true,
+  "cpu_tests": {
+    "tests": 92,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "p0_jobs": {
+    "audit": 3,
+    "matched": 63,
+    "objective": 8,
+    "evidence": 9
+  },
+  "total_jobs": 83,
+  "manuscript_source_files": 22,
+  "generated_figure_files": 8,
+  "gpu_experiments_run_in_this_migration": false,
+  "entrypoint": "bash scripts/run_visual_lens_all.sh run 0",
+  "instructions": "docs/VISUAL_LENS_RUN.md",
+  "data_and_weights": "Existing local/private Hub assets; not migrated into Git"
+}
