@@ -1,0 +1,113 @@
+name: Finalize Visual Lens migration
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/finalize-visual-lens-migration.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: visual-lens-migration-finalize
+  cancel-in-progress: false
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Verify preserved EventTune history and historical implementation
+        run: |
+          git merge-base --is-ancestor 3150cae1eecf2ee82e508d32fe7f2e80913f8149 HEAD
+          git diff --exit-code 3150cae1eecf2ee82e508d32fe7f2e80913f8149 HEAD -- src/eventttt tests reports
+      - name: Complete the checksum-verified manuscript migration
+        run: python scripts/finalize_visual_lens_migration.py
+      - name: Install CPU verification dependencies
+        run: |
+          python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -e '.[test]' matplotlib
+      - name: Verify code, plans and numerical figure sources
+        env:
+          PYTHONPATH: src
+          OMP_NUM_THREADS: '2'
+          MPLBACKEND: Agg
+        run: |
+          set -euo pipefail
+          python -m pytest tests tests_vigor tests_lens -q --junitxml=/tmp/migration-tests.xml | tee /tmp/migration-tests.txt
+          python -m compileall -q src scripts
+          bash -n scripts/run_visual_lens_all.sh
+          bash -n scripts/run_vigor_all.sh
+          python scripts/run_visual_lens.py plan
+          python scripts/summarize_visual_lens.py --bootstrap 10
+          python paper/visual_lens/plotting/verify_data.py
+          python paper/visual_lens/plotting/make_figures.py
+      - name: Record the verified handoff and commit plain files
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          python - <<'PY'
+          from pathlib import Path
+          import collections, json, subprocess, xml.etree.ElementTree as ET
+          suites = ET.parse('/tmp/migration-tests.xml').getroot().iter('testsuite')
+          stats = {k: 0 for k in ('tests','failures','errors','skipped')}
+          for suite in suites:
+              for key in stats: stats[key] += int(suite.attrib.get(key,0))
+          assert stats['tests'] == 92 and not stats['failures'] and not stats['errors'], stats
+          jobs = json.loads(Path('runs/visual_lens_p0_v1/plan.json').read_text())['jobs']
+          counts = dict(collections.Counter(j['stage'] for j in jobs))
+          assert counts == {'audit':3,'matched':63,'objective':8,'evidence':9}, counts
+          sources = json.loads(Path('paper/visual_lens/SOURCE_SHA256.json').read_text())
+          figures = sorted(str(p) for p in Path('paper/visual_lens/figures').glob('*') if p.suffix in ('.pdf','.png'))
+          assert len(figures) == 8, figures
+          report = {
+              'source_repository':'Yunbo-max/EventTune',
+              'source_commit':'3150cae1eecf2ee82e508d32fe7f2e80913f8149',
+              'destination_repository':'yuhanlydia/StateAdaptation',
+              'historical_source_tests_reports_unchanged':True,
+              'cpu_tests':stats, 'p0_jobs':counts, 'total_jobs':len(jobs),
+              'manuscript_source_files':len(sources), 'generated_figure_files':len(figures),
+              'gpu_experiments_run_in_this_migration':False,
+              'entrypoint':'bash scripts/run_visual_lens_all.sh run 0',
+              'instructions':'docs/VISUAL_LENS_RUN.md',
+              'data_and_weights':'Existing local/private Hub assets; not migrated into Git'
+          }
+          Path('docs/VISUAL_LENS_MIGRATION_VERIFIED.json').write_text(json.dumps(report,indent=2)+'\n')
+          Path('docs/VISUAL_LENS_MIGRATION_VERIFIED.md').write_text(
+              '# Migration verified\n\n'
+              'EventTune history and its historical src/eventttt, tests, and reports are preserved. '
+              'The 35-file experiment handoff, three P0 experiment families, and the interrupted manuscript migration are now integrated.\n\n'
+              'CPU validation: 92 tests, 0 failures, 0 errors; Python and shell syntax checks passed. '
+              'The canonical plan contains 83 jobs: 3 gradient audits, 63 matched comparisons, 8 objective/span variants, and 9 fixed-state visual evidence comparisons.\n\n'
+              'The single manuscript, official style dependencies, references, numerical figure data/scripts, figure PDFs/PNGs and all English prompts are in paper/visual_lens/. '
+              'The manuscript text and historical performance numbers are unchanged.\n\n'
+              'No new GPU results were produced. Reuse the existing local model/data assets, then run prepare, plan, check, run, summarize through scripts/run_visual_lens_all.sh. '
+              'The GPU audit is mandatory before downstream jobs. See docs/VISUAL_LENS_RUN.md and docs/VISUAL_LENS_STATUS.md.\n',encoding='utf-8')
+          staged = list(sources) + figures + ['paper/visual_lens/SOURCE_SHA256.json',
+              'docs/VISUAL_LENS_MIGRATION_VERIFIED.json','docs/VISUAL_LENS_MIGRATION_VERIFIED.md']
+          subprocess.run(['git','add','-f','--',*staged],check=True)
+          PY
+          if git ls-files 'migration_payload/paper_part*.b64' | grep -q .; then
+            git rm -- migration_payload/paper_part*.b64
+          fi
+          if ! git diff --cached --quiet; then
+            git commit -m 'feat: finalize Visual Lens migration with verified experiment entrypoints and complete paper sources'
+            git push origin HEAD:main
+          fi
+      - name: Export the final source snapshot and verification record
+        run: |
+          git rev-parse HEAD > /tmp/stateadaptation-final-commit.txt
+          git archive --format=zip HEAD -o /tmp/StateAdaptation-complete.zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: StateAdaptation-complete-verified
+          path: |
+            /tmp/StateAdaptation-complete.zip
+            /tmp/stateadaptation-final-commit.txt
+            /tmp/migration-tests.txt
+            /tmp/migration-tests.xml
+          retention-days: 7
