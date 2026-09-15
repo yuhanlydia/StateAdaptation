@@ -1,0 +1,98 @@
+{
+  "count": 285,
+  "macro_f1": 0.4246392794779892,
+  "balanced_accuracy": 0.5099999999999999,
+  "ordinal_mae": 0.6175438596491228,
+  "quadratic_weighted_kappa": 0.4522821576763485,
+  "nll": 0.988349561790053,
+  "brier": 0.5875630043320009,
+  "ece": 0.08365064083001289,
+  "per_class": {
+    "intact": {
+      "precision": 0.47297297297297297,
+      "recall": 0.7,
+      "f1": 0.5645161290322581,
+      "support": 100
+    },
+    "damaged": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 85
+    },
+    "destroyed": {
+      "precision": 0.6194029850746269,
+      "recall": 0.83,
+      "f1": 0.7094017094017094,
+      "support": 100
+    }
+  },
+  "confusion_matrix": [
+    [
+      70,
+      3,
+      27
+    ],
+    [
+      61,
+      0,
+      24
+    ],
+    [
+      17,
+      0,
+      83
+    ]
+  ],
+  "per_event": {
+    "la_palma-volcano": {
+      "count": 285,
+      "macro_f1": 0.4246392794779892,
+      "balanced_accuracy": 0.5099999999999999,
+      "ordinal_mae": 0.6175438596491228,
+      "quadratic_weighted_kappa": 0.4522821576763485,
+      "nll": 0.988349561790053,
+      "brier": 0.5875630043320009,
+      "ece": 0.08365064083001289,
+      "per_class": {
+        "intact": {
+          "precision": 0.47297297297297297,
+          "recall": 0.7,
+          "f1": 0.5645161290322581,
+          "support": 100
+        },
+        "damaged": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 85
+        },
+        "destroyed": {
+          "precision": 0.6194029850746269,
+          "recall": 0.83,
+          "f1": 0.7094017094017094,
+          "support": 100
+        }
+      },
+      "confusion_matrix": [
+        [
+          70,
+          3,
+          27
+        ],
+        [
+          61,
+          0,
+          24
+        ],
+        [
+          17,
+          0,
+          83
+        ]
+      ]
+    }
+  },
+  "worst_event_macro_f1": 0.4246392794779892,
+  "mean_event_macro_f1": 0.4246392794779892
+}

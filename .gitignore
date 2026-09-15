@@ -1,0 +1,42 @@
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Large/reproducible assets live outside Git.
+data/raw/
+data/crops/
+data/manifests/
+data/splits/
+data/smoke/
+data/hub/.cache/
+data/hub/.gitattributes
+data/hf_eventtune_bright/
+data/bright.jsonl
+data/prepared/
+data/guardian_ood/
+data/hawaii/
+runs/
+artifacts/
+logs/
+
+# Regenerable paper build artifacts (metrics/crops stay local).
+paper/tables/
+paper/figures/
+
+# Dev/smoke outputs (regenerated locally)
+reports/*.log
+reports/eval_kv/
+reports/eval_source/
+reports/kv_sanity_smoke/
+reports/kv_tune_smoke/
+reports/source_smoke/
+
+# LaTeX build temp files
+paper/*.aux
+paper/*.bbl
+paper/*.blg
+paper/*.log
+paper/missfont.log
+texput.log

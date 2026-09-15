@@ -1,0 +1,98 @@
+{
+  "count": 300,
+  "macro_f1": 0.1706645433130951,
+  "balanced_accuracy": 0.32666666666666666,
+  "ordinal_mae": 0.68,
+  "quadratic_weighted_kappa": -0.009708737864077666,
+  "nll": 14.613144613944774,
+  "brier": 1.3370605153102209,
+  "ece": 0.6708890817232999,
+  "per_class": {
+    "intact": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 100
+    },
+    "damaged": {
+      "precision": 0.3299319727891156,
+      "recall": 0.97,
+      "f1": 0.49238578680203043,
+      "support": 100
+    },
+    "destroyed": {
+      "precision": 0.5,
+      "recall": 0.01,
+      "f1": 0.0196078431372549,
+      "support": 100
+    }
+  },
+  "confusion_matrix": [
+    [
+      0,
+      100,
+      0
+    ],
+    [
+      2,
+      97,
+      1
+    ],
+    [
+      2,
+      97,
+      1
+    ]
+  ],
+  "per_event": {
+    "hawaii-wildfire": {
+      "count": 300,
+      "macro_f1": 0.1706645433130951,
+      "balanced_accuracy": 0.32666666666666666,
+      "ordinal_mae": 0.68,
+      "quadratic_weighted_kappa": -0.009708737864077666,
+      "nll": 14.613144613944774,
+      "brier": 1.3370605153102209,
+      "ece": 0.6708890817232999,
+      "per_class": {
+        "intact": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 100
+        },
+        "damaged": {
+          "precision": 0.3299319727891156,
+          "recall": 0.97,
+          "f1": 0.49238578680203043,
+          "support": 100
+        },
+        "destroyed": {
+          "precision": 0.5,
+          "recall": 0.01,
+          "f1": 0.0196078431372549,
+          "support": 100
+        }
+      },
+      "confusion_matrix": [
+        [
+          0,
+          100,
+          0
+        ],
+        [
+          2,
+          97,
+          1
+        ],
+        [
+          2,
+          97,
+          1
+        ]
+      ]
+    }
+  },
+  "worst_event_macro_f1": 0.1706645433130951,
+  "mean_event_macro_f1": 0.1706645433130951
+}

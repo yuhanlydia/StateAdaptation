@@ -1,0 +1,185 @@
+KV-TTT METHOD: MATH, ABLATION RESULTS, AND FOUND METHOD PROBLEMS
+=================================================================
+Author: EventTune experiment log (2026-08-09)
+This note records the Post-Visual Residual KV-TTT mathematics, a full
+one-at-a-time hyperparameter ablation on the hawaii-wildfire fold, and
+the method-level problems the ablation exposed.
+
+----------------------------------------------------------------------
+0. EXPERIMENT SETUP FOR THE ABLATION
+----------------------------------------------------------------------
+- Event:          hawaii-wildfire (fold of the 11-event NeurIPS set)
+- Source adapter: already-trained source LoRA (reused; not re-trained)
+- Support:        24 labeled buildings (target_support.jsonl)
+- Evaluation:     60-example label-stratified subset of target_query
+                  (same subset for every config -> deltas isolate the
+                  single parameter being moved)
+- Views:          d4-views = 1, crop 448
+- Sweep script:   scripts/sweep_kv_sensitivity.py (one-at-a-time, resume)
+- Full table:     reports/kv_sweep_hawaii_FULL.csv (18 configs)
+
+Baseline config (also the current NeurIPS default):
+  rank=5, steps=4, alpha_max=0.5, lr=0.05, layers=[14, 27]
+
+----------------------------------------------------------------------
+1. THE METHOD (AS IMPLEMENTED)
+----------------------------------------------------------------------
+
+Goal: few-shot event-time adaptation of a frozen source-trained
+Qwen2.5-VL-7B (frozen base VLM + frozen source LoRA), intervening only
+on the post-event image-token K/V outputs of the language decoder.
+
+Notation:
+  Z       : a K-projection or V-projection output, shape [T, d]
+  M       : 0/1 mask selecting only POST-image token rows (pre-event
+            image rows strictly untouched; text rows change later
+            through causal attention -- that is the mechanism)
+  B       : low-rank subspace (per layer and per kind, B^T B ~= I)
+  a       : raw coefficient vector (2 layers x {K,V} x rank = 32
+            scalars by default, 20 when rank=5); base VLM = 0,
+            source LoRA = 0, only these are trainable
+  L(w)    : label-only NLL on the assistant class-label token span
+
+Subspace discovery (per layer l, per kind k):
+  C_l,k = sum_i G_i^T G_i      (G_i = correctness gradient of example i)
+  B_l,k = top-rank eigenvectors of C_l,k   (= SVD right directions)
+
+Residual intervention (per post-image token row t):
+  gamma_t  = alpha_max * tanh(a_t)
+  Z'_t     = Z_t + M_t * (Z_t B) diag(gamma_t) B^T
+
+Fit (fit_kv_coefficients):
+  min_a  sum_i L_i(w)  over the full support set (no sampler)
+  optimizer = Adam, lr, L2 1e-3, grad clip 1.0, steps full-support updates
+
+Sanity gates (pre-registered; all pass):
+  a = 0 reproduces source logits (max diff 0.00)
+  post-image K/V gradients present (14:K 1.7e-2 ... 27:V 2.3e-4)
+  basis orthogonality B^T B ~= I (max dev 8.3e-7)
+  parameter isolation (base 0 / LoRA 0 / KV scalars 20)
+  mask isolation (pre-image rows unchanged, post rows changed)
+  reset restores source logits (max diff 0.00)
+  save/load round trip (max diff 0.00)
+
+----------------------------------------------------------------------
+2. FULL ABLATION TABLE (one parameter moved at a time)
+----------------------------------------------------------------------
+
+rank  steps  alpha_max  lr    loss_first loss_last  macro_F1  bal_acc  NLL
+----  -----  ---------  ----  ---------- ---------  --------  -------  ----
+5     1      0.5        0.05  0.8225     0.8225     0.3233    0.4000   1.6332
+5     2      0.5        0.05  0.8225     0.8129     0.3233    0.4000   1.6290
+5     4      0.5        0.05  0.8225     0.8022     0.3235    0.4000   1.6084  <- baseline
+5     8      0.5        0.05  0.8225     0.7948     0.3235    0.4000   1.5878
+5     4      0.5        0.01  0.8225     0.8112     0.3233    0.4000   1.6411
+5     4      0.5        0.20  0.8225     0.7945     0.3453    0.4000   1.5573  <- best lr
+5     4      0.5        1.00  0.8225     0.8098     0.3025    0.3667   1.5457
+5     4      0.1        0.05  0.8225     0.8176     0.3235    0.4000   1.6477
+5     4      0.25       0.05  0.8225     0.8163     0.3235    0.4000   1.6191
+5     4      1.0        0.05  0.8225     0.7927     0.3235    0.4000   1.5843
+5     4      2.0        0.05  0.8225     0.7856     0.3271    0.4000   1.5485
+5     4      3.0        0.05  0.8225     0.7718     0.3440    0.4000   1.5233  <- best alpha
+5     4      5.0        0.05  0.8225     0.7674     0.3029    0.3500   1.4913
+5     4      10.0       0.05  0.8225     0.7458     0.3337    0.3667   1.4218
+5     4      100.0      0.05  0.8225     0.7232     0.2461    0.2500   1.4537  <- collapse
+8     4      0.5        0.05  0.8225     0.8048     0.3235    0.4000   1.6077
+16    4      0.5        0.05  0.8225     0.7961     0.3235    0.4000   1.5915
+32    4      0.5        0.05  0.8225     0.7868     0.3235    0.4000   1.5823
+
+Source-only reference on the same subset: macro_F1 0.3235, bal_acc
+0.4000, NLL 1.6084.  In other words the default KV-TTT is numerically
+indistinguishable from the source baseline on the query subset.
+
+----------------------------------------------------------------------
+3. ABLATION FINDINGS (per parameter)
+----------------------------------------------------------------------
+
+(a) rank (5/8/16/32)  -- NOT sensitive.
+    macro-F1 0.3235 for every rank; only NLL improves marginally with
+    larger rank (1.608 -> 1.582 at rank 32).  The extra subspace
+    capacity adds no class-discriminative signal.
+
+(b) steps (1/2/4/8)   -- NOT sensitive.
+    macro-F1 0.3233-0.3235 across the range.  The 4-step default
+    already saturates what the linear residual can move.
+
+(c) lr                -- SENSITIVE, non-monotonic.
+    0.01 -> 0.05 -> 0.20 improves F1 to 0.3453 (best) and NLL to
+    1.5573; lr=1.0 degrades F1 to 0.3025.  So a modest lr boost is
+    the largest single F1 gain in the whole table (+0.022).
+
+(d) alpha_max         -- THE dominant knob, non-monotonic with peak
+                         then collapse.
+    alpha 0.5->3.0 raises F1 to 0.3440 (best, NLL 1.5233), then
+    alpha 5.0 -> 0.3029, alpha 10.0 -> 0.3337, alpha 100.0 ->
+    0.2461 (collapse).  Support loss strictly keeps decreasing with
+    alpha (0.8022 -> 0.7232 at alpha=100) even as query F1 collapses
+    -> textbook support overfit.
+
+----------------------------------------------------------------------
+4. WHAT THIS SAYS ABOUT THE METHOD
+----------------------------------------------------------------------
+
+1. Only the "how hard to push" axis (alpha_max, and to a lesser extent
+   lr) moves the query metric.  rank and steps -- the axes that encode
+   representational capacity and fitting budget -- are inert.  That is
+   the signature of a method that mostly re-scales a fixed low-rank
+   correction rather than learning a new task subspace.
+
+2. alpha_max and lr are two views of the same lever: they jointly
+   bound "how far the support-derived correction is pushed"
+   (gamma = alpha_max * tanh(a), with lr controlling how far the raw
+   coefficients travel in the fixed number of steps).
+
+3. The default configuration (alpha=0.5, lr=0.05) is a no-op on the
+   query: macro-F1 0.3235 == source-only.  This matches the 5 completed
+   NeurIPS folds where KV-TTT added ~0 to macro-F1 per event
+   (bata +0.018, beirut -0.004, congo -0.006, haiti +0.001,
+   hawaii ~0.000).
+
+4. The largest reachable gain (+0.022 macro-F1) sits on a narrow,
+   unstable operating point (alpha=3 / lr=0.2) and is comparable to
+   metric noise on a 60-sample subset, with the source baseline itself
+   barely above chance (macro-F1 0.32 vs 0.333 random for 3 classes).
+
+5. Method-level risks:
+   (i)   Amplitude-only sensitivity => the intervention may just
+         re-scale the source residual instead of changing its
+         direction.
+   (ii)  Selection leakage: the tuning decision (alpha=3, lr=0.2) was
+         made on the same 60-sample query subset that produced the
+         reported metric.  Per protocol, alpha/lr/steps should be
+         pre-registered; any CV must re-extract the basis per fold
+         (the basis itself uses support labels).
+   (iii) Weak source: with source macro-F1 ~0.32, any +0.02 gain is
+         within the noise window; adaptation gains cannot be judged
+         until the source baseline leaves meaningful headroom.
+   (iv)  With alpha=100 the support loss drops to 0.7232 while query
+         F1 collapses to 0.2461 -> the method is prone to support
+         overfit as soon as the amplitude knob is turned up.
+
+----------------------------------------------------------------------
+5. RECOMMENDED NEXT STEPS
+----------------------------------------------------------------------
+ 1. Do not pick hyperparameters from the query subset.  Lock alpha=3,
+    lr=0.2 (or re-select on support-derived validation only) BEFORE
+    measuring.
+ 2. Run the locked alpha=3/lr=0.2 config on the other completed events
+    (bata, beirut, congo, haiti) with each event's own support basis
+    and see whether the +0.02 F1 is reproducible or noise.  Only
+    consistent wins across distinct hazards count as evidence.
+ 3. Investigate the directionality of the learned correction (e.g.
+    support-vs-query projection overlap of the K/V subspace) before
+    trusting the magnitude-only signal.
+ 4. Keep the negative result visible: if locked alpha/lr does not
+    improve query macro-F1 across events, record it as a diagnostic,
+    not as evidence for EventTune.
+
+----------------------------------------------------------------------
+6. FILES
+----------------------------------------------------------------------
+  scripts/sweep_kv_sensitivity.py       the one-at-a-time sweep tool
+  reports/kv_sweep_hawaii_FULL.csv      all 18 ablation rows
+  reports/kv_sweep_hawaii-wildfire.csv  latest sweep output
+  reports/kv_sweep_hawaii_resume.csv    earlier sweep output
+  runs/neurips/hawaii-wildfire/kv_sweep/  per-config adapters + evals

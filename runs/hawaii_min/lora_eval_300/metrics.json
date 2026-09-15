@@ -1,0 +1,98 @@
+{
+  "count": 300,
+  "macro_f1": 0.34008178820443336,
+  "balanced_accuracy": 0.3833333333333333,
+  "ordinal_mae": 0.7166666666666667,
+  "quadratic_weighted_kappa": 0.08026755852842804,
+  "nll": 2.1100380628929885,
+  "brier": 0.9707880493169307,
+  "ece": 0.41070068373892243,
+  "per_class": {
+    "intact": {
+      "precision": 0.379746835443038,
+      "recall": 0.3,
+      "f1": 0.33519553072625696,
+      "support": 100
+    },
+    "damaged": {
+      "precision": 0.36318407960199006,
+      "recall": 0.73,
+      "f1": 0.4850498338870432,
+      "support": 100
+    },
+    "destroyed": {
+      "precision": 0.6,
+      "recall": 0.12,
+      "f1": 0.2,
+      "support": 100
+    }
+  },
+  "confusion_matrix": [
+    [
+      30,
+      65,
+      5
+    ],
+    [
+      24,
+      73,
+      3
+    ],
+    [
+      25,
+      63,
+      12
+    ]
+  ],
+  "per_event": {
+    "hawaii-wildfire": {
+      "count": 300,
+      "macro_f1": 0.34008178820443336,
+      "balanced_accuracy": 0.3833333333333333,
+      "ordinal_mae": 0.7166666666666667,
+      "quadratic_weighted_kappa": 0.08026755852842804,
+      "nll": 2.1100380628929885,
+      "brier": 0.9707880493169307,
+      "ece": 0.41070068373892243,
+      "per_class": {
+        "intact": {
+          "precision": 0.379746835443038,
+          "recall": 0.3,
+          "f1": 0.33519553072625696,
+          "support": 100
+        },
+        "damaged": {
+          "precision": 0.36318407960199006,
+          "recall": 0.73,
+          "f1": 0.4850498338870432,
+          "support": 100
+        },
+        "destroyed": {
+          "precision": 0.6,
+          "recall": 0.12,
+          "f1": 0.2,
+          "support": 100
+        }
+      },
+      "confusion_matrix": [
+        [
+          30,
+          65,
+          5
+        ],
+        [
+          24,
+          73,
+          3
+        ],
+        [
+          25,
+          63,
+          12
+        ]
+      ]
+    }
+  },
+  "worst_event_macro_f1": 0.34008178820443336,
+  "mean_event_macro_f1": 0.34008178820443336
+}

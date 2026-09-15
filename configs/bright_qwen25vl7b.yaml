@@ -1,0 +1,44 @@
+model:
+  id: Qwen/Qwen2.5-VL-7B-Instruct
+  adapter: lora
+  crop_size: 448
+  lora:
+    rank: 16
+    alpha: 32
+    dropout: 0.05
+    target_modules: [q_proj, k_proj, v_proj, o_proj]
+
+protocol:
+  split: leave_one_event_out
+  seeds: [0, 1, 2, 3, 4]
+  diagnostic_shots_per_class: [1, 2, 4, 8]
+  operational_support_budgets: [12, 24, 48]
+  enforce_tile_disjoint: true
+
+source_sft:
+  steps: 1000
+  learning_rate: 0.0002
+  batch_size: 1
+  gradient_accumulation: 6
+  sampling: class_cycle
+
+event_adaptation:
+  candidate_steps: [0, 4, 8, 16, 32]
+  support_cv_folds: 3
+  learning_rate: 0.0001
+  batch_size: 1
+  gradient_accumulation: 3
+  sampling: class_cycle
+  selection_d4_views: 1
+
+evaluation:
+  d4_views: 8
+  aggregation: product_of_experts
+  metrics:
+    - macro_f1
+    - balanced_accuracy
+    - ordinal_mae
+    - quadratic_weighted_kappa
+    - nll
+    - brier
+    - ece

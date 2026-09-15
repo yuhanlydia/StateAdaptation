@@ -1,0 +1,98 @@
+{
+  "count": 300,
+  "macro_f1": 0.38967578483440096,
+  "balanced_accuracy": 0.41,
+  "ordinal_mae": 0.7333333333333333,
+  "quadratic_weighted_kappa": 0.19895287958115182,
+  "nll": 1.3547923546394456,
+  "brier": 0.7958068774185517,
+  "ece": 0.2803623349622175,
+  "per_class": {
+    "intact": {
+      "precision": 0.5757575757575758,
+      "recall": 0.19,
+      "f1": 0.2857142857142857,
+      "support": 100
+    },
+    "damaged": {
+      "precision": 0.3559322033898305,
+      "recall": 0.42,
+      "f1": 0.3853211009174312,
+      "support": 100
+    },
+    "destroyed": {
+      "precision": 0.4161073825503356,
+      "recall": 0.62,
+      "f1": 0.4979919678714859,
+      "support": 100
+    }
+  },
+  "confusion_matrix": [
+    [
+      19,
+      46,
+      35
+    ],
+    [
+      6,
+      42,
+      52
+    ],
+    [
+      8,
+      30,
+      62
+    ]
+  ],
+  "per_event": {
+    "turkey-earthquake": {
+      "count": 300,
+      "macro_f1": 0.38967578483440096,
+      "balanced_accuracy": 0.41,
+      "ordinal_mae": 0.7333333333333333,
+      "quadratic_weighted_kappa": 0.19895287958115182,
+      "nll": 1.3547923546394456,
+      "brier": 0.7958068774185517,
+      "ece": 0.2803623349622175,
+      "per_class": {
+        "intact": {
+          "precision": 0.5757575757575758,
+          "recall": 0.19,
+          "f1": 0.2857142857142857,
+          "support": 100
+        },
+        "damaged": {
+          "precision": 0.3559322033898305,
+          "recall": 0.42,
+          "f1": 0.3853211009174312,
+          "support": 100
+        },
+        "destroyed": {
+          "precision": 0.4161073825503356,
+          "recall": 0.62,
+          "f1": 0.4979919678714859,
+          "support": 100
+        }
+      },
+      "confusion_matrix": [
+        [
+          19,
+          46,
+          35
+        ],
+        [
+          6,
+          42,
+          52
+        ],
+        [
+          8,
+          30,
+          62
+        ]
+      ]
+    }
+  },
+  "worst_event_macro_f1": 0.38967578483440096,
+  "mean_event_macro_f1": 0.38967578483440096
+}

@@ -1,0 +1,76 @@
+{
+  "protocol": {
+    "events": ["hawaii-wildfire", "libya-flood", "noto-earthquake", "turkey-earthquake"],
+    "support_per_event": 24,
+    "query_per_event": 300,
+    "query_per_class": 100,
+    "crop_size": 448,
+    "methods": ["frozen", "lora", "random_kv", "gradient_cov_kv"]
+  },
+  "qwen3_vl": {
+    "hawaii-wildfire": {
+      "frozen": {"macro_f1": 0.166667, "balanced_accuracy": 0.333333, "nll": 9.672557},
+      "lora": {"macro_f1": 0.229601, "balanced_accuracy": 0.340000, "nll": 1.450646},
+      "random_kv": {"macro_f1": 0.167926, "balanced_accuracy": 0.333333, "nll": 8.233191},
+      "gradient_cov_kv": {"macro_f1": 0.308597, "balanced_accuracy": 0.316667, "nll": 2.361968}
+    },
+    "libya-flood": {
+      "frozen": {"macro_f1": 0.166667, "balanced_accuracy": 0.333333, "nll": 10.381321},
+      "lora": {"macro_f1": 0.192485, "balanced_accuracy": 0.343333, "nll": 1.436731},
+      "random_kv": {"macro_f1": 0.166667, "balanced_accuracy": 0.333333, "nll": 9.249057},
+      "gradient_cov_kv": {"macro_f1": 0.387001, "balanced_accuracy": 0.390000, "nll": 2.042513}
+    },
+    "noto-earthquake": {
+      "frozen": {"macro_f1": 0.166667, "balanced_accuracy": 0.333333, "nll": 7.668857},
+      "lora": {"macro_f1": 0.165414, "balanced_accuracy": 0.330000, "nll": 1.358301},
+      "random_kv": {"macro_f1": 0.166667, "balanced_accuracy": 0.333333, "nll": 6.449563},
+      "gradient_cov_kv": {"macro_f1": 0.353973, "balanced_accuracy": 0.366667, "nll": 1.847698}
+    },
+    "turkey-earthquake": {
+      "frozen": {"macro_f1": 0.166667, "balanced_accuracy": 0.333333, "nll": 9.975368},
+      "lora": {"macro_f1": 0.225998, "balanced_accuracy": 0.313333, "nll": 1.310849},
+      "random_kv": {"macro_f1": 0.173685, "balanced_accuracy": 0.336667, "nll": 8.834542},
+      "gradient_cov_kv": {"macro_f1": 0.347037, "balanced_accuracy": 0.350000, "nll": 2.353987}
+    }
+  },
+  "internvl3": {
+    "hawaii-wildfire": {
+      "frozen": {"macro_f1": 0.174040, "balanced_accuracy": 0.336667, "nll": 1.512642},
+      "lora": {"macro_f1": 0.166667, "balanced_accuracy": 0.333333, "nll": 1.788225},
+      "random_kv": {"macro_f1": 0.187904, "balanced_accuracy": 0.330000, "nll": 1.246198},
+      "gradient_cov_kv": {"macro_f1": 0.338111, "balanced_accuracy": 0.363333, "nll": 1.195883}
+    },
+    "libya-flood": {
+      "frozen": {"macro_f1": 0.179509, "balanced_accuracy": 0.320000, "nll": 1.428653},
+      "lora": {"macro_f1": 0.166667, "balanced_accuracy": 0.333333, "nll": 1.862757},
+      "random_kv": {"macro_f1": 0.284495, "balanced_accuracy": 0.366667, "nll": 1.208996},
+      "gradient_cov_kv": {"macro_f1": 0.224476, "balanced_accuracy": 0.353333, "nll": 1.376363}
+    },
+    "noto-earthquake": {
+      "frozen": {"macro_f1": 0.193059, "balanced_accuracy": 0.343333, "nll": 1.380917},
+      "lora": {"macro_f1": 0.166667, "balanced_accuracy": 0.333333, "nll": 1.727630},
+      "random_kv": {"macro_f1": 0.185664, "balanced_accuracy": 0.336667, "nll": 1.467225},
+      "gradient_cov_kv": {"macro_f1": 0.250145, "balanced_accuracy": 0.343333, "nll": 1.747660}
+    },
+    "turkey-earthquake": {
+      "frozen": {"macro_f1": 0.192658, "balanced_accuracy": 0.303333, "nll": 1.582921},
+      "lora": {"macro_f1": 0.166667, "balanced_accuracy": 0.333333, "nll": 1.392016},
+      "random_kv": {"macro_f1": 0.227675, "balanced_accuracy": 0.313333, "nll": 1.311511},
+      "gradient_cov_kv": {"macro_f1": 0.331251, "balanced_accuracy": 0.373333, "nll": 1.153604}
+    }
+  },
+  "four_event_means": {
+    "qwen3_vl": {
+      "frozen": {"macro_f1": 0.166667, "balanced_accuracy": 0.333333, "nll": 9.424526},
+      "lora": {"macro_f1": 0.203375, "balanced_accuracy": 0.331667, "nll": 1.389132},
+      "random_kv": {"macro_f1": 0.168736, "balanced_accuracy": 0.334167, "nll": 8.191588},
+      "gradient_cov_kv": {"macro_f1": 0.349152, "balanced_accuracy": 0.355833, "nll": 2.151542}
+    },
+    "internvl3": {
+      "frozen": {"macro_f1": 0.184816, "balanced_accuracy": 0.325833, "nll": 1.476283},
+      "lora": {"macro_f1": 0.166667, "balanced_accuracy": 0.333333, "nll": 1.692657},
+      "random_kv": {"macro_f1": 0.221434, "balanced_accuracy": 0.336667, "nll": 1.308482},
+      "gradient_cov_kv": {"macro_f1": 0.285996, "balanced_accuracy": 0.358333, "nll": 1.368377}
+    }
+  }
+}

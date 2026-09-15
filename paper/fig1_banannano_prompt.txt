@@ -1,0 +1,258 @@
+Create a publication-ready overview Figure 1 for a top-tier ICASSP / NeurIPS
+machine-learning paper titled: "Event-Adaptive Building Damage Assessment via
+Post-Visual Residual Key-Value Test-Time Tuning (KV-TTT)."
+
+The figure should explain a frozen vision-language model that, when deployed
+to a never-seen disaster event, does not update any network weight. Instead,
+from a handful of labelled post-event examples it discovers a low-rank
+"corrective subspace" inside the language decoder's Key/Value activations,
+and it learns only a few bounded scalar gates (64 in total) that reshape the
+post-event image tokens along that subspace using a handful of test-time
+gradient steps. The figure must actively show how a naive source model wastes
+computation over the full context, how KV-TTT selectively decides which
+evidence to inspect and which corrective direction to move along, how much
+fitting budget to allocate, how a verifier confirms or returns the prediction,
+and when evidence is sufficient to answer the damage question.
+
+Use a wide 16:9 landscape canvas suitable for a full-width paper figure
+(ICASSP submissions require ~173 mm width). Do NOT use a dark or black
+background. Use a soft light neutral background with a restrained vertical
+gradient from pale mist blue near the top to warm off-white near the bottom.
+Suggested impression: light warm gray, pearl white, pale blue-gray, and a
+subtle cream. The background must remain bright, clean, printable, and highly
+readable. Place the entire scientific narrative inside ONE large integrated
+rounded rectangular framework with a very light gray border. The figure must
+feel like one coherent system rather than a collection of isolated floating
+cards. Use a shared alignment grid, consistent corner radii, consistent line
+weight, unified typography, and continuous evidence-flow arrows that cross
+naturally from one region into the next.
+
+Organize the composition into four strongly defined but interconnected regions:
+
+  a.  Passive Source Processing         (left,   pale warm gray-red tint)
+  b.  KV-TTT Active Reasoning Engine    (center, pale blue-gray tint)
+  c.  Grounded and Deployed Decisions   (right,  pale mint / teal tint)
+  d.  Model Learning and Evaluation     (bottom, pale warm cream tint)
+
+The four regions must use very light tinted backgrounds, never dark panels.
+
+A single continuous horizontal visual backbone titled "Evidence Flow" should
+connect the upper portion of the entire figure:
+
+    Pre/Post Image Streams
+      -> Corrective KV Subspace
+        -> Adaptive Residual
+          -> Verified Damage Class
+
+This evidence backbone unifies the major regions. Avoid drawing many
+independent arrows between every pair of modules. Instead create one principal
+left-to-right evidence stream with a small number of meaningful branches,
+return loops, and a budget loop.
+
+--- REGION a: "Passive Source - Watch-All" (left, pale warm gray-red tint) ---
+
+Show three synchronized streams on the top row: the PRE-EVENT image
+(warmer sand/amber tint) and the POST-EVENT image (cyan-blue tint) of the
+same event tile, perfectly aligned, plus a thin raster difference/priority
+layer underneath acting as the sensor track. All three streams are densely
+tokenized (a long row of smaller square tiles /
+token squares, partially redundant and duplicated) and rolled into an
+unnaturally overloaded context funnel labeled "Dense Tokens". The funnel
+visibly overflows. Under the funnel, show a decoder attention Key-Value
+ribbon with the full-set expansion in every token position, shaded
+desaturated coral to indicate uniform compute spent on weakly relevant
+context.
+
+Keep inside this region ONLY four concise structural limitations:
+  "Dense Tokens",
+  "High Compute",
+  "Off-Distribution at New Event",
+  "Weak Grounding",
+  "Risks on Tiny Meta-Tuning".
+The problem is communicated structurally through an overloaded token /
+key-value flow. Do NOT use a large red cross, dramatic failure icon, or
+cartoon expression.
+
+The overloaded token flow should then transition directly into the proposed
+method region making the contrast between passive processing and selective
+correction visually continuous.
+
+--- REGION b: "KV-TTT - Observe / Fit / Verify" (center, main visual focus,
+occupy roughly half of the upper figure) ---
+
+This region must be designed as ONE integrated active reasoning engine, not
+multiple floating interface windows. Divide the region internally into three
+tightly connected functional subregions WITHOUT heavy borders:
+
+   b1. Corrective Subspace Discovery (Selective Perception)
+   b2. Residual KV Controller & Persistent Belief (Reasoning)
+   b3. Selective Imagination and Verification
+
+Use subtle internal background variations, shared baselines, and connecting
+flows so the three subregions stay one mechanism.
+
+-- b1. Corrective Subspace Discovery --
+
+Show a compact "Support Evidence" panel composed of a small balanced set
+(12 instances, 4 per class) of post-event building crops whose labels are:
+  Intact (fresh green),
+  Damaged (warm amber),
+  Destroyed (coral).
+Each support instance is a small pre/post thumbnail pair.
+
+A shared controller container with five compact action tabs attached to it
+(instead of five separate cards):
+  "Crop Instance"    - samples one building bbox from the post image;
+  "Encode Pair"      - feeds pre+post combination through the frozen VLM,
+  "Mask Pre tokens"  - restricts gradients to post-event image positions,
+  "Extract KV Grad"  - runs the label-token loss backward and retains only
+                       the k_proj / v_proj output gradients on post positions,
+  "Basis Decomp"     - accumulates per-instance gradient covariance and takes
+                       the top-r (r=16) eigenvectors -> "Corrective Basis B".
+
+Represent the subspace extraction with a compact "covariance matrix ->
+top-r eigen-decomposition -> B" mini-flow inside the same panel. Label it
+clearly: "Source VLM stays FROZEN across the whole figure".
+
+The extracted subspace B should be drawn as a translucent lens/band placed on
+the evidence backbone between stream and controller. Basis directions can be
+dashed (imagined / not a weight) to separate subspacing from observed.
+
+-- b2. Residual KV Controller & Persistent Belief (visual anchor) --
+
+Center of region b on the backbone, a prominent rounded module titled
+"Residual KV Controller". This is the figure's anchor. Internally contain
+four compact elements:
+  - FROZEN K/V path: solid locked tiles for the (mid, last) decoder layers,
+    each with a "K" and a "V" lane;
+  - Partial free scalars: 4 lanes x r scalars = 64, drawn as tiny sliders/
+    adjustable buttons;
+  - POST-only mask: the K/V rows only receive residuals at post-event token
+    slots, shown by a soft turquoise highlight over the post token row;
+  - Bounded gain: every scalar is capped by an alpha_max *tanh(a) clamp glyph,
+    so the residual never explodes. Caption: "Default zero -> identity".
+
+Wrap the controller with a clearly visible but restrained reasoning loop
+following one continuous curved arrow track:
+   "Observe -> Fit -> Verify -> Refine -> Re-answer"
+(one continuous loop, not many disconnected circle arrows), reconnecting to
+the same controller-belief module.
+
+Above the controller, drop a "Evidence Sufficiency Gate" module. The gate
+receives the belief state, the ordering (no external ordering), and the
+remaining fit budget (4 Adam steps, lr 0.05, L2 1e-3). The gate decides one
+of three branches:
+   "Answer Now"        -> proceed toward region c when grounding is legal;
+   "Fit More"          -> loop back into the Corrective Subspace controller;
+   "Refine Support"    -> small internal loop inside b1 (Accept / Forget).
+Label each branch with a small budget chip mirrored from the gauge.
+
+-- b3. Selective Imagination and Verification (upper-right) --
+
+Show a submodule "Hypothetical Correction" with the compact imagined states
+aligned as a sequence:  "New residual" - K/T - "shift" - "sensible derivative"
+- "marginal loss". IMPORTANT: all imagined states use SEMI-TRANSPARENT fills
+and DASHED borders; all fitted/solid basis, support and backbone elements use
+SOLID borders. This contrast must stay consistent through the figure.
+
+Beside it, a small decision controller labeled "When to Refit? How Well?"
+connected to the remaining-budget gauge of the controller-belief.
+
+Below the controller, a "Cross-Modal Verifier" module comparing four compact
+verification dimensions:
+   Temporal    (pre vs post event change)
+   Spatial     (building glyph)
+   Semantic    (label-token log-likelihood per damage class)
+   Feasibility (D4-view consistency across crops)
+The verifier either approves the evidence and forwards to the output region,
+or returns uncertain evidence along ONE clear "Return for refinement" arrow to
+the Persistent Belief Controller for another cycle.
+
+The whole method region must communicate a partially observable decision
+process with adaptive parameter acquisition; it must NOT resemble a
+conventional feed-forward multimodal encoder.
+
+--- REGION c: "Grounded and Deployed Decisions" (right, pale mint / teal
+tint) ---
+
+At the entrance, one unified module named "Verified Damage Output" which
+receives the verified class logits from the verifier. From it split into
+three aligned downstream outcome cells housed in one output container:
+  - Building-level: a selected building crop with a green/amber/coral damage
+    color dot and a short class label;
+  - Tile-level: a cropped map section with multiple flagged footprints;
+  - Event-level: a concise phrase (e.g. "most buildings intact,
+    pockets of damage") with evidence pointers (pre/post thumbnails,
+    timestamp).
+
+All outcomes display supporting evidence pointers, timestamps, or region
+markers, plus compact indicators for confidence and compute usage
+("12 support / 4 steps / 64 params"). Do NOT include fabricated benchmark
+values.
+
+At the far right edge include a minimal conceptual Accuracy-vs-Compute
+chart integrated in this region. Vertical axis "Accuracy", horizontal
+"Compute" (no numbers). Show passive "Source / Full-Fine-Tune" in a less
+favourable region (high compute) and "KV-TTT" in a higher accuracy,
+LOWER compute region, using only conceptual positions.
+
+--- REGION d: "Learning and Evaluation" spanning the full bottom width of
+(a,b,c) with a pale warm cream tint ---
+
+A continuous horizontal foundation strip. Show left-to-right training
+flow:
+   "Source LoRA SFT" (single frozen backbone trained across 9 BRIGHT events
+   per evaluation fold)
+   -> "KV-TTT (test-time, 64 scalars)"
+   -> "Leave-One-Event-Out Evaluation"
+Below/on the strip one continuous reward/metric ribbon containing:
+  Macro-F1 (plus),
+  Balanced-Accuracy (plus),
+  Negative Log-Likelihood (minus),
+  Ordinal-MAE (minus),
+  QWK (plus),
+  Seed Robustness 0/1/2 (plus).
+Do NOT encode a long mathematical equation; use concise plus/minus glyphs.
+
+Draw thin upward dashed supervision lines from this bottom layer to the
+Selective-Preceptor controlling b1, the Evidence Gate, the Budget gauge, the
+Belief controller (b2), and the Cross-Modal Verifier ("correct in the
+scaling"). Do NOT draw separate arrows from every metric to every module;
+one ribbon plus upward dashed lines.
+
+--- Universal styling ---
+Moderate user-defined: one modern sans-serif typeface, clear hierarchy,
+short labels (1 to 4 words), grid alignment, even spacing, consistent radius
+and stroke.
+
+Color map (moderately saturated over the light background, no neon glow):
+  cyan-blue      for post-event imagery and sensor streams; as accents,
+  muted violet   seldom (only for the unlikely alt-audio track),
+  warm amber     for damaged class and gained text,
+  fresh green    for intact class and positive signals,
+  coral/coral-red for destroyed class and control actions,
+  soft magenta    for imagined / dashed / hypothetical residuals,
+  turquoise-blue for persistent belief / controller memory,
+  dark charcoal   for text and structural lines.
+
+Use very subtle shadows only to create hierarchy. Avoid glossy surfaces,
+heavy gradients (except the soft vertical backdrop), glassmorphism, and
+commercial-dashboard aesthetics. May use restrained 2.5D depth for the
+controller-anchor and thumbnail pairs only; everything else remains 2D
+diagrammed.
+
+All panel labels a, b, c, d must be small, bold, integrated into the
+regional title bars; no floating badge.
+
+Regional titles use matching header fonts and keep the regions joined bar.
+
+Final narrative (kept short): passive flooding the context wastes compute
+and is off-distribution at a new event; KV-TTT freezes the VLM, inspects a
+12-example support, extracts one correctness subspace B, fits 64 bounded
+coefficients with 4 Adam steps over the post-event K/V activations, keeps
+evidence and budget in a Persistent Belief, verifies temporal-spatial-
+semantic alignment, and releases a grounded, budget-aware damage decision;
+a bottom evaluation strip validates the gain and the 3-seed robustness.
+Everything stays frozen: only the corrective residual in the KV manifold is
+allowed to move.
+No weight updates, no fine-tuning, only the subspace residual.

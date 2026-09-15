@@ -1,0 +1,98 @@
+{
+  "count": 285,
+  "macro_f1": 0.4065975029965189,
+  "balanced_accuracy": 0.49666666666666665,
+  "ordinal_mae": 0.6526315789473685,
+  "quadratic_weighted_kappa": 0.40909090909090906,
+  "nll": 1.058941300582539,
+  "brier": 0.6176901488707687,
+  "ece": 0.11694731765637371,
+  "per_class": {
+    "intact": {
+      "precision": 0.49586776859504134,
+      "recall": 0.6,
+      "f1": 0.5429864253393665,
+      "support": 100
+    },
+    "damaged": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 85
+    },
+    "destroyed": {
+      "precision": 0.5460122699386503,
+      "recall": 0.89,
+      "f1": 0.6768060836501901,
+      "support": 100
+    }
+  },
+  "confusion_matrix": [
+    [
+      60,
+      1,
+      39
+    ],
+    [
+      50,
+      0,
+      35
+    ],
+    [
+      11,
+      0,
+      89
+    ]
+  ],
+  "per_event": {
+    "la_palma-volcano": {
+      "count": 285,
+      "macro_f1": 0.4065975029965189,
+      "balanced_accuracy": 0.49666666666666665,
+      "ordinal_mae": 0.6526315789473685,
+      "quadratic_weighted_kappa": 0.40909090909090906,
+      "nll": 1.058941300582539,
+      "brier": 0.6176901488707687,
+      "ece": 0.11694731765637371,
+      "per_class": {
+        "intact": {
+          "precision": 0.49586776859504134,
+          "recall": 0.6,
+          "f1": 0.5429864253393665,
+          "support": 100
+        },
+        "damaged": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 85
+        },
+        "destroyed": {
+          "precision": 0.5460122699386503,
+          "recall": 0.89,
+          "f1": 0.6768060836501901,
+          "support": 100
+        }
+      },
+      "confusion_matrix": [
+        [
+          60,
+          1,
+          39
+        ],
+        [
+          50,
+          0,
+          35
+        ],
+        [
+          11,
+          0,
+          89
+        ]
+      ]
+    }
+  },
+  "worst_event_macro_f1": 0.4065975029965189,
+  "mean_event_macro_f1": 0.4065975029965189
+}

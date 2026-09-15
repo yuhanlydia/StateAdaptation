@@ -1,0 +1,20 @@
+{
+  "baseline": "legacy_cv_selected_support24_lora",
+  "note": "Historical conditional comparison against support-CV-selected LoRA, not the clean fixed-8 main-table baseline.",
+  "kv_support_seeds": [0, 1, 2],
+  "lora_support_seeds": [0],
+  "iterations": 10000,
+  "estimand": "mean event-level macro-F1 difference over KV support seeds, conditional on fixed LoRA support24",
+  "comparisons": {
+    "full_vs_lora": {
+      "mean_delta_macro_f1": -0.06093502059235215,
+      "bootstrap_95_ci": [-0.10651580127490481, -0.017076175749237137],
+      "paired_permutation_p_two_sided": 0.000999900009999
+    },
+    "diagonal_vs_lora": {
+      "mean_delta_macro_f1": -0.06677281620204682,
+      "bootstrap_95_ci": [-0.10831154100062682, -0.026683608338187448],
+      "paired_permutation_p_two_sided": 0.00029997000299970003
+    }
+  }
+}

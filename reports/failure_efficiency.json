@@ -1,0 +1,946 @@
+{
+  "class_means": {
+    "baseline": {
+      "intact": 0.019608785550171235,
+      "damaged": 0.49831775569585673,
+      "destroyed": 0.15238997113997113,
+      "macro_f1": 0.2234388374619997
+    },
+    "lora": {
+      "intact": 0.30321375585220306,
+      "damaged": 0.3008563191135617,
+      "destroyed": 0.3861853958613334,
+      "macro_f1": 0.330085156942366
+    },
+    "full": {
+      "intact": 0.269594473231225,
+      "damaged": 0.21776319917710085,
+      "destroyed": 0.32009273664171584,
+      "macro_f1": 0.2691501363500139
+    },
+    "diagonal": {
+      "intact": 0.09992137165070945,
+      "damaged": 0.3529327914653435,
+      "destroyed": 0.3370828591049046,
+      "macro_f1": 0.2633123407403192
+    }
+  },
+  "efficiency": {
+    "lora": {
+      "trainable_parameters": 10092544,
+      "artifact_bytes_mean": 40400200.0,
+      "adaptation_seconds": null,
+      "note": "support-only 3-fold CV plus selected final fit; legacy runner did not record wall time"
+    },
+    "full": {
+      "trainable_parameters": 100,
+      "artifact_bytes_mean": 45083.0,
+      "extraction_seconds_mean": 17.191666666666666,
+      "adaptation_seconds_mean": 53.57
+    },
+    "diagonal": {
+      "trainable_parameters": 20,
+      "artifact_bytes_mean": 44827.0,
+      "extraction_seconds_mean": 17.12333333333333,
+      "adaptation_seconds_mean": 53.348333333333336
+    }
+  },
+  "records": [
+    {
+      "event": "hawaii-wildfire",
+      "method": "baseline",
+      "seed": 0,
+      "macro_f1": 0.19923016664900153,
+      "per_class_f1": {
+        "intact": 0.019801980198019802,
+        "damaged": 0.5064599483204134,
+        "destroyed": 0.07142857142857142
+      },
+      "confusion_matrix": [
+        [
+          1,
+          93,
+          6
+        ],
+        [
+          0,
+          98,
+          2
+        ],
+        [
+          0,
+          96,
+          4
+        ]
+      ]
+    },
+    {
+      "event": "hawaii-wildfire",
+      "method": "lora",
+      "seed": 0,
+      "macro_f1": 0.3375291927821927,
+      "per_class_f1": {
+        "intact": 0.42231075697211157,
+        "damaged": 0.17518248175182483,
+        "destroyed": 0.41509433962264153
+      },
+      "confusion_matrix": [
+        [
+          53,
+          15,
+          32
+        ],
+        [
+          52,
+          12,
+          36
+        ],
+        [
+          46,
+          10,
+          44
+        ]
+      ]
+    },
+    {
+      "event": "hawaii-wildfire",
+      "method": "full",
+      "seed": 0,
+      "macro_f1": 0.2847112379015554,
+      "per_class_f1": {
+        "intact": 0.05660377358490566,
+        "damaged": 0.48502994011976047,
+        "destroyed": 0.3125
+      },
+      "confusion_matrix": [
+        [
+          3,
+          79,
+          18
+        ],
+        [
+          2,
+          81,
+          17
+        ],
+        [
+          1,
+          74,
+          25
+        ]
+      ]
+    },
+    {
+      "event": "hawaii-wildfire",
+      "method": "full",
+      "seed": 1,
+      "macro_f1": 0.24547008547008545,
+      "per_class_f1": {
+        "intact": 0.12307692307692308,
+        "damaged": 0.48,
+        "destroyed": 0.13333333333333333
+      },
+      "confusion_matrix": [
+        [
+          8,
+          83,
+          9
+        ],
+        [
+          13,
+          84,
+          3
+        ],
+        [
+          9,
+          83,
+          8
+        ]
+      ]
+    },
+    {
+      "event": "hawaii-wildfire",
+      "method": "full",
+      "seed": 2,
+      "macro_f1": 0.3082020154794624,
+      "per_class_f1": {
+        "intact": 0.3925233644859813,
+        "damaged": 0.019801980198019802,
+        "destroyed": 0.512280701754386
+      },
+      "confusion_matrix": [
+        [
+          42,
+          0,
+          58
+        ],
+        [
+          45,
+          1,
+          54
+        ],
+        [
+          27,
+          0,
+          73
+        ]
+      ]
+    },
+    {
+      "event": "hawaii-wildfire",
+      "method": "diagonal",
+      "seed": 0,
+      "macro_f1": 0.27904382164072616,
+      "per_class_f1": {
+        "intact": 0.2684563758389262,
+        "damaged": 0.05555555555555555,
+        "destroyed": 0.5131195335276968
+      },
+      "confusion_matrix": [
+        [
+          20,
+          3,
+          77
+        ],
+        [
+          19,
+          3,
+          78
+        ],
+        [
+          10,
+          2,
+          88
+        ]
+      ]
+    },
+    {
+      "event": "hawaii-wildfire",
+      "method": "diagonal",
+      "seed": 1,
+      "macro_f1": 0.32628519398244354,
+      "per_class_f1": {
+        "intact": 0.2077922077922078,
+        "damaged": 0.45733788395904434,
+        "destroyed": 0.3137254901960784
+      },
+      "confusion_matrix": [
+        [
+          16,
+          67,
+          17
+        ],
+        [
+          21,
+          67,
+          12
+        ],
+        [
+          17,
+          59,
+          24
+        ]
+      ]
+    },
+    {
+      "event": "hawaii-wildfire",
+      "method": "diagonal",
+      "seed": 2,
+      "macro_f1": 0.25944990509478244,
+      "per_class_f1": {
+        "intact": 0.26143790849673204,
+        "damaged": 0.019801980198019802,
+        "destroyed": 0.49710982658959535
+      },
+      "confusion_matrix": [
+        [
+          20,
+          0,
+          80
+        ],
+        [
+          19,
+          1,
+          80
+        ],
+        [
+          14,
+          0,
+          86
+        ]
+      ]
+    },
+    {
+      "event": "libya-flood",
+      "method": "baseline",
+      "seed": 0,
+      "macro_f1": 0.25854112343007146,
+      "per_class_f1": {
+        "intact": 0.019417475728155338,
+        "damaged": 0.4986301369863014,
+        "destroyed": 0.25757575757575757
+      },
+      "confusion_matrix": [
+        [
+          1,
+          92,
+          7
+        ],
+        [
+          1,
+          91,
+          8
+        ],
+        [
+          1,
+          82,
+          17
+        ]
+      ]
+    },
+    {
+      "event": "libya-flood",
+      "method": "lora",
+      "seed": 0,
+      "macro_f1": 0.28606863760548745,
+      "per_class_f1": {
+        "intact": 0.2482758620689655,
+        "damaged": 0.13043478260869565,
+        "destroyed": 0.4794952681388013
+      },
+      "confusion_matrix": [
+        [
+          18,
+          14,
+          68
+        ],
+        [
+          18,
+          9,
+          73
+        ],
+        [
+          9,
+          15,
+          76
+        ]
+      ]
+    },
+    {
+      "event": "libya-flood",
+      "method": "full",
+      "seed": 0,
+      "macro_f1": 0.3181093395644397,
+      "per_class_f1": {
+        "intact": 0.4206008583690987,
+        "damaged": 0.10344827586206896,
+        "destroyed": 0.4302788844621514
+      },
+      "confusion_matrix": [
+        [
+          49,
+          3,
+          48
+        ],
+        [
+          45,
+          6,
+          49
+        ],
+        [
+          39,
+          7,
+          54
+        ]
+      ]
+    },
+    {
+      "event": "libya-flood",
+      "method": "full",
+      "seed": 1,
+      "macro_f1": 0.2786901839169574,
+      "per_class_f1": {
+        "intact": 0.25,
+        "damaged": 0.07339449541284404,
+        "destroyed": 0.5126760563380282
+      },
+      "confusion_matrix": [
+        [
+          17,
+          4,
+          79
+        ],
+        [
+          11,
+          4,
+          85
+        ],
+        [
+          8,
+          1,
+          91
+        ]
+      ]
+    },
+    {
+      "event": "libya-flood",
+      "method": "full",
+      "seed": 2,
+      "macro_f1": 0.31646854635360383,
+      "per_class_f1": {
+        "intact": 0.41379310344827586,
+        "damaged": 0.07407407407407407,
+        "destroyed": 0.46153846153846156
+      },
+      "confusion_matrix": [
+        [
+          48,
+          1,
+          51
+        ],
+        [
+          47,
+          4,
+          49
+        ],
+        [
+          37,
+          3,
+          60
+        ]
+      ]
+    },
+    {
+      "event": "libya-flood",
+      "method": "diagonal",
+      "seed": 0,
+      "macro_f1": 0.3295484997111284,
+      "per_class_f1": {
+        "intact": 0.05555555555555555,
+        "damaged": 0.48091603053435117,
+        "destroyed": 0.45217391304347826
+      },
+      "confusion_matrix": [
+        [
+          3,
+          54,
+          43
+        ],
+        [
+          2,
+          63,
+          35
+        ],
+        [
+          3,
+          45,
+          52
+        ]
+      ]
+    },
+    {
+      "event": "libya-flood",
+      "method": "diagonal",
+      "seed": 1,
+      "macro_f1": 0.2513470438807113,
+      "per_class_f1": {
+        "intact": 0.019417475728155338,
+        "damaged": 0.4946236559139785,
+        "destroyed": 0.24
+      },
+      "confusion_matrix": [
+        [
+          1,
+          96,
+          3
+        ],
+        [
+          1,
+          92,
+          7
+        ],
+        [
+          1,
+          84,
+          15
+        ]
+      ]
+    },
+    {
+      "event": "libya-flood",
+      "method": "diagonal",
+      "seed": 2,
+      "macro_f1": 0.3524838489627222,
+      "per_class_f1": {
+        "intact": 0.05555555555555555,
+        "damaged": 0.5211267605633803,
+        "destroyed": 0.4807692307692308
+      },
+      "confusion_matrix": [
+        [
+          3,
+          62,
+          35
+        ],
+        [
+          3,
+          74,
+          23
+        ],
+        [
+          2,
+          48,
+          50
+        ]
+      ]
+    },
+    {
+      "event": "noto-earthquake",
+      "method": "baseline",
+      "seed": 0,
+      "macro_f1": 0.20866272434899882,
+      "per_class_f1": {
+        "intact": 0.0392156862745098,
+        "damaged": 0.48677248677248675,
+        "destroyed": 0.1
+      },
+      "confusion_matrix": [
+        [
+          2,
+          92,
+          6
+        ],
+        [
+          0,
+          92,
+          8
+        ],
+        [
+          0,
+          94,
+          6
+        ]
+      ]
+    },
+    {
+      "event": "noto-earthquake",
+      "method": "lora",
+      "seed": 0,
+      "macro_f1": 0.26665629214648817,
+      "per_class_f1": {
+        "intact": 0.14705882352941177,
+        "damaged": 0.48148148148148145,
+        "destroyed": 0.17142857142857143
+      },
+      "confusion_matrix": [
+        [
+          10,
+          71,
+          19
+        ],
+        [
+          13,
+          78,
+          9
+        ],
+        [
+          13,
+          75,
+          12
+        ]
+      ]
+    },
+    {
+      "event": "noto-earthquake",
+      "method": "full",
+      "seed": 0,
+      "macro_f1": 0.3029449203789088,
+      "per_class_f1": {
+        "intact": 0.44052863436123346,
+        "damaged": 0.018867924528301886,
+        "destroyed": 0.449438202247191
+      },
+      "confusion_matrix": [
+        [
+          50,
+          1,
+          49
+        ],
+        [
+          41,
+          1,
+          58
+        ],
+        [
+          36,
+          4,
+          60
+        ]
+      ]
+    },
+    {
+      "event": "noto-earthquake",
+      "method": "full",
+      "seed": 1,
+      "macro_f1": 0.28353819719799106,
+      "per_class_f1": {
+        "intact": 0.4948453608247423,
+        "damaged": 0.0,
+        "destroyed": 0.3557692307692308
+      },
+      "confusion_matrix": [
+        [
+          72,
+          0,
+          28
+        ],
+        [
+          57,
+          0,
+          43
+        ],
+        [
+          62,
+          1,
+          37
+        ]
+      ]
+    },
+    {
+      "event": "noto-earthquake",
+      "method": "full",
+      "seed": 2,
+      "macro_f1": 0.19667616334283,
+      "per_class_f1": {
+        "intact": 0.09259259259259259,
+        "damaged": 0.49743589743589745,
+        "destroyed": 0.0
+      },
+      "confusion_matrix": [
+        [
+          5,
+          93,
+          2
+        ],
+        [
+          3,
+          97,
+          0
+        ],
+        [
+          0,
+          100,
+          0
+        ]
+      ]
+    },
+    {
+      "event": "noto-earthquake",
+      "method": "diagonal",
+      "seed": 0,
+      "macro_f1": 0.21162563586806013,
+      "per_class_f1": {
+        "intact": 0.1322314049586777,
+        "damaged": 0.0,
+        "destroyed": 0.5026455026455027
+      },
+      "confusion_matrix": [
+        [
+          8,
+          0,
+          92
+        ],
+        [
+          9,
+          0,
+          91
+        ],
+        [
+          4,
+          1,
+          95
+        ]
+      ]
+    },
+    {
+      "event": "noto-earthquake",
+      "method": "diagonal",
+      "seed": 1,
+      "macro_f1": 0.19120879120879122,
+      "per_class_f1": {
+        "intact": 0.05714285714285714,
+        "damaged": 0.49743589743589745,
+        "destroyed": 0.01904761904761905
+      },
+      "confusion_matrix": [
+        [
+          3,
+          94,
+          3
+        ],
+        [
+          2,
+          97,
+          1
+        ],
+        [
+          0,
+          99,
+          1
+        ]
+      ]
+    },
+    {
+      "event": "noto-earthquake",
+      "method": "diagonal",
+      "seed": 2,
+      "macro_f1": 0.1916995164778842,
+      "per_class_f1": {
+        "intact": 0.057692307692307696,
+        "damaged": 0.4987146529562982,
+        "destroyed": 0.018691588785046728
+      },
+      "confusion_matrix": [
+        [
+          3,
+          93,
+          4
+        ],
+        [
+          1,
+          97,
+          2
+        ],
+        [
+          0,
+          99,
+          1
+        ]
+      ]
+    },
+    {
+      "event": "turkey-earthquake",
+      "method": "baseline",
+      "seed": 0,
+      "macro_f1": 0.22732133541992697,
+      "per_class_f1": {
+        "intact": 0.0,
+        "damaged": 0.5014084507042254,
+        "destroyed": 0.18055555555555555
+      },
+      "confusion_matrix": [
+        [
+          0,
+          79,
+          21
+        ],
+        [
+          1,
+          89,
+          10
+        ],
+        [
+          0,
+          87,
+          13
+        ]
+      ]
+    },
+    {
+      "event": "turkey-earthquake",
+      "method": "lora",
+      "seed": 0,
+      "macro_f1": 0.4300865052352958,
+      "per_class_f1": {
+        "intact": 0.39520958083832336,
+        "damaged": 0.4163265306122449,
+        "destroyed": 0.4787234042553192
+      },
+      "confusion_matrix": [
+        [
+          33,
+          53,
+          14
+        ],
+        [
+          20,
+          51,
+          29
+        ],
+        [
+          14,
+          41,
+          45
+        ]
+      ]
+    },
+    {
+      "event": "turkey-earthquake",
+      "method": "full",
+      "seed": 0,
+      "macro_f1": 0.2799480736368138,
+      "per_class_f1": {
+        "intact": 0.27350427350427353,
+        "damaged": 0.3191489361702128,
+        "destroyed": 0.24719101123595505
+      },
+      "confusion_matrix": [
+        [
+          32,
+          31,
+          37
+        ],
+        [
+          51,
+          30,
+          19
+        ],
+        [
+          51,
+          27,
+          22
+        ]
+      ]
+    },
+    {
+      "event": "turkey-earthquake",
+      "method": "full",
+      "seed": 1,
+      "macro_f1": 0.18054620652849354,
+      "per_class_f1": {
+        "intact": 0.018691588785046728,
+        "damaged": 0.4869109947643979,
+        "destroyed": 0.036036036036036036
+      },
+      "confusion_matrix": [
+        [
+          1,
+          94,
+          5
+        ],
+        [
+          3,
+          93,
+          4
+        ],
+        [
+          3,
+          95,
+          2
+        ]
+      ]
+    },
+    {
+      "event": "turkey-earthquake",
+      "method": "full",
+      "seed": 2,
+      "macro_f1": 0.23449666642902514,
+      "per_class_f1": {
+        "intact": 0.2583732057416268,
+        "damaged": 0.05504587155963303,
+        "destroyed": 0.3900709219858156
+      },
+      "confusion_matrix": [
+        [
+          27,
+          1,
+          72
+        ],
+        [
+          42,
+          3,
+          55
+        ],
+        [
+          40,
+          5,
+          55
+        ]
+      ]
+    },
+    {
+      "event": "turkey-earthquake",
+      "method": "diagonal",
+      "seed": 0,
+      "macro_f1": 0.2797063702919413,
+      "per_class_f1": {
+        "intact": 0.049586776859504134,
+        "damaged": 0.3838383838383838,
+        "destroyed": 0.40569395017793597
+      },
+      "confusion_matrix": [
+        [
+          3,
+          25,
+          72
+        ],
+        [
+          10,
+          38,
+          52
+        ],
+        [
+          8,
+          35,
+          57
+        ]
+      ]
+    },
+    {
+      "event": "turkey-earthquake",
+      "method": "diagonal",
+      "seed": 1,
+      "macro_f1": 0.26427253868771644,
+      "per_class_f1": {
+        "intact": 0.03418803418803419,
+        "damaged": 0.3258426966292135,
+        "destroyed": 0.43278688524590164
+      },
+      "confusion_matrix": [
+        [
+          2,
+          21,
+          77
+        ],
+        [
+          9,
+          29,
+          62
+        ],
+        [
+          6,
+          28,
+          66
+        ]
+      ]
+    },
+    {
+      "event": "turkey-earthquake",
+      "method": "diagonal",
+      "seed": 2,
+      "macro_f1": 0.2230769230769231,
+      "per_class_f1": {
+        "intact": 0.0,
+        "damaged": 0.5,
+        "destroyed": 0.16923076923076924
+      },
+      "confusion_matrix": [
+        [
+          0,
+          87,
+          13
+        ],
+        [
+          3,
+          91,
+          6
+        ],
+        [
+          3,
+          86,
+          11
+        ]
+      ]
+    }
+  ]
+}

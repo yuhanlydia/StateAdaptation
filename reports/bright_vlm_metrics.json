@@ -1,0 +1,42 @@
+{
+  "dataset": "BRIGHT",
+  "frozen": {
+    "events": 11,
+    "query_examples_per_model": 2752,
+    "mean_event": {
+      "phi": {"macro_f1": 0.127808, "balanced_accuracy": 0.302727, "nll": 1.331756},
+      "gemma": {"macro_f1": 0.158282, "balanced_accuracy": 0.348763, "nll": 11.339470},
+      "llama_backed_llava": {"macro_f1": 0.213170, "balanced_accuracy": 0.347639, "nll": 1.178409}
+    },
+    "pooled": {
+      "phi": {"macro_f1": 0.149172, "balanced_accuracy": 0.332914, "nll": 1.303043},
+      "gemma": {"macro_f1": 0.163429, "balanced_accuracy": 0.332387, "nll": 10.933383},
+      "llama_backed_llava": {"macro_f1": 0.227931, "balanced_accuracy": 0.329176, "nll": 1.214124}
+    }
+  },
+  "hawaii_support12_full_query": {
+    "phi": {
+      "frozen": {"macro_f1": 0.167084, "balanced_accuracy": 0.333333, "nll": 1.238857},
+      "lora": {"macro_f1": 0.284802, "balanced_accuracy": 0.320000, "nll": 1.112848},
+      "random_kv": {"macro_f1": 0.166667, "balanced_accuracy": 0.333333, "nll": 1.241245},
+      "gradient_cov_kv": {"macro_f1": 0.167084, "balanced_accuracy": 0.333333, "nll": 1.233160}
+    },
+    "gemma": {
+      "frozen": {"macro_f1": 0.166667, "balanced_accuracy": 0.333333, "nll": 10.053183},
+      "lora": {"macro_f1": 0.308089, "balanced_accuracy": 0.370000, "nll": 2.626449},
+      "random_kv": {"macro_f1": 0.166667, "balanced_accuracy": 0.333333, "nll": 10.021574},
+      "gradient_cov_kv": {"macro_f1": 0.166667, "balanced_accuracy": 0.333333, "nll": 9.934269}
+    },
+    "llama_backed_llava": {
+      "frozen": {"macro_f1": 0.225220, "balanced_accuracy": 0.326667, "nll": 1.267887},
+      "lora": {"macro_f1": 0.166667, "balanced_accuracy": 0.333333, "nll": 1.114124},
+      "random_kv": {"macro_f1": 0.225220, "balanced_accuracy": 0.326667, "nll": 1.267819},
+      "gradient_cov_kv": {"macro_f1": 0.209789, "balanced_accuracy": 0.326667, "nll": 1.269102}
+    }
+  },
+  "notes": [
+    "Llama arm uses xtuner/llava-llama-3-8b-v1_1-transformers, not the gated official Meta Llama-3.2 Vision checkpoint.",
+    "All adapters use support_12 only; query metrics are post-adaptation evaluation.",
+    "Frozen and adapter artifacts are under runs/bright_vlm and are intentionally ignored by Git due to size."
+  ]
+}

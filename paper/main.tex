@@ -1,0 +1,667 @@
+\documentclass[conference]{IEEEtran}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{bm}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage{url}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+\newcommand{\KVTTT}{\textsc{KV-TTT}}
+
+\begin{document}
+
+\title{When Can Internal-State Adaptation Replace Weight Adaptation in Vision--Language Models?}
+\author{\IEEEauthorblockN{Anonymous Authors}}
+\maketitle
+
+\begin{abstract}
+Few-shot adaptation of a vision--language model (VLM) commonly changes model
+weights, even when the target shift may require only a small correction to how
+visual evidence is read.  We ask a broader question: \emph{when can adapting a
+frozen model's internal state replace weight adaptation?}  We study a simple
+test-time method, \emph{Key--Value Test-Time Tuning} (\KVTTT{}), that constructs
+a low-rank basis from the second moment of support correctness gradients and
+learns a bounded residual on task-relevant visual key/value activations.  By
+the Ky Fan maximum principle, this basis is the rank-$r$ subspace retaining the
+maximum support gradient energy.  Across disaster assessment, histopathology,
+robot failure recognition, and vision--language action classification, we find
+that energy coverage alone is not predictive.  Successful internal-state
+adaptation additionally requires signed support--query directional transfer
+and an activation site with sufficient functional authority.  On fixed-
+semantics \textsc{BRIGHT}, \KVTTT{} exceeds matched LoRA on average with
+$1{,}024$ learned coefficients versus $10.1$M LoRA parameters, and the pattern
+replicates across VLM families.  Camelyon exhibits stable geometry and a
+query-basis KV oracle that reaches LoRA, while RoboFail exposes class-mixture
+and site mismatch: oracle prior reweighting raises directional agreement from
+$0.209\!\pm\!0.361$ to $0.934\!\pm\!0.025$.  ManipBench remains far below LoRA
+even with query-derived bases and broader activation sites, identifying a
+capability boundary rather than an optimization failure.  These results turn
+internal-state adaptation from a universal replacement claim into a testable
+account of when local, calibration-preserving adaptation is sufficient.
+\end{abstract}
+
+\begin{IEEEkeywords}
+test-time adaptation, vision--language models, internal-state adaptation,
+gradient geometry, parameter-efficient adaptation.
+\end{IEEEkeywords}
+
+\section{Introduction}
+\IEEEPARstart{F}{ew-shot} deployment poses an ambiguous adaptation problem.  A
+new domain may preserve a capability already present in a VLM and change only
+which visual evidence should be trusted.  Alternatively, it may require a new
+language--vision decision rule or action mapping.  Weight-space methods such as
+LoRA~\cite{hu2021lora} can address both cases, but use far more degrees of
+freedom than necessary in the first and can produce severely overconfident
+errors.  Internal-state adaptation is a compelling smaller alternative, yet
+its applicability conditions are poorly understood.
+
+We ask whether event adaptation can instead be expressed as a low-dimensional
+change in a frozen model's working activations. Transformer key/value projections
+form a natural intervention point~\cite{vaswani2017attention,geva2021kv}. For
+each labeled support example, we differentiate the answer-token loss with
+respect to the post-event image-token projection outputs. Crucially, we retain
+the second moment $\sum_iG_i^\top G_i$, not the average gradient. Its leading
+eigenvectors preserve a space of corrective directions even when example-level
+gradients cancel in the mean.
+
+Our central hypothesis is that successful internal-state test-time adaptation
+requires two conditions: \emph{directional geometry transfer}, meaning that
+support and query request compatible corrections in the learned subspace, and
+\emph{actuator sufficiency}, meaning that the intervened activation can realize
+the target functional change.  We test this hypothesis rather than expanding
+the method until it approximates a small weight adapter.
+
+Our contributions are: (i) a frozen-backbone, visual-KV residual whose
+gradient-covariance basis is optimal for rank-constrained support energy
+retention; (ii) energy-overlap ($\rho$), signed-alignment ($\kappa$),
+class-conditional, query-basis, and projection-site diagnostics that separate
+geometry from actuation; (iii) evidence across \textsc{BRIGHT}, Camelyon17,
+Guardian/FailCoT, and ManipBench, including multiple VLM families and matched
+three-seed task evaluations; and (iv) explicit positive, mismatch, and
+capability-boundary regimes.  Query labels are used only in clearly marked
+mechanism oracles, never for primary adaptation or model selection.
+
+\section{Related Work}
+\textbf{Test-time adaptation.} Test-time training~\cite{sun2020ttt},
+TENT~\cite{wang2020tent}, CoTTA~\cite{wang2022cotta}, and test-time prompt
+tuning~\cite{shu2022tpt} adapt normalization, objectives, or prompts at
+deployment. \KVTTT{} instead uses a small labeled event support once, produces a
+fixed event controller, and adds no query context.
+
+\textbf{Parameter-efficient and activation-space adaptation.} LoRA and
+adapters modify weights~\cite{hu2021lora,houlsby2019adapters}; prompt tuning
+learns input-like parameters~\cite{lester2021prompt}. Transformer layers have
+also been interpreted and edited as key--value memories
+~\cite{geva2021kv,meng2022rome,meng2023memit}. Our method neither edits nor
+adds model weights: it applies a bounded residual to selected activation rows.
+
+\textbf{Remote-sensing damage assessment.} xView2~\cite{gupta2021xview} and
+\textsc{BRIGHT}~\cite{bright2024} support building-level damage research, while
+remote-sensing foundation representations and VLMs broaden transfer
+~\cite{ravi2023satmae,bhatia2024rerank}. We focus on same-event, few-example
+adaptation of a general VLM under strict spatial separation.
+
+\section{Method}
+\subsection{Gradient-covariance subspace}
+Let $f_\theta$ be a frozen Qwen2.5-VL-7B model~\cite{qwen2_5vl}. For support
+example $(x_i,y_i)$, projection type $t\in\{K,V\}$, and selected decoder layer
+$l$, let $Z_i^{(l,t)}\in\mathbb{R}^{T\times d}$ denote the projection output.
+A binary mask $M_i$ selects only the second (post-event) image-token group. We
+compute the answer-span loss and masked gradient
+\begin{equation}
+G_i^{(l,t)}=\nabla_{[Z_i^{(l,t)}]_{M_i}}\mathcal{L}(x_i,y_i).
+\end{equation}
+The uncentered gradient second moment and rank-$r$ basis are
+\begin{equation}
+C^{(l,t)}=\frac{1}{N}\sum_{i=1}^{N}(G_i^{(l,t)})^\top G_i^{(l,t)},\quad
+B^{(l,t)}=\operatorname{TopEig}_r(C^{(l,t)}).
+\end{equation}
+This is equivalent to retaining the leading right singular directions of the
+stacked token gradients. It preserves directional variation that
+$\bar g=N^{-1}\sum_i g_i$ discards.
+
+\paragraph{Optimal rank-constrained energy retention.}
+Let $C\succeq0$ and let $B\in\mathbb{R}^{d\times r}$ satisfy
+$B^\top B=I_r$.  The correctness-gradient energy retained by the subspace is
+\begin{equation}
+\mathcal E(B)=\operatorname{tr}(B^\top C B)
+=\frac{1}{N}\sum_i\lVert G_iB\rVert_F^2.
+\end{equation}
+By the Ky Fan maximum principle~\cite{fan1951maximum},
+\begin{equation}
+B^*=\operatorname{TopEig}_r(C)
+\in\arg\max_{B^\top B=I_r}\operatorname{tr}(B^\top C B),
+\end{equation}
+and the optimum equals the sum of the largest $r$ eigenvalues of $C$.
+Thus the basis is not an arbitrary SVD heuristic: among all rank-$r$
+subspaces it preserves the most support correctness-gradient energy.  This
+property is deliberately limited.  It guarantees neither that query gradients
+occupy the same subspace, that their signed mean agrees with support, nor that
+a residual at the chosen activation can express the required decision change.
+
+\paragraph{Geometry and actuator diagnostics.}
+For support basis $B_S$ and stacked query gradients $G_Q$, we measure energy
+transfer and signed agreement as
+\begin{equation}
+\rho=\frac{\lVert G_QB_S\rVert_F^2}{\lVert G_Q\rVert_F^2},\qquad
+\kappa=\cos(P_{B_S}\bar g_S,P_{B_S}\bar g_Q),
+\end{equation}
+where $P_{B_S}=B_SB_S^\top$.  High $\rho$ says that relevant query energy is
+covered; high $\kappa$ says that the requested average correction is aligned.
+We then hold subspace size fixed and vary the intervention site or use a
+query-derived basis as an oracle test of actuator authority.  These diagnostics
+read query labels and are never deployable performance estimates.
+
+\subsection{Bounded residual controller}
+For a Diagonal controller,
+\begin{equation}
+Z'=Z+M\odot\left[(ZB)\operatorname{diag}(\alpha\tanh a)B^\top\right].
+\end{equation}
+For a Full controller, a raw $r\times r$ matrix $R$ gives
+\begin{equation}
+A=\frac{\alpha R}{1+\lVert R\rVert_F},\qquad
+Z'=Z+M\odot\left[(ZB)AB^\top\right].
+\end{equation}
+Thus $\lVert A\rVert_2<\alpha$. All coefficients start at zero, so the
+controller initially implements the identity. We use the middle and final
+decoder layers (14 and 27); both $K$ and $V$ are controlled. Rank-16 Full and
+Diagonal variants learn $2\times2\times16^2=1{,}024$ and
+$2\times2\times16=64$ scalars, respectively. The compact rank-5 variants learn
+100 and 20.
+
+\subsection{Coefficient fitting}
+The frozen VLM and bases remain fixed while Adam optimizes only controller
+coefficients on all 24 support examples:
+\begin{equation}
+\min_\phi\frac{1}{N}\sum_i\mathcal{L}(f_{\theta,B,\phi}(x_i),y_i)
++\lambda\lVert\phi\rVert_2^2.
+\end{equation}
+The common configuration uses four full-support updates, learning rate $0.05$,
+$\lambda=10^{-3}$, and unit gradient clipping. Each query then runs normally
+with the fixed controller; no query-time optimization is performed.
+
+\begin{algorithm}[t]
+\small
+\caption{Supervised event-level \KVTTT{}}
+\label{alg:kvttt}
+\begin{algorithmic}[1]
+\REQUIRE Frozen VLM $f_\theta$; support $\mathcal S$; layers $\mathcal L$;
+rank $r$; bound $\alpha$; updates $T_u$
+\FOR{$(x_i,y_i)\in\mathcal S$}
+  \STATE Build the paired-image prompt and isolate the answer-token span.
+  \STATE Backpropagate its loss; retain post-image gradients $G_i^{(l,t)}$.
+  \STATE $C^{(l,t)}\leftarrow C^{(l,t)}+(G_i^{(l,t)})^\top G_i^{(l,t)}$.
+\ENDFOR
+\FOR{$l\in\mathcal L$ and $t\in\{K,V\}$}
+  \STATE $B^{(l,t)}\leftarrow\operatorname{TopEig}_r(C^{(l,t)})$.
+  \STATE Initialize the Diagonal vector $a$ or Full matrix $R$ to zero.
+\ENDFOR
+\FOR{$u=1,\ldots,T_u$}
+  \STATE Accumulate the mean labeled loss over all $|\mathcal S|=24$ items.
+  \STATE Add $\lambda\lVert\phi\rVert_2^2$, clip gradients, and update $\phi$.
+\ENDFOR
+\RETURN Bases $B$ and controller coefficients $\phi$.
+\end{algorithmic}
+\end{algorithm}
+
+\paragraph{Complexity.}
+For $L$ selected layers and both projection types, Diagonal learns $2Lr$
+scalars and Full learns $2Lr^2$. Basis extraction requires one frozen-model
+backward pass per support item and an eigendecomposition of each $d\times d$
+second-moment matrix. The controller adds two low-rank projections per selected
+module at inference but no extra tokens, retrieval, or optimization. Bases and
+coefficients are serialized together; their storage is dominated by $B$, not
+by the learned coefficient count.
+
+\section{Experiments}
+\subsection{Protocol}
+We use the four \textsc{BRIGHT} events for which the strict balanced protocol
+is complete: Hawaii wildfire, Libya flood, Noto earthquake, and Turkey
+earthquake. Each event has 24 same-event labeled support instances (8 per
+class) and 300 query instances (100 per class); support and query tile sets are
+disjoint. All arms start independently from raw
+\texttt{Qwen/Qwen2.5-VL-7B-Instruct}, use $448\times448$ paired crops, and score
+the same query IDs. The clean LoRA baseline uses rank 16, alpha 32,
+$q/k/v/o$ targets, learning rate $10^{-4}$, batch size 1, gradient accumulation
+3, and eight optimizer updates---exactly one pass over support24, without
+support cross-validation. Metrics are macro-F1, balanced accuracy, and NLL.
+
+\paragraph{Cross-task evaluation.}
+We additionally evaluate InternVL3-8B and Qwen3-VL-8B on Camelyon17 hospital
+2 (binary histopathology, support16/query300) and ManipBench Q1 (four-way
+vision--language action classification, query400), with three matched support
+seeds and identical query IDs for Frozen, rank-16 LoRA, Random-KV, and
+\KVTTT{}. Guardian/FailCoT uses InternVL3-8B on three fixed-semantics
+success/failure splits, support16, and three matched seeds. Corrected
+InternVL3 task results use the required \texttt{Answer: <label>} format; older
+raw-label ManipBench runs are excluded. Main performance results never use
+query labels. Mechanism diagnostics do, and are reported separately as
+oracles.
+
+The evidence blocks serve different statistical roles. BRIGHT's primary
+four-method comparison uses one locked support24 per event; its independent
+three-support-seed suite estimates KV-versus-Frozen robustness but does not
+provide a matched multiseed LoRA comparison. Camelyon, Guardian, and
+ManipBench use matched support seeds. We keep these estimands separate rather
+than pooling incompatible replications.
+
+\subsection{Fixed-configuration main comparison}
+Table~\ref{tab:fixed} uses one common rank-16, alpha-3, four-update KV
+configuration across events. Full improves the raw VLM on every event and has
+the best mean F1, while LoRA has the best mean NLL. Full exceeds fixed-8 LoRA
+on Libya and Turkey; LoRA remains better on Hawaii and Noto. Diagonal uses only
+64 learned scalars but is less accurate. The table exposes the intended
+accuracy--adaptation-size trade-off rather than hiding metrics on which LoRA is
+better.
+
+\input{tables/main_table}
+
+\begin{table}[t]
+\centering\small
+\caption{Four-event BRIGHT mean macro-F1 under the locked support24/query300
+protocol for two additional 8B backbones.}
+\label{tab:brightbackbones}
+\begin{tabular}{lrrrr}
+\toprule
+Backbone & Frozen & LoRA & Random-KV & Ours\\
+\midrule
+Qwen3-VL-8B & .1667 & .2034 & .1687 & \textbf{.3492}\\
+InternVL3-8B & .1848 & .1667 & .2214 & \textbf{.2860}\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+These architecture-transfer results reproduce the BRIGHT ranking without
+selecting a different actuator.  Additional Phi, Gemma, and LLaVA controls are
+mixed---Ours is strongest on Gemma, LoRA on Phi, and Frozen on LLaVA---so the
+claim is cross-architecture evidence, not universal dominance.
+
+\begin{table*}[t]
+\centering\small
+\caption{Corrected InternVL3 cross-task macro-F1 (mean $\pm$ sample SD over
+three matched support seeds). Guardian reports the fixed eight-step Ours
+follow-up; Random-KV was not run in that suite.}
+\label{tab:crosstask}
+\begin{tabular}{lrrrr}
+\toprule
+Task & Frozen & LoRA & Random-KV & Ours\\
+\midrule
+Camelyon17 hospital 2 & $.3333\pm.0000$ & $.6325\pm.2725$ & $.4935\pm.0071$ & $.5107\pm.0837$\\
+Guardian UR5-Fail & $.4513\pm.0067$ & $.4432\pm.0510$ & -- & $\mathbf{.4905\pm.0308}$\\
+Guardian RoboFail & $.4476\pm.0263$ & $\mathbf{.5010\pm.0645}$ & -- & $.3952\pm.0310$\\
+Guardian RoboVQA & $.4043\pm.0068$ & $.5159\pm.0087$ & -- & $\mathbf{.5204\pm.0108}$\\
+ManipBench droid-pick & $.1541\pm.0000$ & $\mathbf{.4304\pm.2223}$ & $.1556\pm.0047$ & $.2839\pm.0729$\\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\subsection{Rank-16 alpha sweep}
+We sweep alpha in $\{0.5,1,2,3,5,10\}$ for both controllers on all events
+(48/48 runs). Table~\ref{tab:oracle} reports per-event maxima to expose method
+capacity. These are \emph{query-oracle diagnostics}, not valid primary results:
+alpha must be chosen using support-only evidence before query evaluation.
+
+\begin{table}[t]
+\centering\small
+\caption{Per-event query-oracle rank-16 alpha maxima.}
+\label{tab:oracle}
+\begin{tabular}{lrrrr}
+\toprule
+Event & LoRA & Full & $\alpha$ & Diag. / $\alpha$\\
+\midrule
+Hawaii & 0.3526 & \textbf{0.3869} & 2 & 0.3341 / 10\\
+Libya & 0.2776 & \textbf{0.3852} & 2 & 0.3390 / 5\\
+Noto & \textbf{0.3495} & 0.3270 & 1 & 0.3404 / 5\\
+Turkey & 0.2147 & \textbf{0.3025} & 3 & 0.2879 / 3\\
+\midrule
+Mean & 0.2986 & \textbf{0.3504} & -- & 0.3254 / --\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+An independent-repeat warning is important: two nominally identical Hawaii
+rank-16 Full alpha-3 runs produce macro-F1 0.3295 and 0.2957 despite matching
+model fingerprint and recorded configuration. We therefore do not promote the
+oracle alpha-2 peak to the primary claim until repeated.
+
+\subsection{Mechanism controls and statistical robustness}
+At rank 5 and alpha 3, uncentered covariance reaches mean macro-F1 0.2964,
+versus 0.2506 for a rank-1 mean gradient, 0.2721 for centered covariance, and
+0.2414 for a three-seed random basis. Ten-thousand-resample paired tests give
+covariance-minus-mean $+0.0458$ ($p=0.0142$), covariance-minus-centered
+$+0.0243$ ($p=0.0032$), and covariance-minus-random $+0.0551$ ($p=0.0022$).
+One random seed approaches covariance, so the evidence supports higher and
+more reliable average performance, not failure of every random subspace.
+
+Across three balanced support seeds and four events, compact Full versus raw
+VLM improves macro-F1 by $+0.0457$ (95\% CI $[+0.0046,+0.0847]$,
+$p=0.0167$); Diagonal improves by $+0.0399$ (95\% CI
+$[+0.0063,+0.0734]$, $p=0.0061$). Full versus Diagonal is not significant
+($p=0.7347$).
+
+Table~\ref{tab:significance} places both performance and mechanism tests in the
+main paper. Confidence intervals and permutation tests operate on paired event
+and query outcomes; the random-basis comparison additionally samples the random
+basis seed within each bootstrap replicate. All reported improvements over raw
+and all covariance-mechanism contrasts reject a zero mean difference at the
+5\% level, whereas Full and Diagonal are statistically indistinguishable.
+
+\begin{table*}[t]
+\centering\small
+\caption{Paired statistical validation (10,000 resamples). Positive $\Delta$
+favors the first method. Mechanism rows use the fixed seed-0 rank-5 controller;
+raw comparisons sample three support seeds.}
+\label{tab:significance}
+\begin{tabular}{lrrr}
+\toprule
+Comparison & Mean $\Delta$ Macro-F1 & 95\% bootstrap CI & Permutation $p$\\
+\midrule
+Full KV $-$ raw VLM & $+0.0457$ & $[+0.0046,+0.0847]$ & $0.0167$\\
+Diagonal KV $-$ raw VLM & $+0.0399$ & $[+0.0063,+0.0734]$ & $0.0061$\\
+Full KV $-$ Diagonal KV & $+0.0058$ & $[-0.0433,+0.0506]$ & $0.7347$\\
+Covariance $-$ mean gradient & $+0.0458$ & $[+0.0188,+0.0735]$ & $0.0142$\\
+Covariance $-$ centered covariance & $+0.0243$ & $[+0.0100,+0.0388]$ & $0.0032$\\
+Covariance $-$ random basis & $+0.0551$ & $[+0.0058,+0.1036]$ & $0.0022$\\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\subsection{When does internal-state adaptation suffice?}
+Table~\ref{tab:regimes} combines primary performance with oracle mechanism
+evidence.  It is not a correlation fit: the rows have deliberately different
+roles, and BRIGHT geometry uses archived support12 folds while its primary
+performance uses support24.  Instead, the table implements a sequence of
+falsification tests for geometry transfer and actuator sufficiency.
+
+\begin{table*}[t]
+\centering\small
+\caption{Geometry--Actuator regimes.  $\Delta$F1 is Ours minus LoRA under the
+corresponding clean primary protocol.  Query-basis and site results are
+query-label oracles, not deployable scores.}
+\label{tab:regimes}
+\begin{tabular}{lrrrrl}
+\toprule
+Task & $\rho$ & $\kappa$ & $\Delta$F1 & Same-actuator oracle & Diagnosis\\
+\midrule
+BRIGHT Hawaii & .433 & .975 & +.171 & -- & fixed-semantics evidence shift\\
+BRIGHT Libya & .369 & .677 & +.058 & -- & transferable class geometry\\
+Camelyon17 & $.785\pm.005$ & $.977\pm.008$ & -.122 & query-basis KV .663 vs LoRA .633 & finite-support/margin gap\\
+RoboFail & $.620\pm.008$ & $.209\pm.361$ & -.106 & Q-only .481 vs LoRA .501 & mixture and site mismatch\\
+ManipBench droid-pick & $.620\pm.003$ & $.741\pm.142$ & -.147 & query-basis KV .248 vs LoRA .430 & actuator/capability boundary\\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\paragraph{Positive evidence-shift regime.}
+BRIGHT keeps the damage labels and decision semantics fixed while geography,
+sensor conditions, and damage appearance change.  On the four-event locked
+Qwen2.5 protocol, Full KV obtains .3208 mean macro-F1 versus .2986 for LoRA and
+.2234 frozen, using 1,024 learned coefficients rather than 10.1M weight
+parameters.  Qwen3-VL and InternVL3 show the same qualitative ordering in the
+four-method architecture-transfer table.  Hawaii has strongly positive
+directional agreement in every class; Libya's aggregate agreement is weaker,
+but its class kappas all exceed .94.
+
+\paragraph{Geometry transfers but realization can fail.}
+Camelyon has stable high $\rho$ and $\kappa$ across three seeds.  Replacing the
+support basis by a query-derived basis while retaining the same KV actuator
+reaches .663 F1, comparable to or above the LoRA mean.  The local actuator can
+therefore express the correction, while finite-support subspace estimation and
+coefficient-margin realization remain error sources.  This is also visible in
+calibration: corrected InternVL \KVTTT{} has NLL .784 versus 1.990 for LoRA
+despite lower macro-F1, consistent with conservative probability correction
+rather than aggressive boundary movement.
+
+\paragraph{Mixture and site mismatch.}
+RoboFail's class-conditional kappas are stable across seeds (success .962,
+failure .970), whereas aggregate kappa is seed-sensitive.  Keeping the
+support covariance and basis fixed but reweighting support class means with
+the oracle query prior changes aggregate kappa from $.209\pm.361$ to
+$.934\pm.025$.  The recovery occurs for Q, K, V, and O, directly implicating
+class-mixture cancellation.  Q-only is the strongest seed-0 site diagnostic,
+but is not promoted to the method because it is not consistently beneficial
+elsewhere.
+
+\paragraph{Capability boundary.}
+ManipBench asks the model to compose instructions and images into changing
+A/B/C/D action semantics.  Its directional agreement is positive, yet a
+query-derived KV basis reaches only .248 F1 and QKVO only .263, far below the
+.430 LoRA mean.  Longer coefficient optimization improves ordinary KV but
+does not change this ordering.  The bottleneck is therefore not merely finding
+the direction: local activation control lacks the functional authority of
+weight adaptation for task/action remapping.
+
+\subsection{Capacity, support sensitivity, and efficiency}
+Adapting every decoder layer with rank-16 Full matrices (14,336 scalars) is not
+beneficial. Naively retaining alpha 3 and learning rate 0.05 causes support-loss
+spikes and mean performance below the sparse controller. Reducing alpha to 0.3
+and learning rate to 0.005 stabilizes Hawaii support loss, but query macro-F1
+is only 0.2923 and damaged recall is zero. Sparse middle+final intervention is
+therefore empirically preferable to dense all-layer control.
+
+Support selection also matters. Hawaii's original balanced support24 spans
+only three tiles. A representative-medoid alternative remains balanced and
+query-tile-disjoint but obtains 0.3084, below the original-support rank-5
+alpha-2 value 0.3278. We report this as sensitivity, not as a replacement split.
+
+On one RTX 3090 and the same 300 Hawaii queries, raw VLM, compact Full, and
+compact Diagonal require 1.3405, 1.3382, and 1.3384 seconds/sample; LoRA requires
+1.3725 seconds/sample. Peak memory is 17,470 MiB for raw and KV and 17,508 MiB
+for LoRA. Compact Full and Diagonal learn 100 and 20 scalars (serialized states
+approximately 44 KiB), versus $10{,}092{,}544$ parameters and 39.5 MiB for
+LoRA. KV extraction and coefficient fitting average 17 and 53 seconds.
+
+\section{Limitations}
+BRIGHT's clean four-method table uses one locked support set per event.  Its
+three-seed robustness suite repeats KV but not LoRA, so we do not claim a
+matched multiseed KV--LoRA significance test.  The archived BRIGHT geometry
+folds use support12 rather than the primary support24 and provide qualitative,
+not correlational, evidence.  Query-basis, query-prior, and projection-site
+experiments use query labels and are mechanism oracles only.  Small supports
+remain sensitive to spatial and class-mixture composition.  The evaluation
+spans several VLM families, but not all backbones are run on every task.
+Finally, local KV control is intentionally not universal: it remains weaker
+than LoRA when the target requires substantial action/semantic remapping.
+These boundaries are part of the claim rather than targets for dataset-
+specific actuator selection.
+
+\section{Conclusion}
+Gradient-covariance \KVTTT{} shows that a frozen VLM can sometimes be adapted
+with a tiny visual activation-state controller instead of a weight adapter.
+The key qualification is mechanistic: maximum support gradient-energy
+retention is only the first step.  The correction must also transfer with the
+right sign, and the selected activation must have enough causal authority to
+realize it.  BRIGHT illustrates the positive fixed-semantics evidence-shift
+regime; Camelyon separates actuator capacity from finite-support realization;
+RoboFail exposes class-mixture and site mismatch; and ManipBench establishes a
+task-remapping boundary.  The resulting answer to ``when can internal-state
+adaptation replace weight adaptation?'' is neither always nor never: when the
+target correction is directionally transferable and locally expressible.
+
+\appendices
+\section{Complete Fixed-Configuration Metrics}
+Table~\ref{tab:allmetrics} reports balanced accuracy (BA), NLL, and ordinal MAE
+in addition to the macro-F1 values in Table~\ref{tab:fixed}. A lower NLL and MAE
+is better. The results show that improvements in macro-F1 need not imply an
+ordinal-error improvement: for example, fixed-8 LoRA raises Hawaii F1 while
+increasing MAE. This is why we retain both classification and probabilistic
+metrics rather than selecting a method from F1 alone.
+
+\begin{table*}[t]
+\centering\scriptsize
+\caption{Complete metrics for the fixed rank-16, alpha-3 comparison.}
+\label{tab:allmetrics}
+\begin{tabular}{llrrrr}
+\toprule
+Event & Method & Macro-F1 & BA & NLL & Ordinal MAE\\
+\midrule
+Hawaii & Raw / LoRA / Full / Diag.
+& 0.1992 / 0.3526 / 0.2957 / 0.2918
+& 0.3433 / 0.3767 / 0.3533 / 0.3300
+& 1.2491 / 1.0974 / 1.1314 / 1.1235
+& 0.6767 / 0.8600 / 0.9467 / 0.7800\\
+Libya & Raw / LoRA / Full / Diag.
+& 0.2585 / 0.2776 / 0.3739 / 0.2560
+& 0.3633 / 0.3467 / 0.3800 / 0.3567
+& 1.3331 / 1.1175 / 1.1011 / 1.1525
+& 0.6633 / 0.9200 / 0.8167 / 0.6667\\
+Noto & Raw / LoRA / Full / Diag.
+& 0.2087 / 0.3495 / 0.3112 / 0.2820
+& 0.3333 / 0.3800 / 0.3400 / 0.3500
+& 1.2779 / 1.0977 / 1.1467 / 1.1405
+& 0.6867 / 0.8933 / 0.8767 / 0.6967\\
+Turkey & Raw / LoRA / Full / Diag.
+& 0.2273 / 0.2147 / 0.3025 / 0.2879
+& 0.3400 / 0.3233 / 0.3067 / 0.3400
+& 1.4333 / 1.1980 / 1.1676 / 1.2694
+& 0.7300 / 1.0233 / 0.9133 / 0.8733\\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\section{Complete Rank-16 Alpha Sweep}
+Tables~\ref{tab:fullalpha} and~\ref{tab:diagalpha} contain all 48 runs behind
+the oracle summary. The non-monotonic response is important: increasing the
+residual bound does not consistently improve performance, and the best alpha
+differs by event and controller. Consequently, the maxima are used to diagnose
+capacity, not as the fixed primary estimator.
+
+\begin{table}[t]
+\centering\scriptsize
+\caption{Full rank-16 macro-F1 by alpha.}
+\label{tab:fullalpha}
+\begin{tabular}{lrrrrrr}
+\toprule
+Event & .5 & 1 & 2 & 3 & 5 & 10\\
+\midrule
+Hawaii & .2622 & .3338 & \textbf{.3869} & .2957 & .3239 & .3476\\
+Libya & .3249 & .2760 & \textbf{.3852} & .3739 & .3394 & .2943\\
+Noto & .2354 & \textbf{.3270} & .3095 & .3112 & .3021 & .2770\\
+Turkey & .2627 & .1876 & .2527 & \textbf{.3025} & .2472 & .2578\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\centering\scriptsize
+\caption{Diagonal rank-16 macro-F1 by alpha.}
+\label{tab:diagalpha}
+\begin{tabular}{lrrrrrr}
+\toprule
+Event & .5 & 1 & 2 & 3 & 5 & 10\\
+\midrule
+Hawaii & .2880 & .2972 & .3021 & .2918 & .3211 & \textbf{.3341}\\
+Libya & .3110 & .3033 & .3041 & .2560 & \textbf{.3390} & .3278\\
+Noto & .2629 & .2677 & .2278 & .2820 & \textbf{.3404} & .3310\\
+Turkey & .2637 & .2698 & .2604 & \textbf{.2879} & .2843 & .2601\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Supervised Ablations}
+Table~\ref{tab:ablations} averages four events for the compact Full controller
+at alpha 3 while changing one factor at a time. The layer result is especially
+clear: middle+last substantially outperforms either layer alone. Rank 16 is the
+best mean in the original rank sweep, while eight updates slightly outperform
+four. Support48 does not improve on support24, consistent with support quality
+and spatial coverage mattering more than count alone.
+
+\begin{table}[t]
+\centering\small
+\caption{Four-event mean macro-F1 for one-factor supervised ablations.}
+\label{tab:ablations}
+\begin{tabular}{llr}
+\toprule
+Factor & Setting & Mean F1\\
+\midrule
+Support & 12 / 24 / 48 & .2538 / \textbf{.2964} / .2754\\
+Layers & 14 / 27 / 14+27 & .1964 / .2213 / \textbf{.2964}\\
+Rank & 5 / 8 / 16 / 32 & .2964 / .2972 / \textbf{.3136} / .2930\\
+Updates & 1 / 2 / 4 / 8 & .2486 / .2219 / .2964 / \textbf{.3048}\\
+Learning rate & .01 / .05 / .1 / .2 & .2659 / \textbf{.2964} / .2513 / .2466\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Support-Seed Robustness}
+Table~\ref{tab:seedmeans} summarizes the three balanced support24 seeds used by
+the compact alpha-3 controller. Variation is substantial, particularly on Noto
+Full and Libya Diagonal, motivating paired resampling over both support and
+queries. The statistical comparisons reported in the main paper use 10,000
+stratified bootstrap and paired permutation replicates.
+
+\begin{table}[t]
+\centering\small
+\caption{Macro-F1 mean $\pm$ sample standard deviation over three support
+seeds.}
+\label{tab:seedmeans}
+\begin{tabular}{lrr}
+\toprule
+Event & Full & Diagonal\\
+\midrule
+Hawaii & $.2795\pm.0317$ & $.2883\pm.0344$\\
+Libya & $.3044\pm.0223$ & $.3111\pm.0530$\\
+Noto & $.2611\pm.0566$ & $.1982\pm.0116$\\
+Turkey & $.2317\pm.0498$ & $.2557\pm.0293$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Mechanism and Negative Controls}
+The mean-gradient control keeps only the normalized aggregate gradient and is
+therefore intrinsically rank one. Centered covariance subtracts the outer
+product of the token-level mean, while random controls use orthonormal Gaussian
+bases with three seeds. Their mean macro-F1 values are .2506, .2721, and .2414,
+respectively, versus .2964 for the uncentered second moment. Centering yields a
+similar NLL reduction (.1440 versus .1435) but lower F1, suggesting that both
+the gradient mean and directional variation contribute.
+
+The dense all-layer negative control changes 56 projections. With rank 16 it
+has 14,336 coefficient scalars, but the original alpha-3/lr-.05 settings cause
+loss spikes and yield event F1 values .2400, .1670, .1704, and .1935. On Hawaii,
+alpha .3/lr .005 restores monotonically decreasing support loss yet yields only
+.2923 query F1 and zero damaged recall. This rules out the simple explanation
+that more controlled layers or more coefficient parameters necessarily help.
+
+\section{Efficiency and Artifact Accounting}
+\begin{table}[t]
+\centering\small
+\caption{Exact Hawaii query300 efficiency on one RTX 3090.}
+\label{tab:efficiency}
+\begin{tabular}{lrrr}
+\toprule
+Method & sec/sample & Peak MiB & Trainable\\
+\midrule
+Raw VLM & 1.3405 & 17,470 & 0\\
+LoRA & 1.3725 & 17,508 & 10,092,544\\
+Full rank5 & 1.3382 & 17,470 & 100\\
+Diagonal rank5 & 1.3384 & 17,470 & 20\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The timing excludes adaptation and measures identical query inference. KV basis
+extraction averages about 17 seconds and coefficient fitting about 53 seconds.
+The compact state files are approximately 44 KiB because they contain the
+bases as well as coefficients; the LoRA adapter is approximately 39.5 MiB. Full
+rank-16 has 1,024 learned coefficient scalars and Diagonal rank-16 has 64, but
+their exact end-to-end timing was not substituted for the measured compact
+benchmark in Table~\ref{tab:efficiency}.
+
+\section{Reproducibility and Selection Caveats}
+All comparisons within a row use identical saved support and query manifests,
+model fingerprints, crop size, and query IDs. Completed predictions are
+configuration-bound and resumable. Nevertheless, two limitations affect
+interpretation. First, the current support sets are class-balanced but spatially
+concentrated (three Hawaii support tiles and four Noto support tiles). Second,
+two nominally matching Hawaii rank-16 Full alpha-3 runs differ by .0338 F1,
+despite matching recorded configuration. Independent repeats are therefore
+required for sensitive oracle peaks. Finally, no per-event alpha selected from
+the query sweep is presented as a test-independent primary result.
+
+\bibliographystyle{IEEEtran}
+\bibliography{refs}
+\end{document}

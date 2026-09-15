@@ -1,0 +1,18 @@
+\begin{table*}[t]
+\centering\small
+\caption{Fixed-configuration comparison. Event columns and their mean report
+Macro-F1; NLL is averaged over events (lower is better). KV uses rank 16,
+layers 14+27, alpha 3, and four updates. ``Learned'' counts event-specific
+optimized scalars, excluding frozen covariance bases.}
+\label{tab:fixed}
+\begin{tabular}{lrrrrrrr}
+\toprule
+Method & Hawaii & Libya & Noto & Turkey & Mean F1 $\uparrow$ & Mean NLL $\downarrow$ & Learned $\downarrow$\\
+\midrule
+Raw VLM & 0.1992 & 0.2585 & 0.2087 & 0.2273 & 0.2234 & 1.3233 & 0\\
+LoRA fixed8 & \textbf{0.3526} & 0.2776 & \textbf{0.3495} & 0.2147 & 0.2986 & \textbf{1.1276} & 10,092,544\\
+Diagonal KV & 0.2918 & 0.2560 & 0.2820 & 0.2879 & 0.2794 & 1.1715 & \textbf{64}\\
+Full KV & 0.2957 & \textbf{0.3739} & 0.3112 & \textbf{0.3025} & \textbf{0.3208} & 1.1367 & 1,024\\
+\bottomrule
+\end{tabular}
+\end{table*}

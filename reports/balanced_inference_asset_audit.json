@@ -1,0 +1,85 @@
+{
+  "contract": "same support24, balanced target_query, existing raw-VLM original IDs",
+  "events_requested": 4,
+  "events_ready": 4,
+  "ready": true,
+  "events": [
+    {
+      "event": "hawaii-wildfire",
+      "ready": true,
+      "support_count": 24,
+      "support_labels": {
+        "damaged": 8,
+        "destroyed": 8,
+        "intact": 8
+      },
+      "query_count": 300,
+      "query_labels": {
+        "damaged": 100,
+        "destroyed": 100,
+        "intact": 100
+      },
+      "original_count": 300,
+      "missing_images": 0,
+      "errors": []
+    },
+    {
+      "event": "libya-flood",
+      "ready": true,
+      "support_count": 24,
+      "support_labels": {
+        "damaged": 8,
+        "destroyed": 8,
+        "intact": 8
+      },
+      "query_count": 300,
+      "query_labels": {
+        "damaged": 100,
+        "destroyed": 100,
+        "intact": 100
+      },
+      "original_count": 300,
+      "missing_images": 0,
+      "errors": []
+    },
+    {
+      "event": "noto-earthquake",
+      "ready": true,
+      "support_count": 24,
+      "support_labels": {
+        "damaged": 8,
+        "destroyed": 8,
+        "intact": 8
+      },
+      "query_count": 300,
+      "query_labels": {
+        "damaged": 100,
+        "destroyed": 100,
+        "intact": 100
+      },
+      "original_count": 300,
+      "missing_images": 0,
+      "errors": []
+    },
+    {
+      "event": "turkey-earthquake",
+      "ready": true,
+      "support_count": 24,
+      "support_labels": {
+        "damaged": 8,
+        "destroyed": 8,
+        "intact": 8
+      },
+      "query_count": 300,
+      "query_labels": {
+        "damaged": 100,
+        "destroyed": 100,
+        "intact": 100
+      },
+      "original_count": 300,
+      "missing_images": 0,
+      "errors": []
+    }
+  ],
+  "errors": []
+}

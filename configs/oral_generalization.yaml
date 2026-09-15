@@ -1,0 +1,46 @@
+protocol_version: 1
+experiment_budget_hours: 6
+debug_budget_hours: 0.5
+wallclock_policy: stop_after_budget_and_preserve_partial_artifacts
+data_protocol:
+  query_seed: 1729
+  query_policy: fixed_across_support_seeds
+  support_seed_policy: support_only
+primary_configuration:
+  rank: 16
+  alpha_max: 3.0
+  coefficient_mode: full
+  layers: [middle, last]
+  coefficient_updates: 4
+  coefficient_learning_rate: 0.05
+  coefficient_l2: 0.001
+  gradient_clip: 1.0
+  basis: uncentered_correctness_gradient_second_moment
+  selection: fixed_cross_application
+backbones:
+  primary: Qwen/Qwen2.5-VL-7B-Instruct
+  architecture_validation: microsoft/Phi-3.5-vision-instruct
+applications:
+  bright:
+    mask: second_visual
+    expected_visual_groups: 2
+    support_per_class: 8
+    query_per_class: 100
+  camelyon17:
+    mask: all_visual
+    expected_visual_groups: 1
+    target_center: 2
+    support_per_class: 8
+    query_per_class: 150
+  manipbench_q1:
+    mask: all_visual
+    expected_visual_groups: 1
+    domains: [bridge_pick_place, droid_pick_place, droid_arti]
+    support_per_class: 8
+    query_target: 400
+seeds: [0, 1, 2]
+core_arms: [frozen, lora_tta, hidden_residual, random_kv, gradient_covariance_kv]
+admission_gates:
+  minimum_predicted_classes: 2
+  binary_min_balanced_accuracy: 0.52
+  multiclass_min_balanced_accuracy_above_chance: 0.02

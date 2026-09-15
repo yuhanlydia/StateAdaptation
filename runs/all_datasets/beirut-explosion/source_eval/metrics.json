@@ -1,0 +1,98 @@
+{
+  "count": 212,
+  "macro_f1": 0.23066723980905723,
+  "balanced_accuracy": 0.3477777777777778,
+  "ordinal_mae": 1.028301886792453,
+  "quadratic_weighted_kappa": 0.0025764534558084806,
+  "nll": 1.6523442274550588,
+  "brier": 0.943625265091868,
+  "ece": 0.36528882703143384,
+  "per_class": {
+    "intact": {
+      "precision": 0.47297297297297297,
+      "recall": 0.35,
+      "f1": 0.40229885057471265,
+      "support": 100
+    },
+    "damaged": {
+      "precision": 0.5,
+      "recall": 0.11,
+      "f1": 0.18032786885245902,
+      "support": 100
+    },
+    "destroyed": {
+      "precision": 0.0603448275862069,
+      "recall": 0.5833333333333334,
+      "f1": 0.109375,
+      "support": 12
+    }
+  },
+  "confusion_matrix": [
+    [
+      35,
+      10,
+      55
+    ],
+    [
+      35,
+      11,
+      54
+    ],
+    [
+      4,
+      1,
+      7
+    ]
+  ],
+  "per_event": {
+    "beirut-explosion": {
+      "count": 212,
+      "macro_f1": 0.23066723980905723,
+      "balanced_accuracy": 0.3477777777777778,
+      "ordinal_mae": 1.028301886792453,
+      "quadratic_weighted_kappa": 0.0025764534558084806,
+      "nll": 1.6523442274550588,
+      "brier": 0.943625265091868,
+      "ece": 0.36528882703143384,
+      "per_class": {
+        "intact": {
+          "precision": 0.47297297297297297,
+          "recall": 0.35,
+          "f1": 0.40229885057471265,
+          "support": 100
+        },
+        "damaged": {
+          "precision": 0.5,
+          "recall": 0.11,
+          "f1": 0.18032786885245902,
+          "support": 100
+        },
+        "destroyed": {
+          "precision": 0.0603448275862069,
+          "recall": 0.5833333333333334,
+          "f1": 0.109375,
+          "support": 12
+        }
+      },
+      "confusion_matrix": [
+        [
+          35,
+          10,
+          55
+        ],
+        [
+          35,
+          11,
+          54
+        ],
+        [
+          4,
+          1,
+          7
+        ]
+      ]
+    }
+  },
+  "worst_event_macro_f1": 0.23066723980905723,
+  "mean_event_macro_f1": 0.23066723980905723
+}
