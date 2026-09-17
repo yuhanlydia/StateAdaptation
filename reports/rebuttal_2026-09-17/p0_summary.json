@@ -1,0 +1,1901 @@
+{
+  "completed": 83,
+  "errors": [],
+  "expected": 83,
+  "missing": [],
+  "paired_main_intervals": [
+    {
+      "ci95": [
+        0.08959733076473486,
+        0.24684284854660385
+      ],
+      "clusters": 45,
+      "comparison": "lens-minus-frozen",
+      "delta": 0.16856767922675644,
+      "domain": "hawaii-wildfire",
+      "draws": 2000,
+      "estimand": "paired query-cluster uncertainty conditional on fixed support",
+      "family": "qwen2",
+      "query_n": 300,
+      "support_seed": 0
+    },
+    {
+      "ci95": [
+        -0.10063426875460997,
+        0.03172973635411426
+      ],
+      "clusters": 45,
+      "comparison": "lens-minus-lora",
+      "delta": -0.029053281728619096,
+      "domain": "hawaii-wildfire",
+      "draws": 2000,
+      "estimand": "paired query-cluster uncertainty conditional on fixed support",
+      "family": "qwen2",
+      "query_n": 300,
+      "support_seed": 0
+    },
+    {
+      "ci95": [
+        -0.011013809811706998,
+        0.12774239272617602
+      ],
+      "clusters": 45,
+      "comparison": "lens-minus-lora_passes4",
+      "delta": 0.05667262867695022,
+      "domain": "hawaii-wildfire",
+      "draws": 2000,
+      "estimand": "paired query-cluster uncertainty conditional on fixed support",
+      "family": "qwen2",
+      "query_n": 300,
+      "support_seed": 0
+    },
+    {
+      "ci95": [
+        -0.08026144377065886,
+        0.05642136138504344
+      ],
+      "clusters": 45,
+      "comparison": "lens-minus-random_kv",
+      "delta": -0.01009878576234402,
+      "domain": "hawaii-wildfire",
+      "draws": 2000,
+      "estimand": "paired query-cluster uncertainty conditional on fixed support",
+      "family": "qwen2",
+      "query_n": 300,
+      "support_seed": 0
+    },
+    {
+      "ci95": [
+        0.0718732849938825,
+        0.2542304964578763
+      ],
+      "clusters": 45,
+      "comparison": "lens-minus-frozen",
+      "delta": 0.15909379712618818,
+      "domain": "hawaii-wildfire",
+      "draws": 2000,
+      "estimand": "paired query-cluster uncertainty conditional on fixed support",
+      "family": "qwen2",
+      "query_n": 300,
+      "support_seed": 1
+    },
+    {
+      "ci95": [
+        -0.03366960882113061,
+        0.04776194561047004
+      ],
+      "clusters": 45,
+      "comparison": "lens-minus-lora",
+      "delta": 0.01134633601314311,
+      "domain": "hawaii-wildfire",
+      "draws": 2000,
+      "estimand": "paired query-cluster uncertainty conditional on fixed support",
+      "family": "qwen2",
+      "query_n": 300,
+      "support_seed": 1
+    },
+    {
+      "ci95": [
+        0.02230694441936599,
+        0.20932116991290395
+      ],
+      "clusters": 45,
+      "comparison": "lens-minus-lora_passes4",
+      "delta": 0.1133774290504346,
+      "domain": "hawaii-wildfire",
+      "draws": 2000,
+      "estimand": "paired query-cluster uncertainty conditional on fixed support",
+      "family": "qwen2",
+      "query_n": 300,
+      "support_seed": 1
+    },
+    {
+      "ci95": [
+        -0.09437713421966996,
+        0.020729846569746024
+      ],
+      "clusters": 45,
+      "comparison": "lens-minus-random_kv",
+      "delta": -0.037279585878741306,
+      "domain": "hawaii-wildfire",
+      "draws": 2000,
+      "estimand": "paired query-cluster uncertainty conditional on fixed support",
+      "family": "qwen2",
+      "query_n": 300,
+      "support_seed": 1
+    },
+    {
+      "ci95": [
+        0.015373779973419793,
+        0.16371018701398635
+      ],
+      "clusters": 45,
+      "comparison": "lens-minus-frozen",
+      "delta": 0.08756610178300747,
+      "domain": "hawaii-wildfire",
+      "draws": 2000,
+      "estimand": "paired query-cluster uncertainty conditional on fixed support",
+      "family": "qwen2",
+      "query_n": 300,
+      "support_seed": 2
+    },
+    {
+      "ci95": [
+        -0.10366371620436643,
+        0.03257054629670916
+      ],
+      "clusters": 45,
+      "comparison": "lens-minus-lora",
+      "delta": -0.03499744225575668,
+      "domain": "hawaii-wildfire",
+      "draws": 2000,
+      "estimand": "paired query-cluster uncertainty conditional on fixed support",
+      "family": "qwen2",
+      "query_n": 300,
+      "support_seed": 2
+    },
+    {
+      "ci95": [
+        -0.10165011574684311,
+        0.053550619366083005
+      ],
+      "clusters": 45,
+      "comparison": "lens-minus-lora_passes4",
+      "delta": -0.02501398198246879,
+      "domain": "hawaii-wildfire",
+      "draws": 2000,
+      "estimand": "paired query-cluster uncertainty conditional on fixed support",
+      "family": "qwen2",
+      "query_n": 300,
+      "support_seed": 2
+    },
+    {
+      "ci95": [
+        -0.12854999927862867,
+        0.018639408255478204
+      ],
+      "clusters": 45,
+      "comparison": "lens-minus-random_kv",
+      "delta": -0.05399952187053808,
+      "domain": "hawaii-wildfire",
+      "draws": 2000,
+      "estimand": "paired query-cluster uncertainty conditional on fixed support",
+      "family": "qwen2",
+      "query_n": 300,
+      "support_seed": 2
+    },
+    {
+      "ci95": [
+        0.04072693310704813,
+        0.1488281632363354
+      ],
+      "clusters": 65,
+      "comparison": "lens-minus-frozen",
+      "delta": 0.09654653383254713,
+      "domain": "libya-flood",
+      "draws": 2000,
+      "estimand": "paired query-cluster uncertainty conditional on fixed support",
+      "family": "qwen2",
+      "query_n": 300,
+      "support_seed": 0
+    },
+    {
+      "ci95": [
+        -0.053830684888833115,
+        0.09021910605932404
+      ],
+      "clusters": 65,
+      "comparison": "lens-minus-lora",
+      "delta": 0.019128103695683907,
+      "domain": "libya-flood",
+      "draws": 2000,
+      "estimand": "paired query-cluster uncertainty conditional on fixed support",
+      "family": "qwen2",
+      "query_n": 300,
+      "support_seed": 0
+    },
+    {
+      "ci95": [
+        0.05214361606787891,
+        0.2139078575435628
+      ],
+      "clusters": 65,
+      "comparison": "lens-minus-lora_passes4",
+      "delta": 0.14167499216300325,
+      "domain": "libya-flood",
+      "draws": 2000,
+      "estimand": "paired query-cluster uncertainty conditional on fixed support",
+      "family": "qwen2",
+      "query_n": 300,
+      "support_seed": 0
+    },
+    {
+      "ci95": [
+        0.00912637433457923,
+        0.12286083195662097
+      ],
+      "clusters": 65,
+      "comparison": "lens-minus-random_kv",
+      "delta": 0.06287215867725204,
+      "domain": "libya-flood",
+      "draws": 2000,
+      "estimand": "paired query-cluster uncertainty conditional on fixed support",
+      "family": "qwen2",
+      "query_n": 300,
+      "support_seed": 0
+    },
+    {
+      "ci95": [
+        -0.008698520629936519,
+        0.08010751391503942
+      ],
+      "clusters": 65,
+      "comparison": "lens-minus-frozen",
+      "delta": 0.03381716395035694,
+      "domain": "libya-flood",
+      "draws": 2000,
+      "estimand": "paired query-cluster uncertainty conditional on fixed support",
+      "family": "qwen2",
+      "query_n": 300,
+      "support_seed": 1
+    },
+    {
+      "ci95": [
+        -0.14327357039002506,
+        -0.02115236623153069
+      ],
+      "clusters": 65,
+      "comparison": "lens-minus-lora",
+      "delta": -0.08466728416613617,
+      "domain": "libya-flood",
+      "draws": 2000,
+      "estimand": "paired query-cluster uncertainty conditional on fixed support",
+      "family": "qwen2",
+      "query_n": 300,
+      "support_seed": 1
+    },
+    {
+      "ci95": [
+        -0.05976506247971301,
+        0.08821024817671241
+      ],
+      "clusters": 65,
+      "comparison": "lens-minus-lora_passes4",
+      "delta": 0.019738498783463065,
+      "domain": "libya-flood",
+      "draws": 2000,
+      "estimand": "paired query-cluster uncertainty conditional on fixed support",
+      "family": "qwen2",
+      "query_n": 300,
+      "support_seed": 1
+    },
+    {
+      "ci95": [
+        -0.0993165201955799,
+        0.024290199185442552
+      ],
+      "clusters": 65,
+      "comparison": "lens-minus-random_kv",
+      "delta": -0.04182252472428466,
+      "domain": "libya-flood",
+      "draws": 2000,
+      "estimand": "paired query-cluster uncertainty conditional on fixed support",
+      "family": "qwen2",
+      "query_n": 300,
+      "support_seed": 1
+    },
+    {
+      "ci95": [
+        0.010216605594470626,
+        0.12463863515432883
+      ],
+      "clusters": 65,
+      "comparison": "lens-minus-frozen",
+      "delta": 0.07226196082655828,
+      "domain": "libya-flood",
+      "draws": 2000,
+      "estimand": "paired query-cluster uncertainty conditional on fixed support",
+      "family": "qwen2",
+      "query_n": 300,
+      "support_seed": 2
+    },
+    {
+      "ci95": [
+        -0.04764658929879798,
+        0.06311916257745692
+      ],
+      "clusters": 65,
+      "comparison": "lens-minus-lora",
+      "delta": 0.008934362626812409,
+      "domain": "libya-flood",
+      "draws": 2000,
+      "estimand": "paired query-cluster uncertainty conditional on fixed support",
+      "family": "qwen2",
+      "query_n": 300,
+      "support_seed": 2
+    },
+    {
+      "ci95": [
+        0.008932170404404968,
+        0.21861010599298955
+      ],
+      "clusters": 65,
+      "comparison": "lens-minus-lora_passes4",
+      "delta": 0.12790184850490668,
+      "domain": "libya-flood",
+      "draws": 2000,
+      "estimand": "paired query-cluster uncertainty conditional on fixed support",
+      "family": "qwen2",
+      "query_n": 300,
+      "support_seed": 2
+    },
+    {
+      "ci95": [
+        0.03495303153992734,
+        0.1354125701418769
+      ],
+      "clusters": 65,
+      "comparison": "lens-minus-random_kv",
+      "delta": 0.08452953010943998,
+      "domain": "libya-flood",
+      "draws": 2000,
+      "estimand": "paired query-cluster uncertainty conditional on fixed support",
+      "family": "qwen2",
+      "query_n": 300,
+      "support_seed": 2
+    },
+    {
+      "ci95": [
+        0.034129966692408475,
+        0.17666441063945562
+      ],
+      "clusters": 27,
+      "comparison": "lens-minus-frozen",
+      "delta": 0.09517390248348809,
+      "domain": "noto-earthquake",
+      "draws": 2000,
+      "estimand": "paired query-cluster uncertainty conditional on fixed support",
+      "family": "qwen2",
+      "query_n": 300,
+      "support_seed": 0
+    },
+    {
+      "ci95": [
+        -0.07376909527087637,
+        0.09012045952784674
+      ],
+      "clusters": 27,
+      "comparison": "lens-minus-lora",
+      "delta": -0.018767427182690866,
+      "domain": "noto-earthquake",
+      "draws": 2000,
+      "estimand": "paired query-cluster uncertainty conditional on fixed support",
+      "family": "qwen2",
+      "query_n": 300,
+      "support_seed": 0
+    },
+    {
+      "ci95": [
+        -0.01682687746026439,
+        0.08085723334087024
+      ],
+      "clusters": 27,
+      "comparison": "lens-minus-lora_passes4",
+      "delta": 0.02850630585350572,
+      "domain": "noto-earthquake",
+      "draws": 2000,
+      "estimand": "paired query-cluster uncertainty conditional on fixed support",
+      "family": "qwen2",
+      "query_n": 300,
+      "support_seed": 0
+    },
+    {
+      "ci95": [
+        0.037184570920472594,
+        0.19345516568673896
+      ],
+      "clusters": 27,
+      "comparison": "lens-minus-random_kv",
+      "delta": 0.1093712000807669,
+      "domain": "noto-earthquake",
+      "draws": 2000,
+      "estimand": "paired query-cluster uncertainty conditional on fixed support",
+      "family": "qwen2",
+      "query_n": 300,
+      "support_seed": 0
+    },
+    {
+      "ci95": [
+        0.059730915006145704,
+        0.15412839163208275
+      ],
+      "clusters": 27,
+      "comparison": "lens-minus-frozen",
+      "delta": 0.1109682338318517,
+      "domain": "noto-earthquake",
+      "draws": 2000,
+      "estimand": "paired query-cluster uncertainty conditional on fixed support",
+      "family": "qwen2",
+      "query_n": 300,
+      "support_seed": 1
+    },
+    {
+      "ci95": [
+        -0.05018359116317423,
+        0.08835817449550686
+      ],
+      "clusters": 27,
+      "comparison": "lens-minus-lora",
+      "delta": 0.036488398651441045,
+      "domain": "noto-earthquake",
+      "draws": 2000,
+      "estimand": "paired query-cluster uncertainty conditional on fixed support",
+      "family": "qwen2",
+      "query_n": 300,
+      "support_seed": 1
+    },
+    {
+      "ci95": [
+        0.015055381945282522,
+        0.14288237588714867
+      ],
+      "clusters": 27,
+      "comparison": "lens-minus-lora_passes4",
+      "delta": 0.09050560481931244,
+      "domain": "noto-earthquake",
+      "draws": 2000,
+      "estimand": "paired query-cluster uncertainty conditional on fixed support",
+      "family": "qwen2",
+      "query_n": 300,
+      "support_seed": 1
+    },
+    {
+      "ci95": [
+        -0.07072489591422956,
+        0.04719281517081833
+      ],
+      "clusters": 27,
+      "comparison": "lens-minus-random_kv",
+      "delta": -0.020015447247123397,
+      "domain": "noto-earthquake",
+      "draws": 2000,
+      "estimand": "paired query-cluster uncertainty conditional on fixed support",
+      "family": "qwen2",
+      "query_n": 300,
+      "support_seed": 1
+    },
+    {
+      "ci95": [
+        0.07052826005841242,
+        0.2030163904450841
+      ],
+      "clusters": 27,
+      "comparison": "lens-minus-frozen",
+      "delta": 0.14819179224014353,
+      "domain": "noto-earthquake",
+      "draws": 2000,
+      "estimand": "paired query-cluster uncertainty conditional on fixed support",
+      "family": "qwen2",
+      "query_n": 300,
+      "support_seed": 2
+    },
+    {
+      "ci95": [
+        -0.04649675836278465,
+        0.07499945959649174
+      ],
+      "clusters": 27,
+      "comparison": "lens-minus-lora",
+      "delta": 0.01701481900666263,
+      "domain": "noto-earthquake",
+      "draws": 2000,
+      "estimand": "paired query-cluster uncertainty conditional on fixed support",
+      "family": "qwen2",
+      "query_n": 300,
+      "support_seed": 2
+    },
+    {
+      "ci95": [
+        -0.027940755573824243,
+        0.11886989366826417
+      ],
+      "clusters": 27,
+      "comparison": "lens-minus-lora_passes4",
+      "delta": 0.04976026227842173,
+      "domain": "noto-earthquake",
+      "draws": 2000,
+      "estimand": "paired query-cluster uncertainty conditional on fixed support",
+      "family": "qwen2",
+      "query_n": 300,
+      "support_seed": 2
+    },
+    {
+      "ci95": [
+        -0.017421442768924263,
+        0.11438738737525647
+      ],
+      "clusters": 27,
+      "comparison": "lens-minus-random_kv",
+      "delta": 0.04206047398862339,
+      "domain": "noto-earthquake",
+      "draws": 2000,
+      "estimand": "paired query-cluster uncertainty conditional on fixed support",
+      "family": "qwen2",
+      "query_n": 300,
+      "support_seed": 2
+    },
+    {
+      "ci95": [
+        0.00033624729214223355,
+        0.1108568036737243
+      ],
+      "clusters": 188,
+      "comparison": "lens-minus-frozen",
+      "delta": 0.05568269168398679,
+      "domain": "turkey-earthquake",
+      "draws": 2000,
+      "estimand": "paired query-cluster uncertainty conditional on fixed support",
+      "family": "qwen2",
+      "query_n": 300,
+      "support_seed": 0
+    },
+    {
+      "ci95": [
+        -0.010931468706299663,
+        0.0865507399692779
+      ],
+      "clusters": 188,
+      "comparison": "lens-minus-lora",
+      "delta": 0.03850408903978339,
+      "domain": "turkey-earthquake",
+      "draws": 2000,
+      "estimand": "paired query-cluster uncertainty conditional on fixed support",
+      "family": "qwen2",
+      "query_n": 300,
+      "support_seed": 0
+    },
+    {
+      "ci95": [
+        -0.11565120289235166,
+        0.026075625977295777
+      ],
+      "clusters": 188,
+      "comparison": "lens-minus-lora_passes4",
+      "delta": -0.04270417436008833,
+      "domain": "turkey-earthquake",
+      "draws": 2000,
+      "estimand": "paired query-cluster uncertainty conditional on fixed support",
+      "family": "qwen2",
+      "query_n": 300,
+      "support_seed": 0
+    },
+    {
+      "ci95": [
+        -0.033249918732902464,
+        0.06873721569692202
+      ],
+      "clusters": 188,
+      "comparison": "lens-minus-random_kv",
+      "delta": 0.0175855511908104,
+      "domain": "turkey-earthquake",
+      "draws": 2000,
+      "estimand": "paired query-cluster uncertainty conditional on fixed support",
+      "family": "qwen2",
+      "query_n": 300,
+      "support_seed": 0
+    },
+    {
+      "ci95": [
+        -0.014027491327411195,
+        0.09140441690370969
+      ],
+      "clusters": 188,
+      "comparison": "lens-minus-frozen",
+      "delta": 0.03715891949599456,
+      "domain": "turkey-earthquake",
+      "draws": 2000,
+      "estimand": "paired query-cluster uncertainty conditional on fixed support",
+      "family": "qwen2",
+      "query_n": 300,
+      "support_seed": 1
+    },
+    {
+      "ci95": [
+        -0.016767766580301154,
+        0.08318750640537376
+      ],
+      "clusters": 188,
+      "comparison": "lens-minus-lora",
+      "delta": 0.03304839942149276,
+      "domain": "turkey-earthquake",
+      "draws": 2000,
+      "estimand": "paired query-cluster uncertainty conditional on fixed support",
+      "family": "qwen2",
+      "query_n": 300,
+      "support_seed": 1
+    },
+    {
+      "ci95": [
+        -0.0932235991369842,
+        0.019686158039085116
+      ],
+      "clusters": 188,
+      "comparison": "lens-minus-lora_passes4",
+      "delta": -0.03683780213687149,
+      "domain": "turkey-earthquake",
+      "draws": 2000,
+      "estimand": "paired query-cluster uncertainty conditional on fixed support",
+      "family": "qwen2",
+      "query_n": 300,
+      "support_seed": 1
+    },
+    {
+      "ci95": [
+        -0.05372165167492225,
+        0.05488366142470271
+      ],
+      "clusters": 188,
+      "comparison": "lens-minus-random_kv",
+      "delta": -0.0008349274328031675,
+      "domain": "turkey-earthquake",
+      "draws": 2000,
+      "estimand": "paired query-cluster uncertainty conditional on fixed support",
+      "family": "qwen2",
+      "query_n": 300,
+      "support_seed": 1
+    },
+    {
+      "ci95": [
+        -0.061724225719483106,
+        0.0389758901441421
+      ],
+      "clusters": 188,
+      "comparison": "lens-minus-frozen",
+      "delta": -0.012195725268185964,
+      "domain": "turkey-earthquake",
+      "draws": 2000,
+      "estimand": "paired query-cluster uncertainty conditional on fixed support",
+      "family": "qwen2",
+      "query_n": 300,
+      "support_seed": 2
+    },
+    {
+      "ci95": [
+        -0.06676981952257743,
+        0.04138332286449377
+      ],
+      "clusters": 188,
+      "comparison": "lens-minus-lora",
+      "delta": -0.013434808194295905,
+      "domain": "turkey-earthquake",
+      "draws": 2000,
+      "estimand": "paired query-cluster uncertainty conditional on fixed support",
+      "family": "qwen2",
+      "query_n": 300,
+      "support_seed": 2
+    },
+    {
+      "ci95": [
+        -0.11643044376389258,
+        0.01081585849999769
+      ],
+      "clusters": 188,
+      "comparison": "lens-minus-lora_passes4",
+      "delta": -0.05105652065865626,
+      "domain": "turkey-earthquake",
+      "draws": 2000,
+      "estimand": "paired query-cluster uncertainty conditional on fixed support",
+      "family": "qwen2",
+      "query_n": 300,
+      "support_seed": 2
+    },
+    {
+      "ci95": [
+        -0.06755911830214976,
+        0.037035411339146944
+      ],
+      "clusters": 188,
+      "comparison": "lens-minus-random_kv",
+      "delta": -0.014896988220630042,
+      "domain": "turkey-earthquake",
+      "draws": 2000,
+      "estimand": "paired query-cluster uncertainty conditional on fixed support",
+      "family": "qwen2",
+      "query_n": 300,
+      "support_seed": 2
+    },
+    {
+      "ci95": [
+        0.195990667701194,
+        0.30434782608695654
+      ],
+      "clusters": 2,
+      "comparison": "lens-minus-frozen",
+      "delta": 0.2123439193502888,
+      "domain": "hospital_2",
+      "draws": 2000,
+      "estimand": "paired query-cluster uncertainty conditional on fixed support",
+      "family": "internvl3",
+      "query_n": 300,
+      "support_seed": 0
+    },
+    {
+      "ci95": [
+        -0.19565217391304346,
+        0.034832460919417496
+      ],
+      "clusters": 2,
+      "comparison": "lens-minus-lora",
+      "delta": 0.0003177209110468704,
+      "domain": "hospital_2",
+      "draws": 2000,
+      "estimand": "paired query-cluster uncertainty conditional on fixed support",
+      "family": "internvl3",
+      "query_n": 300,
+      "support_seed": 0
+    }
+  ],
+  "uncertainty": "Query-cluster intervals conditional on each fitted support state; seeds are not pooled as independent query observations.",
+  "visual_dependence": [
+    {
+      "balanced_accuracy": {
+        "ci95": [
+          -0.01476718102764184,
+          0.1205881588294214
+        ],
+        "difference_in_differences": 0.046666666666666634,
+        "gain_control": -0.020000000000000018,
+        "gain_real": 0.026666666666666616
+      },
+      "clusters": 45,
+      "control": "shuffle",
+      "domain": "hawaii-wildfire",
+      "draws": 2000,
+      "family": "qwen2",
+      "interval_type": "paired query-cluster percentile, conditional on fitted support state",
+      "macro_f1": {
+        "ci95": [
+          -0.04350387371290101,
+          0.13540366199130696
+        ],
+        "difference_in_differences": 0.03868589429002375,
+        "gain_control": 0.10614836962601132,
+        "gain_real": 0.14483426391603507
+      },
+      "method": "candidate_bias",
+      "n": 300,
+      "nll": {
+        "ci95": [
+          -0.015313218272135226,
+          0.016196573437662228
+        ],
+        "difference_in_differences": 0.0,
+        "gain_control": -0.13581605756882542,
+        "gain_real": -0.13581605756882542
+      },
+      "support_seed": 0
+    },
+    {
+      "balanced_accuracy": {
+        "ci95": [
+          -0.020907925604933757,
+          0.08690251029084639
+        ],
+        "difference_in_differences": 0.026666666666666616,
+        "gain_control": 0.0,
+        "gain_real": 0.026666666666666616
+      },
+      "clusters": 45,
+      "control": "neutral",
+      "domain": "hawaii-wildfire",
+      "draws": 2000,
+      "family": "qwen2",
+      "interval_type": "paired query-cluster percentile, conditional on fitted support state",
+      "macro_f1": {
+        "ci95": [
+          0.04222808551190755,
+          0.2624517963663667
+        ],
+        "difference_in_differences": 0.14483426391603507,
+        "gain_control": 0.0,
+        "gain_real": 0.14483426391603507
+      },
+      "method": "candidate_bias",
+      "n": 300,
+      "nll": {
+        "ci95": [
+          -0.782619619535175,
+          -0.7564369351415025
+        ],
+        "difference_in_differences": -0.7700346375025575,
+        "gain_control": 0.6342185799337321,
+        "gain_real": -0.13581605756882542
+      },
+      "support_seed": 0
+    },
+    {
+      "balanced_accuracy": {
+        "ci95": [
+          -0.03216101611786761,
+          0.09616268382352935
+        ],
+        "difference_in_differences": 0.026666666666666616,
+        "gain_control": 0.0,
+        "gain_real": 0.026666666666666616
+      },
+      "clusters": 45,
+      "control": "shuffle_post",
+      "domain": "hawaii-wildfire",
+      "draws": 2000,
+      "family": "qwen2",
+      "interval_type": "paired query-cluster percentile, conditional on fitted support state",
+      "macro_f1": {
+        "ci95": [
+          -0.026059613875268502,
+          0.12987014125015506
+        ],
+        "difference_in_differences": 0.04690314415158647,
+        "gain_control": 0.0979311197644486,
+        "gain_real": 0.14483426391603507
+      },
+      "method": "candidate_bias",
+      "n": 300,
+      "nll": {
+        "ci95": [
+          -0.012421422476858129,
+          0.005358322015377813
+        ],
+        "difference_in_differences": -0.002727219529251368,
+        "gain_control": -0.13308883803957405,
+        "gain_real": -0.13581605756882542
+      },
+      "support_seed": 0
+    },
+    {
+      "balanced_accuracy": {
+        "ci95": [
+          -0.03525724587167326,
+          0.09451254891216346
+        ],
+        "difference_in_differences": 0.02333333333333326,
+        "gain_control": 0.003333333333333355,
+        "gain_real": 0.026666666666666616
+      },
+      "clusters": 45,
+      "control": "neutral_post",
+      "domain": "hawaii-wildfire",
+      "draws": 2000,
+      "family": "qwen2",
+      "interval_type": "paired query-cluster percentile, conditional on fitted support state",
+      "macro_f1": {
+        "ci95": [
+          0.10679866698942078,
+          0.26867487029284587
+        ],
+        "difference_in_differences": 0.18629271834878572,
+        "gain_control": -0.04145845443275065,
+        "gain_real": 0.14483426391603507
+      },
+      "method": "candidate_bias",
+      "n": 300,
+      "nll": {
+        "ci95": [
+          -0.2796283408075701,
+          -0.25964994350912907
+        ],
+        "difference_in_differences": -0.26950914996921704,
+        "gain_control": 0.13369309240039162,
+        "gain_real": -0.13581605756882542
+      },
+      "support_seed": 0
+    },
+    {
+      "balanced_accuracy": {
+        "ci95": [
+          -0.024769722237642136,
+          0.09197574334898269
+        ],
+        "difference_in_differences": 0.033333333333333326,
+        "gain_control": -0.00666666666666671,
+        "gain_real": 0.026666666666666616
+      },
+      "clusters": 45,
+      "control": "shuffle",
+      "domain": "hawaii-wildfire",
+      "draws": 2000,
+      "family": "qwen2",
+      "interval_type": "paired query-cluster percentile, conditional on fitted support state",
+      "macro_f1": {
+        "ci95": [
+          -0.03435300288265726,
+          0.11929307085476912
+        ],
+        "difference_in_differences": 0.04082014359349043,
+        "gain_control": 0.0710749069563158,
+        "gain_real": 0.11189505054980622
+      },
+      "method": "lora_passes4",
+      "n": 300,
+      "nll": {
+        "ci95": [
+          -0.05180768067868779,
+          0.01574065696280982
+        ],
+        "difference_in_differences": -0.01708343644936905,
+        "gain_control": -0.10046538085780865,
+        "gain_real": -0.1175488173071777
+      },
+      "support_seed": 0
+    },
+    {
+      "balanced_accuracy": {
+        "ci95": [
+          -0.016169812458393433,
+          0.06939100445846116
+        ],
+        "difference_in_differences": 0.026666666666666616,
+        "gain_control": 0.0,
+        "gain_real": 0.026666666666666616
+      },
+      "clusters": 45,
+      "control": "neutral",
+      "domain": "hawaii-wildfire",
+      "draws": 2000,
+      "family": "qwen2",
+      "interval_type": "paired query-cluster percentile, conditional on fitted support state",
+      "macro_f1": {
+        "ci95": [
+          0.036761009914462774,
+          0.19834436424773202
+        ],
+        "difference_in_differences": 0.11189505054980622,
+        "gain_control": 0.0,
+        "gain_real": 0.11189505054980622
+      },
+      "method": "lora_passes4",
+      "n": 300,
+      "nll": {
+        "ci95": [
+          -0.5115050229606409,
+          -0.34401625359460153
+        ],
+        "difference_in_differences": -0.4223366315944006,
+        "gain_control": 0.3047878142872229,
+        "gain_real": -0.1175488173071777
+      },
+      "support_seed": 0
+    },
+    {
+      "balanced_accuracy": {
+        "ci95": [
+          -0.002158250395745591,
+          0.08829942411360939
+        ],
+        "difference_in_differences": 0.04333333333333328,
+        "gain_control": -0.016666666666666663,
+        "gain_real": 0.026666666666666616
+      },
+      "clusters": 45,
+      "control": "shuffle_post",
+      "domain": "hawaii-wildfire",
+      "draws": 2000,
+      "family": "qwen2",
+      "interval_type": "paired query-cluster percentile, conditional on fitted support state",
+      "macro_f1": {
+        "ci95": [
+          0.015257316467182437,
+          0.1277287444127337
+        ],
+        "difference_in_differences": 0.07217309941918468,
+        "gain_control": 0.03972195113062155,
+        "gain_real": 0.11189505054980622
+      },
+      "method": "lora_passes4",
+      "n": 300,
+      "nll": {
+        "ci95": [
+          -0.04321463407225245,
+          0.00626060526859018
+        ],
+        "difference_in_differences": -0.01952411325926451,
+        "gain_control": -0.09802470404791319,
+        "gain_real": -0.1175488173071777
+      },
+      "support_seed": 0
+    },
+    {
+      "balanced_accuracy": {
+        "ci95": [
+          -0.03130987398368772,
+          0.07757373340225505
+        ],
+        "difference_in_differences": 0.019999999999999962,
+        "gain_control": 0.006666666666666654,
+        "gain_real": 0.026666666666666616
+      },
+      "clusters": 45,
+      "control": "neutral_post",
+      "domain": "hawaii-wildfire",
+      "draws": 2000,
+      "family": "qwen2",
+      "interval_type": "paired query-cluster percentile, conditional on fitted support state",
+      "macro_f1": {
+        "ci95": [
+          0.08788156577937356,
+          0.2223706276762614
+        ],
+        "difference_in_differences": 0.15210037215047667,
+        "gain_control": -0.040205321600670446,
+        "gain_real": 0.11189505054980622
+      },
+      "method": "lora_passes4",
+      "n": 300,
+      "nll": {
+        "ci95": [
+          -0.3085018049737891,
+          -0.2539390629872182
+        ],
+        "difference_in_differences": -0.2801232726135159,
+        "gain_control": 0.16257445530633818,
+        "gain_real": -0.1175488173071777
+      },
+      "support_seed": 0
+    },
+    {
+      "balanced_accuracy": {
+        "ci95": [
+          -0.008155242598019833,
+          0.1576223722918612
+        ],
+        "difference_in_differences": 0.07333333333333336,
+        "gain_control": -0.03333333333333338,
+        "gain_real": 0.03999999999999998
+      },
+      "clusters": 45,
+      "control": "shuffle",
+      "domain": "hawaii-wildfire",
+      "draws": 2000,
+      "family": "qwen2",
+      "interval_type": "paired query-cluster percentile, conditional on fitted support state",
+      "macro_f1": {
+        "ci95": [
+          -0.00475484634628301,
+          0.1520970307001905
+        ],
+        "difference_in_differences": 0.07445059613969171,
+        "gain_control": 0.09411708308706473,
+        "gain_real": 0.16856767922675644
+      },
+      "method": "ours",
+      "n": 300,
+      "nll": {
+        "ci95": [
+          -0.07408678292258385,
+          0.004454272275510594
+        ],
+        "difference_in_differences": -0.038750743865966886,
+        "gain_control": -0.10988348915370327,
+        "gain_real": -0.14863423301967016
+      },
+      "support_seed": 0
+    },
+    {
+      "balanced_accuracy": {
+        "ci95": [
+          -0.00829757726153352,
+          0.09618199551985784
+        ],
+        "difference_in_differences": 0.03999999999999998,
+        "gain_control": 0.0,
+        "gain_real": 0.03999999999999998
+      },
+      "clusters": 45,
+      "control": "neutral",
+      "domain": "hawaii-wildfire",
+      "draws": 2000,
+      "family": "qwen2",
+      "interval_type": "paired query-cluster percentile, conditional on fitted support state",
+      "macro_f1": {
+        "ci95": [
+          0.09512779943515333,
+          0.243714637259207
+        ],
+        "difference_in_differences": 0.16856767922675644,
+        "gain_control": 0.0,
+        "gain_real": 0.16856767922675644
+      },
+      "method": "ours",
+      "n": 300,
+      "nll": {
+        "ci95": [
+          -0.5050960748984243,
+          -0.2905387870207253
+        ],
+        "difference_in_differences": -0.40414382577585317,
+        "gain_control": 0.255509592756183,
+        "gain_real": -0.14863423301967016
+      },
+      "support_seed": 0
+    },
+    {
+      "balanced_accuracy": {
+        "ci95": [
+          -0.020428954821529628,
+          0.1211606842258422
+        ],
+        "difference_in_differences": 0.046666666666666634,
+        "gain_control": -0.006666666666666654,
+        "gain_real": 0.03999999999999998
+      },
+      "clusters": 45,
+      "control": "shuffle_post",
+      "domain": "hawaii-wildfire",
+      "draws": 2000,
+      "family": "qwen2",
+      "interval_type": "paired query-cluster percentile, conditional on fitted support state",
+      "macro_f1": {
+        "ci95": [
+          -0.010387621988334313,
+          0.14503734716636493
+        ],
+        "difference_in_differences": 0.06840282902886285,
+        "gain_control": 0.10016485019789359,
+        "gain_real": 0.16856767922675644
+      },
+      "method": "ours",
+      "n": 300,
+      "nll": {
+        "ci95": [
+          -0.056862877045937205,
+          0.016374094278415185
+        ],
+        "difference_in_differences": -0.02190747024690043,
+        "gain_control": -0.12672676277276973,
+        "gain_real": -0.14863423301967016
+      },
+      "support_seed": 0
+    },
+    {
+      "balanced_accuracy": {
+        "ci95": [
+          -0.03536354277424453,
+          0.10220016796664985
+        ],
+        "difference_in_differences": 0.026666666666666616,
+        "gain_control": 0.013333333333333364,
+        "gain_real": 0.03999999999999998
+      },
+      "clusters": 45,
+      "control": "neutral_post",
+      "domain": "hawaii-wildfire",
+      "draws": 2000,
+      "family": "qwen2",
+      "interval_type": "paired query-cluster percentile, conditional on fitted support state",
+      "macro_f1": {
+        "ci95": [
+          0.08587234729410792,
+          0.22914639115223037
+        ],
+        "difference_in_differences": 0.16100381936565566,
+        "gain_control": 0.00756385986110078,
+        "gain_real": 0.16856767922675644
+      },
+      "method": "ours",
+      "n": 300,
+      "nll": {
+        "ci95": [
+          -0.23847859904719423,
+          -0.03295320216432468
+        ],
+        "difference_in_differences": -0.14396589299887164,
+        "gain_control": -0.004668340020798523,
+        "gain_real": -0.14863423301967016
+      },
+      "support_seed": 0
+    },
+    {
+      "balanced_accuracy": {
+        "ci95": [
+          -0.05283636397073302,
+          0.08600779028332015
+        ],
+        "difference_in_differences": 0.016666666666666607,
+        "gain_control": 0.020000000000000018,
+        "gain_real": 0.036666666666666625
+      },
+      "clusters": 65,
+      "control": "shuffle",
+      "domain": "libya-flood",
+      "draws": 2000,
+      "family": "qwen2",
+      "interval_type": "paired query-cluster percentile, conditional on fitted support state",
+      "macro_f1": {
+        "ci95": [
+          -0.056377279619768836,
+          0.08669471360579986
+        ],
+        "difference_in_differences": 0.013776533901373816,
+        "gain_control": 0.12141012500950607,
+        "gain_real": 0.1351866589108799
+      },
+      "method": "candidate_bias",
+      "n": 300,
+      "nll": {
+        "ci95": [
+          -0.019043037252248058,
+          0.01836166393463741
+        ],
+        "difference_in_differences": -4.440892098500626e-16,
+        "gain_control": -0.21791457199896813,
+        "gain_real": -0.21791457199896858
+      },
+      "support_seed": 0
+    },
+    {
+      "balanced_accuracy": {
+        "ci95": [
+          -0.011219998458488612,
+          0.09005258191857969
+        ],
+        "difference_in_differences": 0.036666666666666625,
+        "gain_control": 0.0,
+        "gain_real": 0.036666666666666625
+      },
+      "clusters": 65,
+      "control": "neutral",
+      "domain": "libya-flood",
+      "draws": 2000,
+      "family": "qwen2",
+      "interval_type": "paired query-cluster percentile, conditional on fitted support state",
+      "macro_f1": {
+        "ci95": [
+          0.07683959327945768,
+          0.19235477693361508
+        ],
+        "difference_in_differences": 0.1351866589108799,
+        "gain_control": 0.0,
+        "gain_real": 0.1351866589108799
+      },
+      "method": "candidate_bias",
+      "n": 300,
+      "nll": {
+        "ci95": [
+          -1.0032631885562011,
+          -0.979168337877546
+        ],
+        "difference_in_differences": -0.991791991821287,
+        "gain_control": 0.7738774198223184,
+        "gain_real": -0.21791457199896858
+      },
+      "support_seed": 0
+    },
+    {
+      "balanced_accuracy": {
+        "ci95": [
+          -0.017501681538745505,
+          0.08168636849991043
+        ],
+        "difference_in_differences": 0.026666666666666616,
+        "gain_control": 0.010000000000000009,
+        "gain_real": 0.036666666666666625
+      },
+      "clusters": 65,
+      "control": "shuffle_post",
+      "domain": "libya-flood",
+      "draws": 2000,
+      "family": "qwen2",
+      "interval_type": "paired query-cluster percentile, conditional on fitted support state",
+      "macro_f1": {
+        "ci95": [
+          -0.021887002798009775,
+          0.07552039954036115
+        ],
+        "difference_in_differences": 0.025015803530555603,
+        "gain_control": 0.11017085538032428,
+        "gain_real": 0.1351866589108799
+      },
+      "method": "candidate_bias",
+      "n": 300,
+      "nll": {
+        "ci95": [
+          -0.0031016272636813337,
+          0.012085261499963255
+        ],
+        "difference_in_differences": 0.004195032367843687,
+        "gain_control": -0.22210960436681226,
+        "gain_real": -0.21791457199896858
+      },
+      "support_seed": 0
+    },
+    {
+      "balanced_accuracy": {
+        "ci95": [
+          -0.01955418626244699,
+          0.10241323085689612
+        ],
+        "difference_in_differences": 0.03999999999999998,
+        "gain_control": -0.003333333333333355,
+        "gain_real": 0.036666666666666625
+      },
+      "clusters": 65,
+      "control": "neutral_post",
+      "domain": "libya-flood",
+      "draws": 2000,
+      "family": "qwen2",
+      "interval_type": "paired query-cluster percentile, conditional on fitted support state",
+      "macro_f1": {
+        "ci95": [
+          0.04903237425516562,
+          0.17728674389027882
+        ],
+        "difference_in_differences": 0.11962053173955678,
+        "gain_control": 0.015566127171323108,
+        "gain_real": 0.1351866589108799
+      },
+      "method": "candidate_bias",
+      "n": 300,
+      "nll": {
+        "ci95": [
+          -0.17481920820159544,
+          -0.15378289907010506
+        ],
+        "difference_in_differences": -0.1628903002664872,
+        "gain_control": -0.05502427173248137,
+        "gain_real": -0.21791457199896858
+      },
+      "support_seed": 0
+    },
+    {
+      "balanced_accuracy": {
+        "ci95": [
+          -0.11340808989718436,
+          0.01026633827946345
+        ],
+        "difference_in_differences": -0.04999999999999999,
+        "gain_control": 0.016666666666666663,
+        "gain_real": -0.033333333333333326
+      },
+      "clusters": 65,
+      "control": "shuffle",
+      "domain": "libya-flood",
+      "draws": 2000,
+      "family": "qwen2",
+      "interval_type": "paired query-cluster percentile, conditional on fitted support state",
+      "macro_f1": {
+        "ci95": [
+          -0.10861959705158833,
+          0.02022694918236554
+        ],
+        "difference_in_differences": -0.04489122213784391,
+        "gain_control": -0.00023723619261220574,
+        "gain_real": -0.04512845833045612
+      },
+      "method": "lora_passes4",
+      "n": 300,
+      "nll": {
+        "ci95": [
+          -0.017997961224334513,
+          0.07479614393851468
+        ],
+        "difference_in_differences": 0.028333526502053008,
+        "gain_control": -0.18019025214505024,
+        "gain_real": -0.15185672564299724
+      },
+      "support_seed": 0
+    },
+    {
+      "balanced_accuracy": {
+        "ci95": [
+          -0.07240756387095898,
+          0.007965641738507605
+        ],
+        "difference_in_differences": -0.033333333333333326,
+        "gain_control": 0.0,
+        "gain_real": -0.033333333333333326
+      },
+      "clusters": 65,
+      "control": "neutral",
+      "domain": "libya-flood",
+      "draws": 2000,
+      "family": "qwen2",
+      "interval_type": "paired query-cluster percentile, conditional on fitted support state",
+      "macro_f1": {
+        "ci95": [
+          -0.11978669028527034,
+          0.0520237791615755
+        ],
+        "difference_in_differences": -0.04512845833045612,
+        "gain_control": 0.0,
+        "gain_real": -0.04512845833045612
+      },
+      "method": "lora_passes4",
+      "n": 300,
+      "nll": {
+        "ci95": [
+          -0.8076048973828246,
+          -0.43045146224373665
+        ],
+        "difference_in_differences": -0.5926290486344774,
+        "gain_control": 0.44077232299148017,
+        "gain_real": -0.15185672564299724
+      },
+      "support_seed": 0
+    },
+    {
+      "balanced_accuracy": {
+        "ci95": [
+          -0.03519686803526046,
+          0.04178901253988186
+        ],
+        "difference_in_differences": 0.0033333333333332993,
+        "gain_control": -0.036666666666666625,
+        "gain_real": -0.033333333333333326
+      },
+      "clusters": 65,
+      "control": "shuffle_post",
+      "domain": "libya-flood",
+      "draws": 2000,
+      "family": "qwen2",
+      "interval_type": "paired query-cluster percentile, conditional on fitted support state",
+      "macro_f1": {
+        "ci95": [
+          -0.035624542393903134,
+          0.05294986633839683
+        ],
+        "difference_in_differences": 0.009628570577276785,
+        "gain_control": -0.0547570289077329,
+        "gain_real": -0.04512845833045612
+      },
+      "method": "lora_passes4",
+      "n": 300,
+      "nll": {
+        "ci95": [
+          -0.02104968832561365,
+          0.019194420941229758
+        ],
+        "difference_in_differences": -0.0006478593397167831,
+        "gain_control": -0.15120886630328045,
+        "gain_real": -0.15185672564299724
+      },
+      "support_seed": 0
+    },
+    {
+      "balanced_accuracy": {
+        "ci95": [
+          -0.03766378567877998,
+          0.03831279251684957
+        ],
+        "difference_in_differences": 0.0033333333333334103,
+        "gain_control": -0.036666666666666736,
+        "gain_real": -0.033333333333333326
+      },
+      "clusters": 65,
+      "control": "neutral_post",
+      "domain": "libya-flood",
+      "draws": 2000,
+      "family": "qwen2",
+      "interval_type": "paired query-cluster percentile, conditional on fitted support state",
+      "macro_f1": {
+        "ci95": [
+          -0.002142618192019226,
+          0.08832271907130135
+        ],
+        "difference_in_differences": 0.04832502034419911,
+        "gain_control": -0.09345347867465523,
+        "gain_real": -0.04512845833045612
+      },
+      "method": "lora_passes4",
+      "n": 300,
+      "nll": {
+        "ci95": [
+          -0.23488500853257022,
+          -0.15224775262983828
+        ],
+        "difference_in_differences": -0.1877487897357295,
+        "gain_control": 0.03589206409273227,
+        "gain_real": -0.15185672564299724
+      },
+      "support_seed": 0
+    },
+    {
+      "balanced_accuracy": {
+        "ci95": [
+          -0.05808663945709766,
+          0.07602703259637134
+        ],
+        "difference_in_differences": 0.010000000000000009,
+        "gain_control": 0.003333333333333355,
+        "gain_real": 0.013333333333333364
+      },
+      "clusters": 65,
+      "control": "shuffle",
+      "domain": "libya-flood",
+      "draws": 2000,
+      "family": "qwen2",
+      "interval_type": "paired query-cluster percentile, conditional on fitted support state",
+      "macro_f1": {
+        "ci95": [
+          -0.07574372296505104,
+          0.07723336478464231
+        ],
+        "difference_in_differences": 0.0026272837042471686,
+        "gain_control": 0.09391925012829996,
+        "gain_real": 0.09654653383254713
+      },
+      "method": "ours",
+      "n": 300,
+      "nll": {
+        "ci95": [
+          -0.007999646593756316,
+          0.07219320508529559
+        ],
+        "difference_in_differences": 0.03375035325686149,
+        "gain_control": -0.24815135411759348,
+        "gain_real": -0.214401000860732
+      },
+      "support_seed": 0
+    },
+    {
+      "balanced_accuracy": {
+        "ci95": [
+          -0.030805980234753973,
+          0.06338748532169579
+        ],
+        "difference_in_differences": 0.013333333333333364,
+        "gain_control": 0.0,
+        "gain_real": 0.013333333333333364
+      },
+      "clusters": 65,
+      "control": "neutral",
+      "domain": "libya-flood",
+      "draws": 2000,
+      "family": "qwen2",
+      "interval_type": "paired query-cluster percentile, conditional on fitted support state",
+      "macro_f1": {
+        "ci95": [
+          0.04435274794764002,
+          0.14684230418837318
+        ],
+        "difference_in_differences": 0.09654653383254713,
+        "gain_control": 0.0,
+        "gain_real": 0.09654653383254713
+      },
+      "method": "ours",
+      "n": 300,
+      "nll": {
+        "ci95": [
+          -0.5113421357567196,
+          -0.026132209304012693
+        ],
+        "difference_in_differences": -0.24464727204705916,
+        "gain_control": 0.030246271186327167,
+        "gain_real": -0.214401000860732
+      },
+      "support_seed": 0
+    },
+    {
+      "balanced_accuracy": {
+        "ci95": [
+          -0.0916720612207383,
+          0.06848626323632556
+        ],
+        "difference_in_differences": -0.016666666666666663,
+        "gain_control": 0.030000000000000027,
+        "gain_real": 0.013333333333333364
+      },
+      "clusters": 65,
+      "control": "shuffle_post",
+      "domain": "libya-flood",
+      "draws": 2000,
+      "family": "qwen2",
+      "interval_type": "paired query-cluster percentile, conditional on fitted support state",
+      "macro_f1": {
+        "ci95": [
+          -0.0882026748768777,
+          0.06330537681390411
+        ],
+        "difference_in_differences": -0.016415350881837487,
+        "gain_control": 0.11296188471438462,
+        "gain_real": 0.09654653383254713
+      },
+      "method": "ours",
+      "n": 300,
+      "nll": {
+        "ci95": [
+          -0.01990920744722956,
+          0.037446586329281085
+        ],
+        "difference_in_differences": 0.010692513092432021,
+        "gain_control": -0.22509351395316402,
+        "gain_real": -0.214401000860732
+      },
+      "support_seed": 0
+    },
+    {
+      "balanced_accuracy": {
+        "ci95": [
+          -0.014916020094589618,
+          0.11046752826335969
+        ],
+        "difference_in_differences": 0.046666666666666745,
+        "gain_control": -0.03333333333333338,
+        "gain_real": 0.013333333333333364
+      },
+      "clusters": 65,
+      "control": "neutral_post",
+      "domain": "libya-flood",
+      "draws": 2000,
+      "family": "qwen2",
+      "interval_type": "paired query-cluster percentile, conditional on fitted support state",
+      "macro_f1": {
+        "ci95": [
+          0.06581515484264966,
+          0.2083427883042794
+        ],
+        "difference_in_differences": 0.13690742281694823,
+        "gain_control": -0.0403608889844011,
+        "gain_real": 0.09654653383254713
+      },
+      "method": "ours",
+      "n": 300,
+      "nll": {
+        "ci95": [
+          -0.6299668111213217,
+          -0.1497818851769062
+        ],
+        "difference_in_differences": -0.3746929827238552,
+        "gain_control": 0.1602919818631232,
+        "gain_real": -0.214401000860732
+      },
+      "support_seed": 0
+    },
+    {
+      "balanced_accuracy": {
+        "ci95": [
+          0.046875,
+          0.13112994350282492
+        ],
+        "difference_in_differences": 0.1266666666666667,
+        "gain_control": 0.0033333333333332993,
+        "gain_real": 0.13
+      },
+      "clusters": 2,
+      "control": "shuffle",
+      "domain": "hospital_2",
+      "draws": 2000,
+      "family": "internvl3",
+      "interval_type": "paired query-cluster percentile, conditional on fitted support state",
+      "macro_f1": {
+        "ci95": [
+          0.040851063829787204,
+          0.13112426490247064
+        ],
+        "difference_in_differences": 0.12690496599169554,
+        "gain_control": 0.16906561580449214,
+        "gain_real": 0.2959705817961877
+      },
+      "method": "candidate_bias",
+      "n": 300,
+      "nll": {
+        "ci95": [
+          -0.006459194562767889,
+          0.05409575446318193
+        ],
+        "difference_in_differences": 1.1102230246251565e-16,
+        "gain_control": -0.32450781564642395,
+        "gain_real": -0.32450781564642384
+      },
+      "support_seed": 0
+    },
+    {
+      "balanced_accuracy": {
+        "ci95": [
+          0.13,
+          0.28125
+        ],
+        "difference_in_differences": 0.13,
+        "gain_control": 0.0,
+        "gain_real": 0.13
+      },
+      "clusters": 2,
+      "control": "neutral",
+      "domain": "hospital_2",
+      "draws": 2000,
+      "family": "internvl3",
+      "interval_type": "paired query-cluster percentile, conditional on fitted support state",
+      "macro_f1": {
+        "ci95": [
+          0.2742996172883494,
+          0.36
+        ],
+        "difference_in_differences": 0.2959705817961877,
+        "gain_control": 0.0,
+        "gain_real": 0.2959705817961877
+      },
+      "method": "candidate_bias",
+      "n": 300,
+      "nll": {
+        "ci95": [
+          -0.8239200618498049,
+          -0.7640024193549768
+        ],
+        "difference_in_differences": -0.8175288466503561,
+        "gain_control": 0.49302103100393224,
+        "gain_real": -0.32450781564642384
+      },
+      "support_seed": 0
+    },
+    {
+      "balanced_accuracy": {
+        "ci95": [
+          0.03125,
+          0.08237288135593213
+        ],
+        "difference_in_differences": 0.07999999999999996,
+        "gain_control": 0.033333333333333326,
+        "gain_real": 0.11333333333333329
+      },
+      "clusters": 2,
+      "control": "shuffle",
+      "domain": "hospital_2",
+      "draws": 2000,
+      "family": "internvl3",
+      "interval_type": "paired query-cluster percentile, conditional on fitted support state",
+      "macro_f1": {
+        "ci95": [
+          0.016129032258064502,
+          0.09406354515050164
+        ],
+        "difference_in_differences": 0.09406354515050164,
+        "gain_control": 0.11796265328874028,
+        "gain_real": 0.21202619843924192
+      },
+      "method": "lora",
+      "n": 300,
+      "nll": {
+        "ci95": [
+          -1.104131262084075,
+          -0.13961922554529949
+        ],
+        "difference_in_differences": -1.0012499781866064,
+        "gain_control": 3.1340891518749423,
+        "gain_real": 2.132839173688336
+      },
+      "support_seed": 0
+    },
+    {
+      "balanced_accuracy": {
+        "ci95": [
+          0.11333333333333329,
+          0.5
+        ],
+        "difference_in_differences": 0.11333333333333329,
+        "gain_control": 0.0,
+        "gain_real": 0.11333333333333329
+      },
+      "clusters": 2,
+      "control": "neutral",
+      "domain": "hospital_2",
+      "draws": 2000,
+      "family": "internvl3",
+      "interval_type": "paired query-cluster percentile, conditional on fitted support state",
+      "macro_f1": {
+        "ci95": [
+          0.1611582067817765,
+          0.5
+        ],
+        "difference_in_differences": 0.21202619843924192,
+        "gain_control": 0.0,
+        "gain_real": 0.21202619843924192
+      },
+      "method": "lora",
+      "n": 300,
+      "nll": {
+        "ci95": [
+          -2.354644281621478,
+          -1.38293755721494
+        ],
+        "difference_in_differences": -2.2509955643514483,
+        "gain_control": 4.383834738039784,
+        "gain_real": 2.132839173688336
+      },
+      "support_seed": 0
+    },
+    {
+      "balanced_accuracy": {
+        "ci95": [
+          -0.03125,
+          0.06903954802259882
+        ],
+        "difference_in_differences": 0.05333333333333329,
+        "gain_control": -0.006666666666666654,
+        "gain_real": 0.046666666666666634
+      },
+      "clusters": 2,
+      "control": "shuffle",
+      "domain": "hospital_2",
+      "draws": 2000,
+      "family": "internvl3",
+      "interval_type": "paired query-cluster percentile, conditional on fitted support state",
+      "macro_f1": {
+        "ci95": [
+          -0.028985507246376774,
+          0.06874454751971526
+        ],
+        "difference_in_differences": 0.05344973497839739,
+        "gain_control": 0.1588941843718914,
+        "gain_real": 0.2123439193502888
+      },
+      "method": "ours",
+      "n": 300,
+      "nll": {
+        "ci95": [
+          0.03155856473916807,
+          0.1614782589007666
+        ],
+        "difference_in_differences": 0.04541666544973866,
+        "gain_control": -0.28647464072708373,
+        "gain_real": -0.24105797527734507
+      },
+      "support_seed": 0
+    },
+    {
+      "balanced_accuracy": {
+        "ci95": [
+          0.046666666666666634,
+          0.21875
+        ],
+        "difference_in_differences": 0.046666666666666634,
+        "gain_control": 0.0,
+        "gain_real": 0.046666666666666634
+      },
+      "clusters": 2,
+      "control": "neutral",
+      "domain": "hospital_2",
+      "draws": 2000,
+      "family": "internvl3",
+      "interval_type": "paired query-cluster percentile, conditional on fitted support state",
+      "macro_f1": {
+        "ci95": [
+          0.195990667701194,
+          0.30434782608695654
+        ],
+        "difference_in_differences": 0.2123439193502888,
+        "gain_control": 0.0,
+        "gain_real": 0.2123439193502888
+      },
+      "method": "ours",
+      "n": 300,
+      "nll": {
+        "ci95": [
+          -0.6768798343923482,
+          -0.6609396730767283
+        ],
+        "difference_in_differences": -0.6751795505186818,
+        "gain_control": 0.43412157524133677,
+        "gain_real": -0.24105797527734507
+      },
+      "support_seed": 0
+    }
+  ]
+}

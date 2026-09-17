@@ -1,0 +1,239 @@
+{
+  "expected": 29,
+  "issues": [],
+  "jobs": 29,
+  "results": [
+    {
+      "arm": "ours_alpha1",
+      "domain": "hawaii-wildfire",
+      "job_id": "qwen2--hawaii-wildfire--s0--ours_alpha1--6065dde932bd",
+      "macro_f1": 0.40193040434303273,
+      "nll": 1.1045296333269286,
+      "seed": 0
+    },
+    {
+      "arm": "ours_steps2",
+      "domain": "hawaii-wildfire",
+      "job_id": "qwen2--hawaii-wildfire--s0--ours_steps2--8f53c97eee10",
+      "macro_f1": 0.348072557819262,
+      "nll": 1.1060397460700073,
+      "seed": 0
+    },
+    {
+      "arm": "ours_lr001",
+      "domain": "hawaii-wildfire",
+      "job_id": "qwen2--hawaii-wildfire--s0--ours_lr001--6f58da54424d",
+      "macro_f1": 0.3649163031637031,
+      "nll": 1.1103489817506116,
+      "seed": 0
+    },
+    {
+      "arm": "ours_rank8",
+      "domain": "hawaii-wildfire",
+      "job_id": "qwen2--hawaii-wildfire--s0--ours_rank8--b9863b0969a0",
+      "macro_f1": 0.34332805864152216,
+      "nll": 1.105632354798678,
+      "seed": 0
+    },
+    {
+      "arm": "ours_alpha1",
+      "domain": "turkey-earthquake",
+      "job_id": "qwen2--turkey-earthquake--s0--ours_alpha1--01d8fc3fc3f8",
+      "macro_f1": 0.2697267588151566,
+      "nll": 1.226762898519846,
+      "seed": 0
+    },
+    {
+      "arm": "ours_steps2",
+      "domain": "turkey-earthquake",
+      "job_id": "qwen2--turkey-earthquake--s0--ours_steps2--2f7ed00025c9",
+      "macro_f1": 0.2553014442130232,
+      "nll": 1.206434897917228,
+      "seed": 0
+    },
+    {
+      "arm": "ours_lr001",
+      "domain": "turkey-earthquake",
+      "job_id": "qwen2--turkey-earthquake--s0--ours_lr001--a6f94edd087a",
+      "macro_f1": 0.2516773118884513,
+      "nll": 1.2306605055773054,
+      "seed": 0
+    },
+    {
+      "arm": "ours_rank8",
+      "domain": "turkey-earthquake",
+      "job_id": "qwen2--turkey-earthquake--s0--ours_rank8--cd6d9fa1ebd0",
+      "macro_f1": 0.24447960751317568,
+      "nll": 1.2459017048180931,
+      "seed": 0
+    },
+    {
+      "arm": "ours_diverse_support",
+      "domain": "hawaii-wildfire",
+      "job_id": "qwen2--hawaii-wildfire--diverse--ours_diverse_support--577643dc4e41",
+      "macro_f1": 0.31550510735876586,
+      "nll": 1.1119670163694064,
+      "seed": 0
+    },
+    {
+      "arm": "ours_alpha1_seed1",
+      "domain": "hawaii-wildfire",
+      "job_id": "qwen2--hawaii-wildfire--s1--ours_alpha1_seed1--e0871833cc08",
+      "macro_f1": 0.23615950445218736,
+      "nll": 1.175856538723507,
+      "seed": 1
+    },
+    {
+      "arm": "ours_alpha1_seed2",
+      "domain": "hawaii-wildfire",
+      "job_id": "qwen2--hawaii-wildfire--s2--ours_alpha1_seed2--e53c240ef65e",
+      "macro_f1": 0.3352360051608317,
+      "nll": 1.102807034808682,
+      "seed": 2
+    },
+    {
+      "arm": "ours_steps8",
+      "domain": "turkey-earthquake",
+      "job_id": "qwen2--turkey-earthquake--s0--ours_steps8--dedcc12c3695",
+      "macro_f1": 0.33778988762581874,
+      "nll": 1.1501086832325766,
+      "seed": 0
+    },
+    {
+      "arm": "ours_layer14",
+      "domain": "turkey-earthquake",
+      "job_id": "qwen2--turkey-earthquake--s0--ours_layer14--5d8ce95a6ce3",
+      "macro_f1": 0.35743974202652434,
+      "nll": 1.1159456210359504,
+      "seed": 0
+    },
+    {
+      "arm": "ours_layer27",
+      "domain": "turkey-earthquake",
+      "job_id": "qwen2--turkey-earthquake--s0--ours_layer27--ae651721d41f",
+      "macro_f1": 0.26723916710014023,
+      "nll": 1.2163525909953474,
+      "seed": 0
+    },
+    {
+      "arm": "frozen_debug",
+      "domain": "robofail",
+      "job_id": "internvl3--robofail--s0--frozen_debug--5942eb7b6803",
+      "macro_f1": 0.4114583333333333,
+      "nll": 1.0475097848060502,
+      "seed": 0
+    },
+    {
+      "arm": "ours_alpha1",
+      "domain": "robofail",
+      "job_id": "internvl3--robofail--s0--ours_alpha1--c710034eabfe",
+      "macro_f1": 0.35532342306147047,
+      "nll": 1.3805466779420532,
+      "seed": 0
+    },
+    {
+      "arm": "ours_steps2",
+      "domain": "robofail",
+      "job_id": "internvl3--robofail--s0--ours_steps2--0140f6398084",
+      "macro_f1": 0.3259365306609401,
+      "nll": 1.4423216472606377,
+      "seed": 0
+    },
+    {
+      "arm": "ours_layer27",
+      "domain": "robofail",
+      "job_id": "internvl3--robofail--s0--ours_layer27--3eaae2d6adfc",
+      "macro_f1": 0.3858695652173913,
+      "nll": 1.3537011241604564,
+      "seed": 0
+    },
+    {
+      "arm": "ours_layer14_seed1",
+      "domain": "turkey-earthquake",
+      "job_id": "qwen2--turkey-earthquake--s1--ours_layer14_seed1--9d529900ffd2",
+      "macro_f1": 0.2866541719207201,
+      "nll": 1.1490408130948107,
+      "seed": 1
+    },
+    {
+      "arm": "ours_layer14_seed2",
+      "domain": "turkey-earthquake",
+      "job_id": "qwen2--turkey-earthquake--s2--ours_layer14_seed2--eb9fe30d4b70",
+      "macro_f1": 0.319464227764623,
+      "nll": 1.1879420141028063,
+      "seed": 2
+    },
+    {
+      "arm": "ours_layer14_fixed",
+      "domain": "hawaii-wildfire",
+      "job_id": "qwen2--hawaii-wildfire--s0--ours_layer14_fixed--315eb0e822d0",
+      "macro_f1": 0.26947054881258586,
+      "nll": 1.1215131849542381,
+      "seed": 0
+    },
+    {
+      "arm": "ours_layer14_fixed",
+      "domain": "hawaii-wildfire",
+      "job_id": "qwen2--hawaii-wildfire--s1--ours_layer14_fixed--00d8a7d2838e",
+      "macro_f1": 0.3421518053527184,
+      "nll": 1.1291367200247404,
+      "seed": 1
+    },
+    {
+      "arm": "ours_layer14_fixed",
+      "domain": "hawaii-wildfire",
+      "job_id": "qwen2--hawaii-wildfire--s2--ours_layer14_fixed--e103fd711770",
+      "macro_f1": 0.25321436903760497,
+      "nll": 1.144507832010003,
+      "seed": 2
+    },
+    {
+      "arm": "ours_layer14_fixed",
+      "domain": "libya-flood",
+      "job_id": "qwen2--libya-flood--s0--ours_layer14_fixed--c8ebe1c932bb",
+      "macro_f1": 0.3478426644171817,
+      "nll": 1.111873182944975,
+      "seed": 0
+    },
+    {
+      "arm": "ours_layer14_fixed",
+      "domain": "libya-flood",
+      "job_id": "qwen2--libya-flood--s1--ours_layer14_fixed--c6682f4f2832",
+      "macro_f1": 0.28485354801144275,
+      "nll": 1.1328439061620243,
+      "seed": 1
+    },
+    {
+      "arm": "ours_layer14_fixed",
+      "domain": "libya-flood",
+      "job_id": "qwen2--libya-flood--s2--ours_layer14_fixed--a52287d759ef",
+      "macro_f1": 0.37342940898443744,
+      "nll": 1.1076203773138509,
+      "seed": 2
+    },
+    {
+      "arm": "ours_layer14_fixed",
+      "domain": "noto-earthquake",
+      "job_id": "qwen2--noto-earthquake--s0--ours_layer14_fixed--76d7015557c8",
+      "macro_f1": 0.3424786896951845,
+      "nll": 1.1109522723522407,
+      "seed": 0
+    },
+    {
+      "arm": "ours_layer14_fixed",
+      "domain": "noto-earthquake",
+      "job_id": "qwen2--noto-earthquake--s1--ours_layer14_fixed--714ba9a56a0c",
+      "macro_f1": 0.31848301491441855,
+      "nll": 1.1153622190130446,
+      "seed": 1
+    },
+    {
+      "arm": "ours_layer14_fixed",
+      "domain": "noto-earthquake",
+      "job_id": "qwen2--noto-earthquake--s2--ours_layer14_fixed--2db39705a078",
+      "macro_f1": 0.3525694396262633,
+      "nll": 1.1190780820147774,
+      "seed": 2
+    }
+  ]
+}

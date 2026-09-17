@@ -99,7 +99,7 @@ Camelyon/RoboFail seed0 each run sum/mean × full/label-only support objectives.
 bash scripts/run_visual_lens_all.sh summarize
 ```
 
-Outputs under `runs/visual_lens_p0_v1/summary/`:
+Outputs under `<configured run_root>/summary/` (`runs/visual_lens_p0_v3/summary/` for the completed campaign):
 `results.md`, `summary.json`, `coverage.md`, `visual_dependence.md`.
 
 Paired main contrasts and visual difference-in-differences use query-cluster bootstrap within a fixed support state. SD across support seeds is reported separately, not mislabeled a CI. Evidence statistic:

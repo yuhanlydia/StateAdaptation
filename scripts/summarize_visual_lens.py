@@ -10,13 +10,21 @@ from vigor_handoff.statistics import paired_cluster_bootstrap
 from visual_lens.controls import paired_did
 
 
+def resolve_paths(config, plan=None, output=None):
+    cfg=json.loads(Path(config).read_text())
+    root=Path(cfg['run_root'])
+    return Path(plan) if plan else root/'plan.json', Path(output) if output else root/'summary'
+
+
 def main():
     p=argparse.ArgumentParser(description=__doc__)
-    p.add_argument('--plan',default='runs/visual_lens_p0_v1/plan.json')
-    p.add_argument('--output',default='runs/visual_lens_p0_v1/summary')
+    p.add_argument('--config',default='configs/visual_lens_p0.json')
+    p.add_argument('--plan')
+    p.add_argument('--output')
     p.add_argument('--bootstrap',type=int,default=2000);a=p.parse_args()
     if a.bootstrap<1:p.error('--bootstrap must be positive')
-    jobs=json.loads(Path(a.plan).read_text())['jobs'];out=Path(a.output);out.mkdir(parents=True,exist_ok=True)
+    plan,out=resolve_paths(a.config,a.plan,a.output)
+    jobs=json.loads(plan.read_text())['jobs'];out.mkdir(parents=True,exist_ok=True)
     complete=[];missing=[];errors=[]
     for job in jobs:
         root=Path(job['output']);identity=root/'identity.json'

@@ -10,13 +10,13 @@
 - P0-C actual checkpoint-replay, mask, objective and answer-span audit implemented; downstream jobs require a passed sealed gate.
 - Aggregation keeps protocols and diagnostic stages separate and reports missing/failed units.
 
-## Validation versus results
+## Completed GPU validation and results
 
-The development checkout passed 92 CPU tests (52 original,31 earlier overlay,9 new) and syntax/planning checks. The default plan has 83 top-level jobs: 3 audit,63 matched,8 objective,9 evidence. No model training, full-model backward test or new benchmark evaluation was run in this environment. CPU tests do not certify model-family GPU integration or hardware fit. The first real-GPU audit must decide that.
+The final checkout passes 57 collected CPU tests. The canonical GPU plan completed all 83 top-level jobs: 3 audit, 63 matched, 8 objective, and 9 evidence. All sealed artifact hashes, 110 prediction sets, query coverage, labels, finite normalized probabilities, and stage return codes were verified. The follow-up weak-case campaign completed 29/29 exploratory jobs and fresh current-source Qwen2.5-VL and InternVL3 audits. Compact public results are exported under `reports/rebuttal_2026-09-17/`.
 
-## Still requires the GPU agent
+## Main empirical outcome
 
-All new P0 numerical outcomes, including formal matched rank16 means and image-control differences. Existing published-facing historical results are preserved separately and should not be silently replaced. The archival original task fitting code and new explicit objective code differ; record this when comparing.
+Across the 12 BRIGHT event/support-seed states, canonical Visual Lens reaches 0.3133 mean Macro-F1 versus Frozen 0.2255, one-pass LoRA 0.3146, four-pass LoRA 0.2739, and Random-KV 0.3018. The exploratory fixed layer-14-only variant reaches 0.3207 with 512 learned coefficients, but its effect is event-dependent: it improves Noto and Turkey, is close on Libya, and hurts Hawaii. Canonical results remain primary; exploratory results are labeled separately.
 
 ## Not silently claimed complete
 
@@ -25,5 +25,12 @@ All new P0 numerical outcomes, including formal matched rank16 means and image-c
 - Full ReFT reproduction: the existing hidden-state residual is a custom control, not the author's full algorithm.
 - General controller-gradient transfer across domains (P2): support-only actual controller gradients and a finite-difference curve are audited, but no predictive theorem or across-domain empirical law is claimed.
 - Git migration does not move private Hub datasets, untracked runs or multi-gigabyte model files.
+
+## Recorded limitations
+
+- Historical private BRIGHT support manifests were unavailable. Official Zenodo assets were checksum-verified, and folds were deterministically regenerated from the original procedure with `PYTHONHASHSEED=0`.
+- Hawaii is sensitive to support state and residual strength; no alternative alpha consistently improves all three seeds.
+- RoboFail shows cross-task-family negative transfer. Lens helps slightly on covered task families but degrades unseen families, so Frozen remains stronger on the full split.
+- Layer choice has a substantial event interaction; the layer-14 aggregate improvement is not a universal per-event guarantee.
 
 The historical evidence-freeze decision and the current request are different scopes: preserve the old evidence; run only the newly requested verification questions and required controls.

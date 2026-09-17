@@ -4,7 +4,7 @@
 
 This is the active repository migrated from `Yunbo-max/EventTune`. The complete upstream Git history through `3150cae1eecf2ee82e508d32fe7f2e80913f8149` is retained, and `legacy/eventtune-3150cae` preserves the exact original snapshot. The old repository is unchanged. Historical code, reports and results remain available; `src/eventttt` and `src/vigor_handoff` retain their import names for compatibility.
 
-## Start here: the three missing experiments
+## Completed P0 experiment suite
 
 The new P0 entry point is **`scripts/run_visual_lens_all.sh`**, not a request to rerun every historical sweep. Full instructions: [docs/VISUAL_LENS_RUN.md](docs/VISUAL_LENS_RUN.md). The original pending-experiment specification is preserved at [docs/VISUAL_LENS_EXPERIMENTS_TO_COMPLETE.md](docs/VISUAL_LENS_EXPERIMENTS_TO_COMPLETE.md).
 
@@ -15,7 +15,7 @@ The new P0 entry point is **`scripts/run_visual_lens_all.sh`**, not a request to
 | `objective` | Camelyon17 and RoboFail seed0: sum/mean × full-answer/label-only loss | 8 |
 | `evidence` | Same fitted Frozen / LoRA / Lens state on real, shuffled, neutral and BRIGHT post-only image controls; support-fitted candidate-bias baseline | 9 |
 
-**83 top-level jobs**, with multiple conditions per image-control job. The code is supplied for the GPU agent to execute. These are **not completed GPU results**. CPU tests cover 52 legacy tests, 31 earlier handoff tests and 9 new P0 tests. Real-model GPU gates must pass before downstream jobs run.
+All **83 top-level jobs** completed on an RTX 5090, including every real-model audit gate. The compact public result export is in [`reports/rebuttal_2026-09-17/`](reports/rebuttal_2026-09-17/): canonical tables, paired intervals, image controls, exact JSON metrics, follow-up weak-case debugging, and provenance boundaries. Raw predictions, controllers, datasets, and base-model weights remain outside Git.
 
 ```bash
 git clone https://github.com/yuhanlydia/StateAdaptation.git
@@ -36,7 +36,7 @@ For one GPU, use `run 0`. Existing machines can change their origin URL and pull
 
 ## Results and reproducibility
 
-New outputs are isolated under `runs/visual_lens_p0_v1/`. Resume checks hash the configuration, source, model, manifests, images and saved state; changed or incomplete outputs are never accepted solely because a `metrics.json` exists. Primary fitting never uses query labels. Reusing an already inspected query set is labeled reproducibility checking, not a new untouched test evaluation. Query-label diagnostics remain separate from primary performance.
+New outputs are isolated under the configured versioned run root (`runs/visual_lens_p0_v3/` for the completed campaign). Resume checks hash the configuration, source, model, manifests, images and saved state; changed or incomplete outputs are never accepted solely because a `metrics.json` exists. Primary fitting never uses query labels. Reusing an already inspected query set is labeled reproducibility checking, not a new untouched test evaluation. Query-label diagnostics remain separate from primary performance.
 
 `reports/iclr2027_evidence_audit.md` describes the **historical** evidence freeze. This migration adds the specifically requested P0 verification suite without altering those recorded results or implying that all earlier conclusions have been independently confirmed. See [docs/VISUAL_LENS_STATUS.md](docs/VISUAL_LENS_STATUS.md) for implemented versus still-pending work.
 

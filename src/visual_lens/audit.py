@@ -88,6 +88,12 @@ def compare_vectors(a,b):
             'cosine':float(torch.dot(a,b)/denom) if denom>1e-20 else None}
 
 
+def gradient_agrees(comparison, relative_tol):
+    """Apply the configured BF16 gradient tolerance to a vector comparison."""
+    return bool(comparison.get('shape_match') and
+                comparison.get('relative_l2', float('inf')) <= relative_tol)
+
+
 def signature_summary(result):
     return {'loss':result['loss'],'controller_gradient_norm':float(result['controller_gradient'].norm()),
             'forward_counts':result['forward_counts'],
@@ -173,16 +179,17 @@ def execute_audit(job):
             replay=any(on['forward_counts'].get(k,0)>off['forward_counts'].get(k,0) for k in off['forward_counts'])
             activation_cmp={k:compare_vectors(v,on['activation_gradients'][k]) for k,v in off['activation_gradients'].items()}
             finite_nonzero=all(len(v)>0 and bool(torch.isfinite(v).all()) and float(v.norm())>0 for v in off['activation_gradients'].values())
+            gradient_tol=job.get('audit_relative_tol',.05)
             checks={'zero_identity':identity_diff<=job.get('audit_abs_tol',.005),
                     'reset_identity':reset_diff<=job.get('audit_abs_tol',.005),
                     'save_load':roundtrip_diff<=job.get('audit_abs_tol',.005),
                     'direct_mask_isolation':all(x['outside_max_abs']==0 for x in direct.values()) and len(direct)==len(mods),
                     'finite_nonzero_visual_gradients':finite_nonzero,
                     'checkpoint_replay_observed':replay,
-                    'checkpoint_controller_gradient':checkpoint_cmp.get('relative_l2',float('inf'))<=job.get('audit_relative_tol',.05),
-                    'checkpoint_activation_gradients':all(x.get('shape_match') and x.get('relative_l2',1e30)<=job.get('audit_relative_tol',.05) for x in activation_cmp.values()),
+                    'checkpoint_controller_gradient':gradient_agrees(checkpoint_cmp,gradient_tol),
+                    'checkpoint_activation_gradients':all(gradient_agrees(x,gradient_tol) for x in activation_cmp.values()),
                     'checkpoint_loss':abs(off['loss']-on['loss'])<=job.get('audit_abs_tol',.005),
-                    'mean_sum_data_gradient':arithmetic.get('relative_l2',float('inf'))<=.005}
+                    'mean_sum_data_gradient':gradient_agrees(arithmetic,gradient_tol)}
             # Actual finite differences at nonzero R; BF16 quantization can make
             # these scale-sensitive, so report a curve rather than invent a pass.
             checkpoint_mode(model,False);model.eval()

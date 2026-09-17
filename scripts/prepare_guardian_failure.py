@@ -21,6 +21,39 @@ SPLITS = ("ur5fail_test", "robofail", "robovqa")
 CANDIDATES = ["success", "failure"]
 
 
+def group_disjoint_split(rows: list[dict], support_per_class: int, seed: int) -> tuple[list[dict], list[dict]]:
+    """Select a balanced support set and hold out every selected support group."""
+    grouped: dict[str, list[dict]] = {}
+    for row in rows:
+        grouped.setdefault(row["group_id"], []).append(row)
+    rng = np.random.default_rng(seed)
+    group_ids = list(grouped)
+    rng.shuffle(group_ids)
+    support: list[dict] = []
+    selected_groups: set[str] = set()
+    counts = {label: 0 for label in CANDIDATES}
+    for group_id in group_ids:
+        candidates = list(grouped[group_id])
+        rng.shuffle(candidates)
+        selected = [
+            row for row in candidates
+            if counts[row["label"]] < support_per_class
+        ]
+        if not selected:
+            continue
+        selected_groups.add(group_id)
+        for row in selected:
+            if counts[row["label"]] < support_per_class:
+                support.append(row)
+                counts[row["label"]] += 1
+        if all(count == support_per_class for count in counts.values()):
+            break
+    if any(count != support_per_class for count in counts.values()):
+        raise ValueError(f"insufficient group-disjoint support examples: {counts}")
+    query = [row for row in rows if row["group_id"] not in selected_groups]
+    return support, query
+
+
 def _local_image(raw: str, dataset_root: Path) -> Path:
     marker = "data/failure_forge/data/"
     if marker in raw:
@@ -106,21 +139,14 @@ def main() -> None:
         rows = [json.loads(line) for line in (dataset_root / "metadata_execution.jsonl").read_text().splitlines()]
         converted = [_convert_row(row, split, dataset_root, output_root / split / "composites", i)
                      for i, row in enumerate(rows)]
-        by_label = {label: np.asarray([i for i, row in enumerate(converted) if row["label"] == label])
-                    for label in CANDIDATES}
-        if any(len(indices) < args.support_per_class for indices in by_label.values()):
-            raise ValueError(f"{split} lacks support examples for one class: { {k: len(v) for k,v in by_label.items()} }")
-        split_summary = {"total": len(converted), "labels": {k: int(len(v)) for k, v in by_label.items()}, "seeds": {}}
+        label_counts = {label: sum(row["label"] == label for row in converted) for label in CANDIDATES}
+        if any(count < args.support_per_class for count in label_counts.values()):
+            raise ValueError(f"{split} lacks support examples for one class: {label_counts}")
+        split_summary = {"total": len(converted), "labels": label_counts, "seeds": {}}
         for seed in args.seeds:
-            rng = np.random.default_rng(seed)
-            support_indices = np.concatenate([
-                rng.permutation(indices)[: args.support_per_class] for indices in by_label.values()
-            ])
-            support_set = set(int(i) for i in support_indices)
             fold_root = output_root / split / f"seed_{seed}"
             fold_root.mkdir(parents=True, exist_ok=True)
-            support = [converted[i] for i in sorted(support_set)]
-            query = [row for i, row in enumerate(converted) if i not in support_set]
+            support, query = group_disjoint_split(converted, args.support_per_class, seed)
             (fold_root / "support.jsonl").write_text("".join(json.dumps(row) + "\n" for row in support))
             (fold_root / "query.jsonl").write_text("".join(json.dumps(row) + "\n" for row in query))
             config = {"split": split, "seed": seed, "support_per_class": args.support_per_class,

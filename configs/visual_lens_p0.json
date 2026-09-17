@@ -1,5 +1,5 @@
 {
-  "run_root": "runs/visual_lens_p0_v1",
+  "run_root": "runs/visual_lens_p0_v3",
   "bright_root": "data/prepared/visual_lens/bright",
   "bright_events": ["hawaii-wildfire", "libya-flood", "noto-earthquake", "turkey-earthquake"],
   "bright_seeds": [0, 1, 2],
