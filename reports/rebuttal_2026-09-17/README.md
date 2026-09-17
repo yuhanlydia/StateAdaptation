@@ -16,6 +16,7 @@ This directory is the compact, public export of the completed local GPU campaign
 - `p0_final_findings.md`: interpretation, fixes, and reproduction limits.
 - `debug_findings.md`: Hawaii, Turkey, RoboFail, and fixed layer-14 analysis.
 - `debug_summary.json`: exact metrics for all 29 exploratory jobs.
+- `historical_hawaii_protocols.md`: retained Hawaii Lens-over-LoRA results and their query-oracle boundary.
 - `SHA256SUMS`: hashes of this export.
 
 ## Interpretation boundary
