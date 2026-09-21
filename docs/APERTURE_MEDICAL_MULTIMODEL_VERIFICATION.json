@@ -1,0 +1,51 @@
+{
+  "verified_on": "2026-09-21",
+  "repository": "yuhanlydia/StateAdaptation",
+  "publication_base_commit": "5f8dc5e28d9abdf633a21edb36efa785daf2b729",
+  "publication_target": "main",
+  "publication_mode": "additive Git tree; non-forced fast-forward",
+  "source_package": "Aperture_Medical_Main_Code.zip",
+  "namespace": "aperture_medical_multimodel",
+  "existing_aperture_medical_protocol_preserved": true,
+  "scientific_settings_changed_during_publication": false,
+  "backbones": [
+    "Qwen2.5-VL-7B-Instruct",
+    "InternVL3-8B-Instruct"
+  ],
+  "gemma_and_qwen3_added": false,
+  "new_gpu_experiments_run": false,
+  "full_official_data_preparation_run": false,
+  "real_model_repeatability_certified": false,
+  "cpu_test_command": "PYTHONPATH=src python -m pytest -o addopts= -q tests tests_vigor tests_lens tests_aperture_final tests_aperture_medical_multimodel",
+  "cpu_tests": {
+    "passed": 169,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "new_package_tests": 38
+  },
+  "test_source": "Mounted source archive plus final-round package; inherited Python package trees match publication base after refreshing the existing audit.py. Separately published single-backbone medical tests were not part of this command.",
+  "checks": {
+    "compileall": true,
+    "bash_syntax": true,
+    "default_states": 135,
+    "default_trainable_fits": 105,
+    "optional_curve_states": 120,
+    "remote_code_tree_matches_tested_code": true,
+    "remote_tests_tree_matches_tested_tests": true
+  },
+  "verified_git_trees": {
+    "src/aperture_medical_multimodel": "6edc1237ae25dcf245ca4df7265b7feab14c7f39",
+    "tests_aperture_medical_multimodel": "0e74e7fd04697e38b41c03e3d4a4a9cf068a3835",
+    "src/aperture_final": "a9b0ab5c91409ab6430c987f97adf6ca2928ab29",
+    "src/eventttt": "07cf24c2b660d8acc1a0bd649460888ec410725a",
+    "src/vigor_handoff": "58708ddef95a3df0b966750fba951b9afbee233e",
+    "src/visual_lens": "8ac4b5473f2202b4d9ff61f334dc99abeac9056d"
+  },
+  "notes": [
+    "Only the new package names, command names and versioned roots differ from the delivered package.",
+    "The existing single-backbone medical protocol and all historical results are preserved.",
+    "All unit-test fixtures are synthetic and are not benchmark results.",
+    "Real support-only audits, repeated fits, official patient-pool feasibility and GPU execution remain mandatory on the execution host."
+  ]
+}
