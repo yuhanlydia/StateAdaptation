@@ -50,7 +50,7 @@ def table(rows, metric, budget, domains):
     return '\n'.join(lines+[r'\bottomrule',r'\end{tabular}'])+'\n'
 
 
-def export(jobs,root):
+def _export_impl(jobs,root):
     out=Path(root)/'paper_exports';out.mkdir(parents=True,exist_ok=True)
     for pattern in ('table_*.tex','*.csv','fig_*.pdf','fig_*.png','full_results.json'):
         for p in out.glob(pattern):p.unlink()
@@ -136,3 +136,18 @@ def plot(ag,out):
             ax.legend(fontsize=8,ncol=2);fig.tight_layout()
             for ext in ('pdf','png'):fig.savefig(Path(out)/f'fig_n{b}_{metric}.{ext}',dpi=200)
             plt.close(fig)
+
+
+def export(jobs,root):
+    """Revoke every paper artifact if any collection, consistency or plotting step fails."""
+    out=Path(root)/'paper_exports';out.mkdir(parents=True,exist_ok=True)
+    try:
+        return _export_impl(jobs,root)
+    except Exception as exc:
+        for pattern in ('table_*.tex','*.csv','fig_*.pdf','fig_*.png','full_results.json'):
+            for p in out.glob(pattern):p.unlink()
+        try:coverage=json.loads((out/'coverage.json').read_text())
+        except (OSError,ValueError):coverage={'planned':len(jobs)}
+        coverage.update(paper_ready=False,export_error=str(exc))
+        atomic_json(out/'coverage.json',coverage)
+        raise
