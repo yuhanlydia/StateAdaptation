@@ -1,0 +1,48 @@
+{
+  "verified_on": "2026-09-21",
+  "repository": "yuhanlydia/StateAdaptation",
+  "base_commit": "b2c5aa68b125f588683f16086f02cb72de2a18e9",
+  "publication_branch": "aperture-medical-main-20260921",
+  "code_commit_checked": "2502888daf979cf17c5b0272a356d1eb87492fd3",
+  "new_gpu_experiments_run": false,
+  "official_medical_data_preparation_run": false,
+  "real_model_replay_passed": false,
+  "cpu_tests": {
+    "tests": 158,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0
+  },
+  "new_tests": 27,
+  "cpu_command": "PYTHONPATH=src python -m pytest -q tests tests_vigor tests_lens tests_aperture_final tests_aperture_medical",
+  "checks": {
+    "compileall": true,
+    "bash_syntax": true,
+    "planned_states": 180,
+    "comparison_units": 36,
+    "trainable_fits": 144,
+    "remote_new_python_config_test_hashes_match_local": true,
+    "synthetic_complete_export_test": true,
+    "incomplete_or_failed_export_revokes_tables": true
+  },
+  "source_note": "Local mounted source archive plus prior final-round package and refreshed current audit.py; inherited controller/worker/scoring used by the new package match published interfaces. The 158 local CPU tests are not a real-model or full-data rerun. New code/config/test blob hashes were read back from GitHub.",
+  "notes": [
+    "All synthetic image/probability fixtures are unit tests, not benchmark measurements.",
+    "CAMELYON patient isolation and full official assets are required; missing data stop preparation.",
+    "PathMNIST provides image-content isolation only because the NPZ lacks patient IDs.",
+    "Representative repeat-fit and saved-state replay gates must pass on the execution GPU.",
+    "No historical source, result, raw medical images or model weights are modified/published."
+  ],
+  "new_file_blob_sha1": {
+    "configs/aperture_medical_v1.json": "ca04bbc48580802f4380825803380e8973680e6e",
+    "scripts/run_aperture_medical.py": "b3b21bff2bf5566286214be81f26af00bd5cbfbd",
+    "src/aperture_medical/__init__.py": "a0b97060f88b272fbe39dfb78966685410c1666d",
+    "src/aperture_medical/cli.py": "1dc0de13d62f50e07c36ea1c4ace516610014def",
+    "src/aperture_medical/data.py": "1c81ad34ba1877a2f3aec4632f6ce90c2c09a3bd",
+    "src/aperture_medical/numeric.py": "c3aa5816c5418dcc0c81bd2ee2f5be5b9363486e",
+    "src/aperture_medical/protocol.py": "e56c45d0ada9af1869878e9c1bf0db907d8f6ae8",
+    "src/aperture_medical/reporting.py": "d816b54634f67ffa996f6f5cfe3ade071ba84234",
+    "src/aperture_medical/worker.py": "c17e0e7669e21003139251c0b02ecf08b3c1fce8",
+    "tests_aperture_medical/test_medical.py": "999450afe0912b376147d78c150947d77e2f5f01"
+  }
+}
