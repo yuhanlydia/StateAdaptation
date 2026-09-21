@@ -1,0 +1,31 @@
+{
+  "protocol": "aperture_final_v1",
+  "run_root": "runs/aperture_final_v1",
+  "prepared_root": "data/prepared/aperture_final_v1",
+  "model_path": "artifacts/models/Qwen2.5-VL-7B-Instruct",
+  "support_seeds": [0, 1, 2],
+  "split_seed": 270921,
+  "calibration_per_class": 2,
+  "temperature_penalty": 0.01,
+  "probe_count": 60,
+  "timing_samples": 12,
+  "corruptions": ["gaussian4", "gaussian8", "jpeg70", "jpeg40"],
+  "domains": [
+    {"name":"hawaii-wildfire","dataset":"bright","kind":"paired","classes":3,"support_per_class":8,"query_count":300,"group_key":"tile_id","corruption":true,
+     "support":"data/prepared/visual_lens/bright/hawaii-wildfire/seed_{seed}/support.jsonl","query":"data/prepared/visual_lens/bright/hawaii-wildfire/seed_{seed}/query.jsonl"},
+    {"name":"libya-flood","dataset":"bright","kind":"paired","classes":3,"support_per_class":8,"query_count":300,"group_key":"tile_id","corruption":true,
+     "support":"data/prepared/visual_lens/bright/libya-flood/seed_{seed}/support.jsonl","query":"data/prepared/visual_lens/bright/libya-flood/seed_{seed}/query.jsonl"},
+    {"name":"noto-earthquake","dataset":"bright","kind":"paired","classes":3,"support_per_class":8,"query_count":300,"group_key":"tile_id","corruption":true,
+     "support":"data/prepared/visual_lens/bright/noto-earthquake/seed_{seed}/support.jsonl","query":"data/prepared/visual_lens/bright/noto-earthquake/seed_{seed}/query.jsonl"},
+    {"name":"turkey-earthquake","dataset":"bright","kind":"paired","classes":3,"support_per_class":8,"query_count":300,"group_key":"tile_id","corruption":true,
+     "support":"data/prepared/visual_lens/bright/turkey-earthquake/seed_{seed}/support.jsonl","query":"data/prepared/visual_lens/bright/turkey-earthquake/seed_{seed}/query.jsonl"},
+    {"name":"hospital_2","dataset":"camelyon17","kind":"single","classes":2,"support_per_class":8,"query_count":300,"group_key":"group_id","corruption":true,
+     "support":"data/prepared/camelyon17/seed_{seed}/support.jsonl","query":"data/prepared/camelyon17/seed_{seed}/query.jsonl"},
+    {"name":"bridge_pick_place","dataset":"manipbench_q1","kind":"single","classes":4,"support_per_class":8,"query_count":400,"group_key":"group_id","corruption":false,
+     "support":"data/prepared/manipbench_q1/bridge_pick_place/seed_{seed}/support.jsonl","query":"data/prepared/manipbench_q1/bridge_pick_place/seed_{seed}/query.jsonl"},
+    {"name":"droid_pick_place","dataset":"manipbench_q1","kind":"single","classes":4,"support_per_class":8,"query_count":400,"group_key":"group_id","corruption":false,
+     "support":"data/prepared/manipbench_q1/droid_pick_place/seed_{seed}/support.jsonl","query":"data/prepared/manipbench_q1/droid_pick_place/seed_{seed}/query.jsonl"},
+    {"name":"droid_arti","dataset":"manipbench_q1","kind":"single","classes":4,"support_per_class":8,"query_count":400,"group_key":"group_id","corruption":false,
+     "support":"data/prepared/manipbench_q1/droid_arti/seed_{seed}/support.jsonl","query":"data/prepared/manipbench_q1/droid_arti/seed_{seed}/query.jsonl"}
+  ]
+}
