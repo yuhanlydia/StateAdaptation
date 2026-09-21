@@ -43,7 +43,7 @@ def fit_replay_gates(jobs,root,gates,gpus,script):
         clone=deepcopy(j);clone['job_id']+='--fit-replay';clone['output']=str(Path(root)/'fit_replays'/clone['job_id'])
         pairs.append((j,clone))
         for x in (j,clone):tasks.append(dict(job=x,stage='fit',audit_folder=gates[x['dataset']]['output']))
-    run_partitioned(tasks,gpus,script,Path(root)/'logs')
+    run_partitioned(tasks,gpus[:1],script,Path(root)/'logs')
     records=[]
     for j,clone in pairs:
         a=Path(j['output'])/'fit';b=Path(clone['output'])/'fit'
