@@ -40,3 +40,6 @@ paper/*.blg
 paper/*.log
 paper/missfont.log
 texput.log
+
+# New medical raw assets must remain local.
+data/medical_raw/
