@@ -1,0 +1,15 @@
+{
+  "protocol": "aperture_table64_v1",
+  "run_root": "runs/aperture_table64_v1",
+  "prepared_root": "data/prepared/aperture_table64_v1",
+  "support_seeds": [0, 1],
+  "arms": ["frozen", "lora1", "lora4", "aperture"],
+  "models": {
+    "q25": "artifacts/models/Qwen2.5-VL-7B-Instruct",
+    "q34": "artifacts/models/Qwen3-VL-4B-Instruct",
+    "q38": "artifacts/models/Qwen3-VL-8B-Instruct",
+    "g34": "artifacts/models/gemma-3-4b-it"
+  },
+  "camelyon_root": "data/medical_raw/camelyon17_v1.0",
+  "pathmnist_npz": "data/medical_raw/pathmnist_224.npz"
+}
