@@ -1,0 +1,18 @@
+{
+  "protocol": "aperture_medical_v1",
+  "run_root": "runs/aperture_medical_v1",
+  "prepared_root": "data/prepared/aperture_medical_v1",
+  "model_path": "artifacts/models/Qwen2.5-VL-7B-Instruct",
+  "support_seeds": [0, 1, 2],
+  "budgets_per_class": [8, 16],
+  "split_seed": 310927,
+  "calibration_per_class": 2,
+  "domain_specs": [
+    {"name":"hospital_0","dataset":"camelyon17-wilds","classes":2,"query_per_class":250,"isolation":"patient","source_root":"data/medical_raw/camelyon17_v1.0"},
+    {"name":"hospital_1","dataset":"camelyon17-wilds","classes":2,"query_per_class":250,"isolation":"patient","source_root":"data/medical_raw/camelyon17_v1.0"},
+    {"name":"hospital_2","dataset":"camelyon17-wilds","classes":2,"query_per_class":250,"isolation":"patient","source_root":"data/medical_raw/camelyon17_v1.0"},
+    {"name":"hospital_3","dataset":"camelyon17-wilds","classes":2,"query_per_class":250,"isolation":"patient","source_root":"data/medical_raw/camelyon17_v1.0"},
+    {"name":"hospital_4","dataset":"camelyon17-wilds","classes":2,"query_per_class":250,"isolation":"patient","source_root":"data/medical_raw/camelyon17_v1.0"},
+    {"name":"pathmnist_crc","dataset":"pathmnist","classes":9,"query_per_class":100,"isolation":"image_content","source_root":"data/medical_raw/pathmnist_224.npz"}
+  ]
+}
