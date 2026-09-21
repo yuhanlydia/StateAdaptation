@@ -1,0 +1,31 @@
+{
+  "base": "/home/root123/.local/share/stateadaptation/aperture-final-round-20260921",
+  "file_count": 3395,
+  "total_bytes": 2441402915,
+  "categories": {
+    "data/prepared/aperture_final_v1": [
+      96,
+      16389368
+    ],
+    "data/prepared/camelyon17": [
+      954,
+      23360060
+    ],
+    "data/prepared/manipbench_q1": [
+      18,
+      12471465
+    ],
+    "data/prepared/visual_lens": [
+      37,
+      2952384
+    ],
+    "data/raw/bright_ready": [
+      808,
+      1697812094
+    ],
+    "data/raw/manipbench-simplified": [
+      1482,
+      688417544
+    ]
+  }
+}

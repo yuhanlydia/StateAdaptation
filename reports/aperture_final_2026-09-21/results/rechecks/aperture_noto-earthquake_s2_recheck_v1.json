@@ -1,0 +1,477 @@
+{
+  "completed_at": "2026-09-21T08:57:37.398848+00:00",
+  "scope": "noto-earthquake seed 2",
+  "meaning": "Diagnostic reproducibility recheck; no query-selected tuning or replacement of canonical tables.",
+  "source_signature": "f686261411b28fd9e267326aab1dd8c0b92e618d4521d94dae26993e7c638234",
+  "protocol_changed_only_run_root": true,
+  "comparisons": [
+    {
+      "arm": "frozen",
+      "canonical_job_id": "noto-earthquake--s2--frozen",
+      "query_ids_exact_match": true,
+      "query_labels_exact_match": true,
+      "canonical_clean_sha256": "ced7cbc696394921876ffadaaee3e4380068c9c3b83905ad04d85412e5952c9e",
+      "recheck_clean_sha256": "ced7cbc696394921876ffadaaee3e4380068c9c3b83905ad04d85412e5952c9e",
+      "canonical_score_sha256": "c6e81d819916b608a2b3a083ecd9e4c7b778519bcb7733d6abf780cf3dfaf027",
+      "recheck_score_sha256": "c6e81d819916b608a2b3a083ecd9e4c7b778519bcb7733d6abf780cf3dfaf027",
+      "score_hash_exact_match": true,
+      "max_abs_candidate_score_delta": 0.0,
+      "prediction_disagreements": 0,
+      "metrics": {
+        "raw": {
+          "canonical": {
+            "nll": 1.2860715061244987,
+            "macro_f1": 0.188229238160604,
+            "balanced_accuracy": 0.32
+          },
+          "recheck": {
+            "nll": 1.2860715061244987,
+            "macro_f1": 0.188229238160604,
+            "balanced_accuracy": 0.32
+          },
+          "delta_recheck_minus_canonical": {
+            "nll": 0.0,
+            "macro_f1": 0.0,
+            "balanced_accuracy": 0.0
+          },
+          "canonical_confusion": [
+            [
+              0,
+              90,
+              10
+            ],
+            [
+              0,
+              91,
+              9
+            ],
+            [
+              0,
+              95,
+              5
+            ]
+          ],
+          "recheck_confusion": [
+            [
+              0,
+              90,
+              10
+            ],
+            [
+              0,
+              91,
+              9
+            ],
+            [
+              0,
+              95,
+              5
+            ]
+          ]
+        },
+        "temperature": {
+          "canonical": {
+            "nll": 1.1712145714795,
+            "macro_f1": 0.188229238160604,
+            "balanced_accuracy": 0.32
+          },
+          "recheck": {
+            "nll": 1.1712145714795,
+            "macro_f1": 0.188229238160604,
+            "balanced_accuracy": 0.32
+          },
+          "delta_recheck_minus_canonical": {
+            "nll": 0.0,
+            "macro_f1": 0.0,
+            "balanced_accuracy": 0.0
+          },
+          "canonical_confusion": [
+            [
+              0,
+              90,
+              10
+            ],
+            [
+              0,
+              91,
+              9
+            ],
+            [
+              0,
+              95,
+              5
+            ]
+          ],
+          "recheck_confusion": [
+            [
+              0,
+              90,
+              10
+            ],
+            [
+              0,
+              91,
+              9
+            ],
+            [
+              0,
+              95,
+              5
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "arm": "lora1",
+      "canonical_job_id": "noto-earthquake--s2--lora1",
+      "query_ids_exact_match": true,
+      "query_labels_exact_match": true,
+      "canonical_clean_sha256": "2ead1902fda2d7266044345bbb9a357d407d56d37757f6ea2185bce311d30b95",
+      "recheck_clean_sha256": "5242039b2ca8d88f9da4b62628a3cc29093e82215f1c6da5a8d8dc0c343d9e88",
+      "canonical_score_sha256": "da23f995f29546734e058dfda09b68994295f712b462dd41cd28e68532999f32",
+      "recheck_score_sha256": "3372b187e545566227b03e09ecd1f6fba2524c95342e147b1371487f7887d1a0",
+      "score_hash_exact_match": false,
+      "max_abs_candidate_score_delta": 0.18771445751190186,
+      "prediction_disagreements": 1,
+      "metrics": {
+        "raw": {
+          "canonical": {
+            "nll": 1.27833280721388,
+            "macro_f1": 0.19266992305973243,
+            "balanced_accuracy": 0.3433333333333333
+          },
+          "recheck": {
+            "nll": 1.2834669122204372,
+            "macro_f1": 0.1928610496777722,
+            "balanced_accuracy": 0.3433333333333333
+          },
+          "delta_recheck_minus_canonical": {
+            "nll": 0.005134105006557199,
+            "macro_f1": 0.00019112661803977193,
+            "balanced_accuracy": 0.0
+          },
+          "canonical_confusion": [
+            [
+              4,
+              96,
+              0
+            ],
+            [
+              1,
+              99,
+              0
+            ],
+            [
+              1,
+              99,
+              0
+            ]
+          ],
+          "recheck_confusion": [
+            [
+              4,
+              96,
+              0
+            ],
+            [
+              1,
+              99,
+              0
+            ],
+            [
+              2,
+              98,
+              0
+            ]
+          ]
+        },
+        "temperature": {
+          "canonical": {
+            "nll": 1.173367472474204,
+            "macro_f1": 0.19266992305973243,
+            "balanced_accuracy": 0.3433333333333333
+          },
+          "recheck": {
+            "nll": 1.1765073009645433,
+            "macro_f1": 0.1928610496777722,
+            "balanced_accuracy": 0.3433333333333333
+          },
+          "delta_recheck_minus_canonical": {
+            "nll": 0.003139828490339225,
+            "macro_f1": 0.00019112661803977193,
+            "balanced_accuracy": 0.0
+          },
+          "canonical_confusion": [
+            [
+              4,
+              96,
+              0
+            ],
+            [
+              1,
+              99,
+              0
+            ],
+            [
+              1,
+              99,
+              0
+            ]
+          ],
+          "recheck_confusion": [
+            [
+              4,
+              96,
+              0
+            ],
+            [
+              1,
+              99,
+              0
+            ],
+            [
+              2,
+              98,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "arm": "lora4",
+      "canonical_job_id": "noto-earthquake--s2--lora4",
+      "query_ids_exact_match": true,
+      "query_labels_exact_match": true,
+      "canonical_clean_sha256": "8322128df1abd0e60610dfeae6d76f67f087832e1ff000c15aa6165f1bcb5539",
+      "recheck_clean_sha256": "c3ea8130c20eae408101be68016c3dab0f69724fd328904b1b49f31698cd82e0",
+      "canonical_score_sha256": "fe3081c738b5372f930f2b834b4d51a9f8c460b56dbb02412e0f29b688e1dbf2",
+      "recheck_score_sha256": "7655523df3c7a9cfd02f095042b786f4fbecd44a413d18353f7e3362344f0fc1",
+      "score_hash_exact_match": false,
+      "max_abs_candidate_score_delta": 0.2339611053466797,
+      "prediction_disagreements": 22,
+      "metrics": {
+        "raw": {
+          "canonical": {
+            "nll": 1.131437587162225,
+            "macro_f1": 0.3201184831758907,
+            "balanced_accuracy": 0.33666666666666667
+          },
+          "recheck": {
+            "nll": 1.131206870670721,
+            "macro_f1": 0.32724544327597765,
+            "balanced_accuracy": 0.34
+          },
+          "delta_recheck_minus_canonical": {
+            "nll": -0.00023071649150407936,
+            "macro_f1": 0.007126960100086954,
+            "balanced_accuracy": 0.003333333333333355
+          },
+          "canonical_confusion": [
+            [
+              18,
+              54,
+              28
+            ],
+            [
+              7,
+              55,
+              38
+            ],
+            [
+              12,
+              60,
+              28
+            ]
+          ],
+          "recheck_confusion": [
+            [
+              20,
+              53,
+              27
+            ],
+            [
+              8,
+              53,
+              39
+            ],
+            [
+              15,
+              56,
+              29
+            ]
+          ]
+        },
+        "temperature": {
+          "canonical": {
+            "nll": 1.2191782194086564,
+            "macro_f1": 0.3201184831758907,
+            "balanced_accuracy": 0.33666666666666667
+          },
+          "recheck": {
+            "nll": 1.2293355587754276,
+            "macro_f1": 0.32724544327597765,
+            "balanced_accuracy": 0.34
+          },
+          "delta_recheck_minus_canonical": {
+            "nll": 0.010157339366771101,
+            "macro_f1": 0.007126960100086954,
+            "balanced_accuracy": 0.003333333333333355
+          },
+          "canonical_confusion": [
+            [
+              18,
+              54,
+              28
+            ],
+            [
+              7,
+              55,
+              38
+            ],
+            [
+              12,
+              60,
+              28
+            ]
+          ],
+          "recheck_confusion": [
+            [
+              20,
+              53,
+              27
+            ],
+            [
+              8,
+              53,
+              39
+            ],
+            [
+              15,
+              56,
+              29
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "arm": "aperture",
+      "canonical_job_id": "noto-earthquake--s2--aperture",
+      "query_ids_exact_match": true,
+      "query_labels_exact_match": true,
+      "canonical_clean_sha256": "b664a3ccaf079be5029dd0e662d3e6521f27b84c8eeffa6cd1320033245c02a0",
+      "recheck_clean_sha256": "4e7990e70f3695ce0fb1a1e49ce8e0fe6a8f5e799d608e50eaa8158dc6d6020d",
+      "canonical_score_sha256": "9ca18a3a8419ba6e6ed233335d74e824f6ab187f58376fb691558f00161bb27e",
+      "recheck_score_sha256": "fc290dca82135375d15c6ca38ebcb017600417cdb7808670462da383fdd43430",
+      "score_hash_exact_match": false,
+      "max_abs_candidate_score_delta": 0.6913537979125977,
+      "prediction_disagreements": 116,
+      "metrics": {
+        "raw": {
+          "canonical": {
+            "nll": 1.1017416414601333,
+            "macro_f1": 0.3449130040937478,
+            "balanced_accuracy": 0.35666666666666663
+          },
+          "recheck": {
+            "nll": 1.1002655315040077,
+            "macro_f1": 0.3709442454303297,
+            "balanced_accuracy": 0.37333333333333335
+          },
+          "delta_recheck_minus_canonical": {
+            "nll": -0.0014761099561255708,
+            "macro_f1": 0.026031241336581912,
+            "balanced_accuracy": 0.01666666666666672
+          },
+          "canonical_confusion": [
+            [
+              20,
+              46,
+              34
+            ],
+            [
+              8,
+              51,
+              41
+            ],
+            [
+              20,
+              44,
+              36
+            ]
+          ],
+          "recheck_confusion": [
+            [
+              44,
+              22,
+              34
+            ],
+            [
+              25,
+              43,
+              32
+            ],
+            [
+              40,
+              35,
+              25
+            ]
+          ]
+        },
+        "temperature": {
+          "canonical": {
+            "nll": 1.4727434552379854,
+            "macro_f1": 0.3449130040937478,
+            "balanced_accuracy": 0.35666666666666663
+          },
+          "recheck": {
+            "nll": 1.1215656012489943,
+            "macro_f1": 0.3709442454303297,
+            "balanced_accuracy": 0.37333333333333335
+          },
+          "delta_recheck_minus_canonical": {
+            "nll": -0.35117785398899115,
+            "macro_f1": 0.026031241336581912,
+            "balanced_accuracy": 0.01666666666666672
+          },
+          "canonical_confusion": [
+            [
+              20,
+              46,
+              34
+            ],
+            [
+              8,
+              51,
+              41
+            ],
+            [
+              20,
+              44,
+              36
+            ]
+          ],
+          "recheck_confusion": [
+            [
+              44,
+              22,
+              34
+            ],
+            [
+              25,
+              43,
+              32
+            ],
+            [
+              40,
+              35,
+              25
+            ]
+          ]
+        }
+      }
+    }
+  ]
+}

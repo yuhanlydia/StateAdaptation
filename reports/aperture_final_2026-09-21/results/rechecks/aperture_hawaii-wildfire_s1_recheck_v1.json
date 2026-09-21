@@ -1,0 +1,477 @@
+{
+  "completed_at": "2026-09-21T08:53:26.985911+00:00",
+  "scope": "hawaii-wildfire seed 1",
+  "meaning": "Diagnostic reproducibility recheck; no query-selected tuning or replacement of canonical tables.",
+  "source_signature": "f686261411b28fd9e267326aab1dd8c0b92e618d4521d94dae26993e7c638234",
+  "protocol_changed_only_run_root": true,
+  "comparisons": [
+    {
+      "arm": "frozen",
+      "canonical_job_id": "hawaii-wildfire--s1--frozen",
+      "query_ids_exact_match": true,
+      "query_labels_exact_match": true,
+      "canonical_clean_sha256": "346b1b07eb7d2ce52ca060a8aa3f9d73d9a9af920b9adafcef6f5c85dfe15e62",
+      "recheck_clean_sha256": "346b1b07eb7d2ce52ca060a8aa3f9d73d9a9af920b9adafcef6f5c85dfe15e62",
+      "canonical_score_sha256": "586c3cd2eb90fac08d6868be1b6566d6f9773a4a95f5205d8c8f66118e121e19",
+      "recheck_score_sha256": "586c3cd2eb90fac08d6868be1b6566d6f9773a4a95f5205d8c8f66118e121e19",
+      "score_hash_exact_match": true,
+      "max_abs_candidate_score_delta": 0.0,
+      "prediction_disagreements": 0,
+      "metrics": {
+        "raw": {
+          "canonical": {
+            "nll": 1.282974471723114,
+            "macro_f1": 0.2003045404208195,
+            "balanced_accuracy": 0.3466666666666667
+          },
+          "recheck": {
+            "nll": 1.282974471723114,
+            "macro_f1": 0.2003045404208195,
+            "balanced_accuracy": 0.3466666666666667
+          },
+          "delta_recheck_minus_canonical": {
+            "nll": 0.0,
+            "macro_f1": 0.0,
+            "balanced_accuracy": 0.0
+          },
+          "canonical_confusion": [
+            [
+              0,
+              94,
+              6
+            ],
+            [
+              0,
+              99,
+              1
+            ],
+            [
+              1,
+              94,
+              5
+            ]
+          ],
+          "recheck_confusion": [
+            [
+              0,
+              94,
+              6
+            ],
+            [
+              0,
+              99,
+              1
+            ],
+            [
+              1,
+              94,
+              5
+            ]
+          ]
+        },
+        "temperature": {
+          "canonical": {
+            "nll": 1.1465486137372105,
+            "macro_f1": 0.2003045404208195,
+            "balanced_accuracy": 0.3466666666666667
+          },
+          "recheck": {
+            "nll": 1.1465486137372105,
+            "macro_f1": 0.2003045404208195,
+            "balanced_accuracy": 0.3466666666666667
+          },
+          "delta_recheck_minus_canonical": {
+            "nll": 0.0,
+            "macro_f1": 0.0,
+            "balanced_accuracy": 0.0
+          },
+          "canonical_confusion": [
+            [
+              0,
+              94,
+              6
+            ],
+            [
+              0,
+              99,
+              1
+            ],
+            [
+              1,
+              94,
+              5
+            ]
+          ],
+          "recheck_confusion": [
+            [
+              0,
+              94,
+              6
+            ],
+            [
+              0,
+              99,
+              1
+            ],
+            [
+              1,
+              94,
+              5
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "arm": "lora1",
+      "canonical_job_id": "hawaii-wildfire--s1--lora1",
+      "query_ids_exact_match": true,
+      "query_labels_exact_match": true,
+      "canonical_clean_sha256": "c7d866aa68c1dc84b1e73e210aa19b5c15dc89132b5571fc5f480a289ee0d41c",
+      "recheck_clean_sha256": "9d7da6267bdbb70fc07f346f80ea6afb965ac66b10c1d335d7665b28b5b46c0e",
+      "canonical_score_sha256": "cea39bfba2bdf2270908e33d352fa2cd238ad1fdeebf96acb96bc0e496af46be",
+      "recheck_score_sha256": "89d956e5cc4d7e3868841b1b84989c34d9830e23fd45b89b276c6e9fb2f8b79d",
+      "score_hash_exact_match": false,
+      "max_abs_candidate_score_delta": 0.20757508277893066,
+      "prediction_disagreements": 30,
+      "metrics": {
+        "raw": {
+          "canonical": {
+            "nll": 1.171978720091732,
+            "macro_f1": 0.30463369888456127,
+            "balanced_accuracy": 0.3566666666666667
+          },
+          "recheck": {
+            "nll": 1.16560907934324,
+            "macro_f1": 0.30729042295307357,
+            "balanced_accuracy": 0.36000000000000004
+          },
+          "delta_recheck_minus_canonical": {
+            "nll": -0.006369640748491889,
+            "macro_f1": 0.002656724068512306,
+            "balanced_accuracy": 0.003333333333333355
+          },
+          "canonical_confusion": [
+            [
+              51,
+              44,
+              5
+            ],
+            [
+              47,
+              52,
+              1
+            ],
+            [
+              51,
+              45,
+              4
+            ]
+          ],
+          "recheck_confusion": [
+            [
+              48,
+              47,
+              5
+            ],
+            [
+              42,
+              56,
+              2
+            ],
+            [
+              50,
+              46,
+              4
+            ]
+          ]
+        },
+        "temperature": {
+          "canonical": {
+            "nll": 1.288445919469,
+            "macro_f1": 0.30463369888456127,
+            "balanced_accuracy": 0.3566666666666667
+          },
+          "recheck": {
+            "nll": 1.215046993545505,
+            "macro_f1": 0.30729042295307357,
+            "balanced_accuracy": 0.36000000000000004
+          },
+          "delta_recheck_minus_canonical": {
+            "nll": -0.07339892592349484,
+            "macro_f1": 0.002656724068512306,
+            "balanced_accuracy": 0.003333333333333355
+          },
+          "canonical_confusion": [
+            [
+              51,
+              44,
+              5
+            ],
+            [
+              47,
+              52,
+              1
+            ],
+            [
+              51,
+              45,
+              4
+            ]
+          ],
+          "recheck_confusion": [
+            [
+              48,
+              47,
+              5
+            ],
+            [
+              42,
+              56,
+              2
+            ],
+            [
+              50,
+              46,
+              4
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "arm": "lora4",
+      "canonical_job_id": "hawaii-wildfire--s1--lora4",
+      "query_ids_exact_match": true,
+      "query_labels_exact_match": true,
+      "canonical_clean_sha256": "0154835184f63775b8522e9147a6375426c879679ba397f32e3e966cd1675410",
+      "recheck_clean_sha256": "9d3cc6d85917b146507c42789bcbfd9ccb2435bb4fda25702f62f6e0f89ead15",
+      "canonical_score_sha256": "954e2666fab9e53b85c7996c40cd52ada90908b02b34f48399196d5f85c527e2",
+      "recheck_score_sha256": "fa4ef5b05b76f08e2946662cad151ac649a096660cf256a27effa8910ed82547",
+      "score_hash_exact_match": false,
+      "max_abs_candidate_score_delta": 0.22985625267028809,
+      "prediction_disagreements": 13,
+      "metrics": {
+        "raw": {
+          "canonical": {
+            "nll": 1.1653561528875431,
+            "macro_f1": 0.3166313697806364,
+            "balanced_accuracy": 0.3666666666666667
+          },
+          "recheck": {
+            "nll": 1.1682665064280298,
+            "macro_f1": 0.312938353636028,
+            "balanced_accuracy": 0.36000000000000004
+          },
+          "delta_recheck_minus_canonical": {
+            "nll": 0.002910353540486632,
+            "macro_f1": -0.0036930161446083742,
+            "balanced_accuracy": -0.006666666666666654
+          },
+          "canonical_confusion": [
+            [
+              20,
+              23,
+              57
+            ],
+            [
+              16,
+              13,
+              71
+            ],
+            [
+              16,
+              7,
+              77
+            ]
+          ],
+          "recheck_confusion": [
+            [
+              19,
+              26,
+              55
+            ],
+            [
+              15,
+              14,
+              71
+            ],
+            [
+              18,
+              7,
+              75
+            ]
+          ]
+        },
+        "temperature": {
+          "canonical": {
+            "nll": 1.5726470491523559,
+            "macro_f1": 0.3166313697806364,
+            "balanced_accuracy": 0.3666666666666667
+          },
+          "recheck": {
+            "nll": 1.8682915253887358,
+            "macro_f1": 0.312938353636028,
+            "balanced_accuracy": 0.36000000000000004
+          },
+          "delta_recheck_minus_canonical": {
+            "nll": 0.2956444762363799,
+            "macro_f1": -0.0036930161446083742,
+            "balanced_accuracy": -0.006666666666666654
+          },
+          "canonical_confusion": [
+            [
+              20,
+              23,
+              57
+            ],
+            [
+              16,
+              13,
+              71
+            ],
+            [
+              16,
+              7,
+              77
+            ]
+          ],
+          "recheck_confusion": [
+            [
+              19,
+              26,
+              55
+            ],
+            [
+              15,
+              14,
+              71
+            ],
+            [
+              18,
+              7,
+              75
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "arm": "aperture",
+      "canonical_job_id": "hawaii-wildfire--s1--aperture",
+      "query_ids_exact_match": true,
+      "query_labels_exact_match": true,
+      "canonical_clean_sha256": "9c9953f0e9257ab435e9c5ecea69efde867121ef37dde62f920a30a6065c1d3d",
+      "recheck_clean_sha256": "9c58dd67114173bef66fcf98a2312a191194015f318a72aaf9e806e77155fc9c",
+      "canonical_score_sha256": "c42e7da43fc29ef8ff439a14902add72750f20440c897aa58df3cc86883b9439",
+      "recheck_score_sha256": "b8e3ea9fb8082fbfe9127f2dfc608cb40786f82e143e985c9bababac68547e9a",
+      "score_hash_exact_match": false,
+      "max_abs_candidate_score_delta": 2.4707839488983154,
+      "prediction_disagreements": 187,
+      "metrics": {
+        "raw": {
+          "canonical": {
+            "nll": 1.4206922936035629,
+            "macro_f1": 0.3134489302967564,
+            "balanced_accuracy": 0.38999999999999996
+          },
+          "recheck": {
+            "nll": 1.1253880873795694,
+            "macro_f1": 0.33417834461764545,
+            "balanced_accuracy": 0.37999999999999995
+          },
+          "delta_recheck_minus_canonical": {
+            "nll": -0.29530420622399345,
+            "macro_f1": 0.02072941432088904,
+            "balanced_accuracy": -0.010000000000000009
+          },
+          "canonical_confusion": [
+            [
+              0,
+              69,
+              31
+            ],
+            [
+              0,
+              62,
+              38
+            ],
+            [
+              0,
+              45,
+              55
+            ]
+          ],
+          "recheck_confusion": [
+            [
+              57,
+              13,
+              30
+            ],
+            [
+              56,
+              6,
+              38
+            ],
+            [
+              48,
+              1,
+              51
+            ]
+          ]
+        },
+        "temperature": {
+          "canonical": {
+            "nll": 1.1513647716700175,
+            "macro_f1": 0.3134489302967564,
+            "balanced_accuracy": 0.38999999999999996
+          },
+          "recheck": {
+            "nll": 1.7099456349860218,
+            "macro_f1": 0.33417834461764545,
+            "balanced_accuracy": 0.37999999999999995
+          },
+          "delta_recheck_minus_canonical": {
+            "nll": 0.5585808633160043,
+            "macro_f1": 0.02072941432088904,
+            "balanced_accuracy": -0.010000000000000009
+          },
+          "canonical_confusion": [
+            [
+              0,
+              69,
+              31
+            ],
+            [
+              0,
+              62,
+              38
+            ],
+            [
+              0,
+              45,
+              55
+            ]
+          ],
+          "recheck_confusion": [
+            [
+              57,
+              13,
+              30
+            ],
+            [
+              56,
+              6,
+              38
+            ],
+            [
+              48,
+              1,
+              51
+            ]
+          ]
+        }
+      }
+    }
+  ]
+}

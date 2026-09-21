@@ -1,0 +1,19 @@
+% New held-out-support protocol; do not replace historical whole-support results.
+% Mean +/- sample SD over support seeds. Unclipped NLL uses saved log scores.
+\begin{tabular}{lrrrr}
+\toprule
+Method & hospital\_2 & bridge\_pick\_place & droid\_pick\_place & droid\_arti \\
+\midrule
+Frozen & $0.6669_{\pm 0.0000}$ & $1.6737_{\pm 0.0000}$ & $1.9160_{\pm 0.0000}$ & $1.9832_{\pm 0.0000}$ \\
+Frozen + T & $0.8039_{\pm 0.1198}$ & $1.3421_{\pm 0.0079}$ & $1.3944_{\pm 0.0101}$ & $1.4506_{\pm 0.0143}$ \\
+Frozen + all-support bias & $0.6526_{\pm 0.0031}$ & $1.2363_{\pm 0.0031}$ & $1.4853_{\pm 0.0017}$ & $1.5737_{\pm 0.0029}$ \\
+LoRA-1pass & $0.7371_{\pm 0.0767}$ & $0.8579_{\pm 0.2034}$ & $1.1103_{\pm 0.2135}$ & $1.1458_{\pm 0.4645}$ \\
+LoRA-1pass + T & $0.7199_{\pm 0.0078}$ & $1.0213_{\pm 0.6148}$ & $0.9534_{\pm 0.0569}$ & $1.0751_{\pm 0.2302}$ \\
+LoRA-4passes & $1.3259_{\pm 0.5812}$ & $2.0453_{\pm 0.5766}$ & $2.5567_{\pm 1.6174}$ & $2.8618_{\pm 1.4415}$ \\
+LoRA-4passes + T & $2.7455_{\pm 1.4851}$ & $0.9241_{\pm 0.4119}$ & $0.8950_{\pm 0.0427}$ & $0.8205_{\pm 0.1637}$ \\
+Aperture & $0.6076_{\pm 0.0198}$ & $1.1377_{\pm 0.0347}$ & $1.3486_{\pm 0.0391}$ & $1.5055_{\pm 0.0418}$ \\
+Aperture + T & $0.6919_{\pm 0.1282}$ & $1.1425_{\pm 0.0411}$ & $1.3451_{\pm 0.0275}$ & $1.5772_{\pm 0.1526}$ \\
+LoRA-selected & $1.3259_{\pm 0.5812}$ & $1.3765_{\pm 0.7070}$ & $1.1103_{\pm 0.2135}$ & $1.1458_{\pm 0.4645}$ \\
+LoRA-selected + T & $2.7455_{\pm 1.4851}$ & $1.0348_{\pm 0.6029}$ & $0.8950_{\pm 0.0427}$ & $1.0078_{\pm 0.2733}$ \\
+\bottomrule
+\end{tabular}

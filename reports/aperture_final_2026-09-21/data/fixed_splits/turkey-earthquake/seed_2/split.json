@@ -1,0 +1,42 @@
+{
+  "calibration_ids": [
+    "bright-instance-turkey-earthquake_00000566-57",
+    "bright-instance-turkey-earthquake_00000732-106",
+    "bright-instance-turkey-earthquake_00000764-35",
+    "bright-instance-turkey-earthquake_00000962-15",
+    "bright-instance-turkey-earthquake_00001002-119",
+    "bright-instance-turkey-earthquake_00001051-68"
+  ],
+  "calibration_labels": 6,
+  "calibration_split_level": "sample/crop; not guaranteed group-disjoint",
+  "fit_calibration_shared_groups": [],
+  "fit_ids": [
+    "bright-instance-turkey-earthquake_00000105-399",
+    "bright-instance-turkey-earthquake_00000227-80",
+    "bright-instance-turkey-earthquake_00000239-2",
+    "bright-instance-turkey-earthquake_00000257-47",
+    "bright-instance-turkey-earthquake_00000466-8",
+    "bright-instance-turkey-earthquake_00000526-60",
+    "bright-instance-turkey-earthquake_00000558-54",
+    "bright-instance-turkey-earthquake_00000592-120",
+    "bright-instance-turkey-earthquake_00000618-16",
+    "bright-instance-turkey-earthquake_00000671-70",
+    "bright-instance-turkey-earthquake_00000724-1",
+    "bright-instance-turkey-earthquake_00000953-26",
+    "bright-instance-turkey-earthquake_00000990-60",
+    "bright-instance-turkey-earthquake_00001000-34",
+    "bright-instance-turkey-earthquake_00001013-63",
+    "bright-instance-turkey-earthquake_00001014-40",
+    "bright-instance-turkey-earthquake_00001024-37",
+    "bright-instance-turkey-earthquake_00001085-8"
+  ],
+  "fit_labels": 18,
+  "query_count": 300,
+  "query_ids_sha256": "ca82852369de0ad82ce1b6b6e6a75682f24a5b89f755c9b86dd562b8c1939ce7",
+  "query_status": "new_within_support_calibration; previously_inspected_query",
+  "source_query_sha256": "8d8a256462f52e235fd8fe66bbe3a0ef6cd1830d5273aa4b8dd4b81d5aebde5e",
+  "source_support_sha256": "679b1f020e7d6561153dafff0fc70bcd7ec57ea908ac40321fcb8ab98dba6f8d",
+  "split_seed": 270923,
+  "total_labels": 24,
+  "unit_id": "turkey-earthquake--s2"
+}

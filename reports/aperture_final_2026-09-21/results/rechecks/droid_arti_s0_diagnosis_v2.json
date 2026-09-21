@@ -1,0 +1,16 @@
+{
+  "recorded_at": "2026-09-21T09:54:30.418339+00:00",
+  "canonical_source_signature": "f686261411b28fd9e267326aab1dd8c0b92e618d4521d94dae26993e7c638234",
+  "failed_run_root": "/home/root123/.local/share/stateadaptation/aperture-final-round-20260921/runs/aperture_droid_arti_s0_recheck_v1",
+  "failed_job": "droid_arti--s0--aperture--fit",
+  "observations": [
+    "Frozen, LoRA1, LoRA4 fit states sealed; Aperture fit has no DONE.json",
+    "GPU2 free memory reached approximately 25 MiB during Aperture fit",
+    "Worker log reported CUSOLVER_STATUS_INTERNAL_ERROR at cusolverDnCreate(handle)",
+    "Partial controller.pt exists; code saves this before computing descriptive operator spectral norms on GPU",
+    "Saved partial controller.pt loads on CPU and all 4 operator spectral norms compute to finite values (range 1.4534–1.6787); failure is after controller serialization, before fit DONE seal."
+  ],
+  "hypothesis": "Insufficient GPU memory for the descriptive torch.linalg.matrix_norm(...,2) cuSOLVER handle after fitting; not proven solely by the log.",
+  "diagnostic_change": "New independent run root with PYTORCH_NO_CUDA_MEMORY_CACHING=1; same model, data, support/query lists, training hyperparameters and tracked source. Runtime allocator differs and comparison must be labeled diagnostic.",
+  "next_run_root": "/home/root123/.local/share/stateadaptation/aperture-final-round-20260921/runs/aperture_droid_arti_s0_recheck_v2_nocache"
+}

@@ -1,0 +1,44 @@
+{
+  "calibration_ids": [
+    "bright-instance-hawaii-wildfire_00000029-129",
+    "bright-instance-hawaii-wildfire_00000029-167",
+    "bright-instance-hawaii-wildfire_00000029-51",
+    "bright-instance-hawaii-wildfire_00000029-52",
+    "bright-instance-hawaii-wildfire_00000029-80",
+    "bright-instance-hawaii-wildfire_00000044-1"
+  ],
+  "calibration_labels": 6,
+  "calibration_split_level": "sample/crop; not guaranteed group-disjoint",
+  "fit_calibration_shared_groups": [
+    "hawaii-wildfire_00000029"
+  ],
+  "fit_ids": [
+    "bright-instance-hawaii-wildfire_00000019-1",
+    "bright-instance-hawaii-wildfire_00000029-102",
+    "bright-instance-hawaii-wildfire_00000029-142",
+    "bright-instance-hawaii-wildfire_00000029-155",
+    "bright-instance-hawaii-wildfire_00000029-156",
+    "bright-instance-hawaii-wildfire_00000029-18",
+    "bright-instance-hawaii-wildfire_00000029-24",
+    "bright-instance-hawaii-wildfire_00000029-25",
+    "bright-instance-hawaii-wildfire_00000029-26",
+    "bright-instance-hawaii-wildfire_00000029-4",
+    "bright-instance-hawaii-wildfire_00000029-40",
+    "bright-instance-hawaii-wildfire_00000029-45",
+    "bright-instance-hawaii-wildfire_00000029-46",
+    "bright-instance-hawaii-wildfire_00000029-5",
+    "bright-instance-hawaii-wildfire_00000029-77",
+    "bright-instance-hawaii-wildfire_00000029-79",
+    "bright-instance-hawaii-wildfire_00000029-99",
+    "bright-instance-hawaii-wildfire_00000064-3"
+  ],
+  "fit_labels": 18,
+  "query_count": 300,
+  "query_ids_sha256": "5a567c18b193421055f26f344142854dda82e5c3989fcacf3075caa9b2855615",
+  "query_status": "new_within_support_calibration; previously_inspected_query",
+  "source_query_sha256": "776f17b70109e27b87c4a3c4599c483efb4bdba532e9dbddae20762557657e7a",
+  "source_support_sha256": "9ef9a997738ab04d07ccd100fb2a9b04b17798d1b9a3535460ca2059818d9129",
+  "split_seed": 270923,
+  "total_labels": 24,
+  "unit_id": "hawaii-wildfire--s2"
+}

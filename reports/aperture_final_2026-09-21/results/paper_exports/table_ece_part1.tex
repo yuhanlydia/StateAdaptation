@@ -1,0 +1,19 @@
+% New held-out-support protocol; do not replace historical whole-support results.
+% Mean +/- sample SD over support seeds. Unclipped NLL uses saved log scores.
+\begin{tabular}{lrrrr}
+\toprule
+Method & hawaii-wildfire & libya-flood & noto-earthquake & turkey-earthquake \\
+\midrule
+Frozen & $0.2205_{\pm 0.0000}$ & $0.1886_{\pm 0.0000}$ & $0.2475_{\pm 0.0000}$ & $0.2348_{\pm 0.0000}$ \\
+Frozen + T & $0.0625_{\pm 0.0405}$ & $0.0276_{\pm 0.0148}$ & $0.1085_{\pm 0.0526}$ & $0.0606_{\pm 0.0168}$ \\
+Frozen + all-support bias & $0.0992_{\pm 0.0184}$ & $0.0815_{\pm 0.0109}$ & $0.0823_{\pm 0.0157}$ & $0.1679_{\pm 0.0166}$ \\
+LoRA-1pass & $0.1604_{\pm 0.0535}$ & $0.1821_{\pm 0.0317}$ & $0.1985_{\pm 0.0900}$ & $0.1610_{\pm 0.0413}$ \\
+LoRA-1pass + T & $0.0919_{\pm 0.0619}$ & $0.0102_{\pm 0.0022}$ & $0.0987_{\pm 0.0798}$ & $0.0673_{\pm 0.0144}$ \\
+LoRA-4passes & $0.1273_{\pm 0.0428}$ & $0.1052_{\pm 0.0322}$ & $0.1055_{\pm 0.0205}$ & $0.0974_{\pm 0.0227}$ \\
+LoRA-4passes + T & $0.1185_{\pm 0.1451}$ & $0.0432_{\pm 0.0463}$ & $0.0944_{\pm 0.0768}$ & $0.0464_{\pm 0.0158}$ \\
+Aperture & $0.1294_{\pm 0.0250}$ & $0.1120_{\pm 0.0338}$ & $0.0849_{\pm 0.0101}$ & $0.0931_{\pm 0.0115}$ \\
+Aperture + T & $0.0582_{\pm 0.0194}$ & $0.0634_{\pm 0.0154}$ & $0.1225_{\pm 0.1523}$ & $0.0869_{\pm 0.0776}$ \\
+LoRA-selected & $0.1333_{\pm 0.0518}$ & $0.1052_{\pm 0.0322}$ & $0.1109_{\pm 0.0115}$ & $0.0974_{\pm 0.0227}$ \\
+LoRA-selected + T & $0.1185_{\pm 0.1451}$ & $0.0417_{\pm 0.0479}$ & $0.0944_{\pm 0.0768}$ & $0.0464_{\pm 0.0158}$ \\
+\bottomrule
+\end{tabular}

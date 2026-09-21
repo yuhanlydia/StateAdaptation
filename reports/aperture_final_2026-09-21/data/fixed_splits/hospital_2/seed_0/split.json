@@ -1,0 +1,37 @@
+{
+  "calibration_ids": [
+    "cam17-299854",
+    "cam17-301050",
+    "cam17-54449",
+    "cam17-54504"
+  ],
+  "calibration_labels": 4,
+  "calibration_split_level": "sample/crop; not guaranteed group-disjoint",
+  "fit_calibration_shared_groups": [
+    "patient_46_slide_25",
+    "patient_48_slide_27"
+  ],
+  "fit_ids": [
+    "cam17-294395",
+    "cam17-300199",
+    "cam17-300748",
+    "cam17-300768",
+    "cam17-301701",
+    "cam17-312082",
+    "cam17-54403",
+    "cam17-54493",
+    "cam17-54811",
+    "cam17-54821",
+    "cam17-54985",
+    "cam17-55190"
+  ],
+  "fit_labels": 12,
+  "query_count": 300,
+  "query_ids_sha256": "f9f96575c8defc0debc2b8ff917e8ab31bd66885ad5c75605ce07c3120c633c3",
+  "query_status": "new_within_support_calibration; previously_inspected_query",
+  "source_query_sha256": "fa8fc1ef0da20b13361d3fb0cb714f85ec93a66a3d1d20c33959595702c48b7f",
+  "source_support_sha256": "7ed2a2113f04dadaa739c504c1847d9ae7214c0ce64de159c5e8adc81e8c0b2e",
+  "split_seed": 270921,
+  "total_labels": 16,
+  "unit_id": "hospital_2--s0"
+}

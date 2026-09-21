@@ -1,0 +1,10 @@
+{
+  "recorded_at": "2026-09-21T10:02:40.601785+00:00",
+  "canonical_source_signature": "f686261411b28fd9e267326aab1dd8c0b92e618d4521d94dae26993e7c638234",
+  "diagnostic_source_signature": "9f757a634d0e28b914999da412c4c27b66d045e5674446bcabbf1f0186d93a09",
+  "failed_v1": "CUSOLVER_STATUS_INTERNAL_ERROR with 25 MiB free after controller serialization; no fit DONE seal",
+  "stopped_v2": "PYTORCH_NO_CUDA_MEMORY_CACHING=1 audit passed, Frozen fit was too slow and intentionally terminated; no fit DONE seal",
+  "v3_change": "Only descriptive operator_norms of four 16x16 controller matrices computed on CPU instead of GPU; model, data, support/query IDs, optimizer, loss and update budget unchanged. This changes tracked source signature and is a diagnostic run, not an exact source recheck.",
+  "v3_run_root": "/home/root123/.local/share/stateadaptation/aperture-final-round-20260921/runs/aperture_droid_arti_s0_recheck_v3_cpu_norm",
+  "verification": "PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 PYTHONPATH=src python -m pytest -q tests_aperture_final: 39 passed"
+}

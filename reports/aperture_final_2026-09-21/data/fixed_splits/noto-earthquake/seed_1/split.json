@@ -1,0 +1,45 @@
+{
+  "calibration_ids": [
+    "bright-instance-noto-earthquake_00000027-324",
+    "bright-instance-noto-earthquake_00000027-511",
+    "bright-instance-noto-earthquake_00000027-61",
+    "bright-instance-noto-earthquake_00000027-651",
+    "bright-instance-noto-earthquake_00000027-666",
+    "bright-instance-noto-earthquake_00000050-136"
+  ],
+  "calibration_labels": 6,
+  "calibration_split_level": "sample/crop; not guaranteed group-disjoint",
+  "fit_calibration_shared_groups": [
+    "noto-earthquake_00000027",
+    "noto-earthquake_00000050"
+  ],
+  "fit_ids": [
+    "bright-instance-noto-earthquake_00000027-103",
+    "bright-instance-noto-earthquake_00000027-149",
+    "bright-instance-noto-earthquake_00000027-170",
+    "bright-instance-noto-earthquake_00000027-189",
+    "bright-instance-noto-earthquake_00000027-313",
+    "bright-instance-noto-earthquake_00000027-327",
+    "bright-instance-noto-earthquake_00000027-504",
+    "bright-instance-noto-earthquake_00000027-518",
+    "bright-instance-noto-earthquake_00000027-545",
+    "bright-instance-noto-earthquake_00000027-588",
+    "bright-instance-noto-earthquake_00000027-662",
+    "bright-instance-noto-earthquake_00000027-664",
+    "bright-instance-noto-earthquake_00000027-697",
+    "bright-instance-noto-earthquake_00000027-729",
+    "bright-instance-noto-earthquake_00000027-742",
+    "bright-instance-noto-earthquake_00000050-133",
+    "bright-instance-noto-earthquake_00000050-94",
+    "bright-instance-noto-earthquake_00000060-16"
+  ],
+  "fit_labels": 18,
+  "query_count": 300,
+  "query_ids_sha256": "409256445b6d9d2abd4f4a1e77ab834c6b24a6a4b6861b4b79f5c05ee32f33d4",
+  "query_status": "new_within_support_calibration; previously_inspected_query",
+  "source_query_sha256": "f949e06fec9a1c041a8e8a2fac919a303c349b22548eeee462ac3a6c4f84cb98",
+  "source_support_sha256": "c373c330a255c1403215aeb5ff017f593df30aa276fa4322ecd98c8ba7fbfb78",
+  "split_seed": 270922,
+  "total_labels": 24,
+  "unit_id": "noto-earthquake--s1"
+}

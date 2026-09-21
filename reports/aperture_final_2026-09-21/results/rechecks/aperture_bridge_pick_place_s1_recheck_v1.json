@@ -1,0 +1,621 @@
+{
+  "completed_at": "2026-09-21T09:05:34.694711+00:00",
+  "scope": "bridge_pick_place seed 1",
+  "meaning": "Diagnostic reproducibility recheck; no query-selected tuning or replacement of canonical tables.",
+  "source_signature": "f686261411b28fd9e267326aab1dd8c0b92e618d4521d94dae26993e7c638234",
+  "protocol_changed_only_run_root": true,
+  "comparisons": [
+    {
+      "arm": "frozen",
+      "canonical_job_id": "bridge_pick_place--s1--frozen",
+      "query_ids_exact_match": true,
+      "query_labels_exact_match": true,
+      "canonical_clean_sha256": "7a639f3912813545228d7fa0416a74910b2249fdb76ff3badcad38472e2d2360",
+      "recheck_clean_sha256": "7a639f3912813545228d7fa0416a74910b2249fdb76ff3badcad38472e2d2360",
+      "canonical_score_sha256": "6fb2985e1da29cfc6c69708d3cbc2fc95e13502e5cda71fa64dd80e9d2edbbbb",
+      "recheck_score_sha256": "6fb2985e1da29cfc6c69708d3cbc2fc95e13502e5cda71fa64dd80e9d2edbbbb",
+      "score_hash_exact_match": true,
+      "max_abs_candidate_score_delta": 0.0,
+      "prediction_disagreements": 0,
+      "metrics": {
+        "raw": {
+          "canonical": {
+            "nll": 1.673655849195668,
+            "macro_f1": 0.23000187778191095,
+            "balanced_accuracy": 0.32
+          },
+          "recheck": {
+            "nll": 1.673655849195668,
+            "macro_f1": 0.23000187778191095,
+            "balanced_accuracy": 0.32
+          },
+          "delta_recheck_minus_canonical": {
+            "nll": 0.0,
+            "macro_f1": 0.0,
+            "balanced_accuracy": 0.0
+          },
+          "canonical_confusion": [
+            [
+              91,
+              0,
+              1,
+              8
+            ],
+            [
+              85,
+              0,
+              4,
+              11
+            ],
+            [
+              78,
+              0,
+              7,
+              15
+            ],
+            [
+              69,
+              0,
+              1,
+              30
+            ]
+          ],
+          "recheck_confusion": [
+            [
+              91,
+              0,
+              1,
+              8
+            ],
+            [
+              85,
+              0,
+              4,
+              11
+            ],
+            [
+              78,
+              0,
+              7,
+              15
+            ],
+            [
+              69,
+              0,
+              1,
+              30
+            ]
+          ]
+        },
+        "temperature": {
+          "canonical": {
+            "nll": 1.3354362455421325,
+            "macro_f1": 0.23000187778191095,
+            "balanced_accuracy": 0.32
+          },
+          "recheck": {
+            "nll": 1.3354362455421325,
+            "macro_f1": 0.23000187778191095,
+            "balanced_accuracy": 0.32
+          },
+          "delta_recheck_minus_canonical": {
+            "nll": 0.0,
+            "macro_f1": 0.0,
+            "balanced_accuracy": 0.0
+          },
+          "canonical_confusion": [
+            [
+              91,
+              0,
+              1,
+              8
+            ],
+            [
+              85,
+              0,
+              4,
+              11
+            ],
+            [
+              78,
+              0,
+              7,
+              15
+            ],
+            [
+              69,
+              0,
+              1,
+              30
+            ]
+          ],
+          "recheck_confusion": [
+            [
+              91,
+              0,
+              1,
+              8
+            ],
+            [
+              85,
+              0,
+              4,
+              11
+            ],
+            [
+              78,
+              0,
+              7,
+              15
+            ],
+            [
+              69,
+              0,
+              1,
+              30
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "arm": "lora1",
+      "canonical_job_id": "bridge_pick_place--s1--lora1",
+      "query_ids_exact_match": true,
+      "query_labels_exact_match": true,
+      "canonical_clean_sha256": "f5a2133691bba91c5b2273d5cc436089516cf30b4935c801c1ddd15cd270f2cb",
+      "recheck_clean_sha256": "d819f027d7b3e8c40b48990a732c38a3edbeb73cd50e7abaaf0a8968e7a7d475",
+      "canonical_score_sha256": "8aa9b69c76049e5cc79d2f7cf49bbdeaeb447426701dee1d520dc26acdb2a21e",
+      "recheck_score_sha256": "f63b96d488de09c8fa98215211be917906dfe4ff4a490a043884a588a37ca3b0",
+      "score_hash_exact_match": false,
+      "max_abs_candidate_score_delta": 2.352322816848755,
+      "prediction_disagreements": 18,
+      "metrics": {
+        "raw": {
+          "canonical": {
+            "nll": 0.6340049529370468,
+            "macro_f1": 0.7996338396326741,
+            "balanced_accuracy": 0.8
+          },
+          "recheck": {
+            "nll": 0.6308615530506115,
+            "macro_f1": 0.7867915391164656,
+            "balanced_accuracy": 0.7875
+          },
+          "delta_recheck_minus_canonical": {
+            "nll": -0.003143399886435305,
+            "macro_f1": -0.012842300516208494,
+            "balanced_accuracy": -0.012500000000000067
+          },
+          "canonical_confusion": [
+            [
+              80,
+              6,
+              6,
+              8
+            ],
+            [
+              6,
+              82,
+              5,
+              7
+            ],
+            [
+              7,
+              5,
+              85,
+              3
+            ],
+            [
+              13,
+              7,
+              7,
+              73
+            ]
+          ],
+          "recheck_confusion": [
+            [
+              78,
+              6,
+              8,
+              8
+            ],
+            [
+              6,
+              83,
+              6,
+              5
+            ],
+            [
+              6,
+              8,
+              83,
+              3
+            ],
+            [
+              11,
+              10,
+              8,
+              71
+            ]
+          ]
+        },
+        "temperature": {
+          "canonical": {
+            "nll": 1.7292560300048405,
+            "macro_f1": 0.7996338396326741,
+            "balanced_accuracy": 0.8
+          },
+          "recheck": {
+            "nll": 1.0029358201233052,
+            "macro_f1": 0.7867915391164656,
+            "balanced_accuracy": 0.7875
+          },
+          "delta_recheck_minus_canonical": {
+            "nll": -0.7263202098815353,
+            "macro_f1": -0.012842300516208494,
+            "balanced_accuracy": -0.012500000000000067
+          },
+          "canonical_confusion": [
+            [
+              80,
+              6,
+              6,
+              8
+            ],
+            [
+              6,
+              82,
+              5,
+              7
+            ],
+            [
+              7,
+              5,
+              85,
+              3
+            ],
+            [
+              13,
+              7,
+              7,
+              73
+            ]
+          ],
+          "recheck_confusion": [
+            [
+              78,
+              6,
+              8,
+              8
+            ],
+            [
+              6,
+              83,
+              6,
+              5
+            ],
+            [
+              6,
+              8,
+              83,
+              3
+            ],
+            [
+              11,
+              10,
+              8,
+              71
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "arm": "lora4",
+      "canonical_job_id": "bridge_pick_place--s1--lora4",
+      "query_ids_exact_match": true,
+      "query_labels_exact_match": true,
+      "canonical_clean_sha256": "449d98eedff65edc0b719610ad07dce38d6c317e8d9108181a96e62e6c759041",
+      "recheck_clean_sha256": "7ecbb643283086c0ab5ef17f42a47e3474cb36b2e875e4518bb68e12465845e4",
+      "canonical_score_sha256": "96614c5476e19ce73bf8d8e235cf58d3ee89821a516b295f4cdc97f6be9396c5",
+      "recheck_score_sha256": "af8599d7595e68aedc1d68813b48422df3a95ebf1b23dcdec7d0c136ae91068f",
+      "score_hash_exact_match": false,
+      "max_abs_candidate_score_delta": 17.4999446884176,
+      "prediction_disagreements": 37,
+      "metrics": {
+        "raw": {
+          "canonical": {
+            "nll": 2.1898409636201395,
+            "macro_f1": 0.8120432831343584,
+            "balanced_accuracy": 0.8125
+          },
+          "recheck": {
+            "nll": 1.4852974859444001,
+            "macro_f1": 0.80894681573253,
+            "balanced_accuracy": 0.8099999999999999
+          },
+          "delta_recheck_minus_canonical": {
+            "nll": -0.7045434776757393,
+            "macro_f1": -0.00309646740182834,
+            "balanced_accuracy": -0.0025000000000000577
+          },
+          "canonical_confusion": [
+            [
+              82,
+              6,
+              3,
+              9
+            ],
+            [
+              3,
+              86,
+              4,
+              7
+            ],
+            [
+              3,
+              9,
+              85,
+              3
+            ],
+            [
+              8,
+              12,
+              8,
+              72
+            ]
+          ],
+          "recheck_confusion": [
+            [
+              82,
+              8,
+              4,
+              6
+            ],
+            [
+              1,
+              90,
+              5,
+              4
+            ],
+            [
+              5,
+              9,
+              83,
+              3
+            ],
+            [
+              8,
+              15,
+              8,
+              69
+            ]
+          ]
+        },
+        "temperature": {
+          "canonical": {
+            "nll": 1.3971872404259633,
+            "macro_f1": 0.8120432831343584,
+            "balanced_accuracy": 0.8125
+          },
+          "recheck": {
+            "nll": 0.5659557739052233,
+            "macro_f1": 0.80894681573253,
+            "balanced_accuracy": 0.8099999999999999
+          },
+          "delta_recheck_minus_canonical": {
+            "nll": -0.83123146652074,
+            "macro_f1": -0.00309646740182834,
+            "balanced_accuracy": -0.0025000000000000577
+          },
+          "canonical_confusion": [
+            [
+              82,
+              6,
+              3,
+              9
+            ],
+            [
+              3,
+              86,
+              4,
+              7
+            ],
+            [
+              3,
+              9,
+              85,
+              3
+            ],
+            [
+              8,
+              12,
+              8,
+              72
+            ]
+          ],
+          "recheck_confusion": [
+            [
+              82,
+              8,
+              4,
+              6
+            ],
+            [
+              1,
+              90,
+              5,
+              4
+            ],
+            [
+              5,
+              9,
+              83,
+              3
+            ],
+            [
+              8,
+              15,
+              8,
+              69
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "arm": "aperture",
+      "canonical_job_id": "bridge_pick_place--s1--aperture",
+      "query_ids_exact_match": true,
+      "query_labels_exact_match": true,
+      "canonical_clean_sha256": "c5e3a69fc083365662d48624224e2acc8bff62f77dd76b0419e0e7bc914171af",
+      "recheck_clean_sha256": "fa3de62ab9ebe7a68329949754b0a6b376b3f64a6a5abeaf8f1e578498e9ce3b",
+      "canonical_score_sha256": "8e94aee95634debb1f4c01b452c6098880f0fda7f6b785f6eb93d5e3e40af74e",
+      "recheck_score_sha256": "a88b663e3e245e297d1552927b63f09a954e9c5aee6da7b4c342f6cea2133ae4",
+      "score_hash_exact_match": false,
+      "max_abs_candidate_score_delta": 1.0331662893295288,
+      "prediction_disagreements": 19,
+      "metrics": {
+        "raw": {
+          "canonical": {
+            "nll": 1.1219770596678995,
+            "macro_f1": 0.5116861878709281,
+            "balanced_accuracy": 0.51
+          },
+          "recheck": {
+            "nll": 1.1182796058051654,
+            "macro_f1": 0.5135881637601277,
+            "balanced_accuracy": 0.5149999999999999
+          },
+          "delta_recheck_minus_canonical": {
+            "nll": -0.0036974538627341236,
+            "macro_f1": 0.001901975889199603,
+            "balanced_accuracy": 0.004999999999999893
+          },
+          "canonical_confusion": [
+            [
+              54,
+              5,
+              1,
+              40
+            ],
+            [
+              23,
+              39,
+              4,
+              34
+            ],
+            [
+              21,
+              6,
+              40,
+              33
+            ],
+            [
+              20,
+              6,
+              3,
+              71
+            ]
+          ],
+          "recheck_confusion": [
+            [
+              59,
+              4,
+              1,
+              36
+            ],
+            [
+              24,
+              37,
+              3,
+              36
+            ],
+            [
+              21,
+              6,
+              38,
+              35
+            ],
+            [
+              20,
+              6,
+              2,
+              72
+            ]
+          ]
+        },
+        "temperature": {
+          "canonical": {
+            "nll": 1.117194157971325,
+            "macro_f1": 0.5116861878709281,
+            "balanced_accuracy": 0.51
+          },
+          "recheck": {
+            "nll": 1.1238940782179996,
+            "macro_f1": 0.5135881637601277,
+            "balanced_accuracy": 0.5149999999999999
+          },
+          "delta_recheck_minus_canonical": {
+            "nll": 0.006699920246674651,
+            "macro_f1": 0.001901975889199603,
+            "balanced_accuracy": 0.004999999999999893
+          },
+          "canonical_confusion": [
+            [
+              54,
+              5,
+              1,
+              40
+            ],
+            [
+              23,
+              39,
+              4,
+              34
+            ],
+            [
+              21,
+              6,
+              40,
+              33
+            ],
+            [
+              20,
+              6,
+              3,
+              71
+            ]
+          ],
+          "recheck_confusion": [
+            [
+              59,
+              4,
+              1,
+              36
+            ],
+            [
+              24,
+              37,
+              3,
+              36
+            ],
+            [
+              21,
+              6,
+              38,
+              35
+            ],
+            [
+              20,
+              6,
+              2,
+              72
+            ]
+          ]
+        }
+      }
+    }
+  ]
+}

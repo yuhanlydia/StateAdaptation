@@ -173,7 +173,10 @@ def execute_fit(job, audit_folder):
                 stats.update(optimizer_updates=len(history),optimized_scalars=controller.num_scalars(),
                              basis_scalars=sum(b.numel() for b in bases.values()),
                              fitting_visits=len(fit)*job['steps'],basis_visits=len(fit),
-                             operator_norms={k:float(torch.linalg.matrix_norm(a.detach(),2)) for k,a in controller.operators().items()})
+                             # These tiny descriptive matrices do not need a CUDA SVD.
+                             # Keep cuSOLVER workspace available for the actual fit.
+                             operator_norms={k:float(torch.linalg.matrix_norm(a.detach().cpu(),2))
+                                             for k,a in controller.operators().items()})
             elif job['arm']=='frozen':
                 history=[];stats.update(optimizer_updates=0,optimized_scalars=0,basis_scalars=0,fitting_visits=0,basis_visits=0)
             else:raise ValueError('unknown arm')

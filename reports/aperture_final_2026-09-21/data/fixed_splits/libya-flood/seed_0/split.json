@@ -1,0 +1,46 @@
+{
+  "calibration_ids": [
+    "bright-instance-libya-flood_00000007-165",
+    "bright-instance-libya-flood_00000014-10",
+    "bright-instance-libya-flood_00000014-213",
+    "bright-instance-libya-flood_00000014-73",
+    "bright-instance-libya-flood_00000086-22",
+    "bright-instance-libya-flood_00000086-39"
+  ],
+  "calibration_labels": 6,
+  "calibration_split_level": "sample/crop; not guaranteed group-disjoint",
+  "fit_calibration_shared_groups": [
+    "libya-flood_00000007",
+    "libya-flood_00000014",
+    "libya-flood_00000086"
+  ],
+  "fit_ids": [
+    "bright-instance-libya-flood_00000007-125",
+    "bright-instance-libya-flood_00000007-155",
+    "bright-instance-libya-flood_00000007-168",
+    "bright-instance-libya-flood_00000007-182",
+    "bright-instance-libya-flood_00000007-51",
+    "bright-instance-libya-flood_00000014-108",
+    "bright-instance-libya-flood_00000014-15",
+    "bright-instance-libya-flood_00000014-196",
+    "bright-instance-libya-flood_00000014-234",
+    "bright-instance-libya-flood_00000014-52",
+    "bright-instance-libya-flood_00000014-82",
+    "bright-instance-libya-flood_00000014-86",
+    "bright-instance-libya-flood_00000055-17",
+    "bright-instance-libya-flood_00000086-1",
+    "bright-instance-libya-flood_00000086-28",
+    "bright-instance-libya-flood_00000086-31",
+    "bright-instance-libya-flood_00000086-43",
+    "bright-instance-libya-flood_00000086-6"
+  ],
+  "fit_labels": 18,
+  "query_count": 300,
+  "query_ids_sha256": "d0618208bc7b0040efaa2accdcadd814ef497c37273acf77217160437d0b9c8d",
+  "query_status": "new_within_support_calibration; previously_inspected_query",
+  "source_query_sha256": "2eb4d82068d486651580eab8778d7357b2fbf817b2372bb84cc55687c9b8540e",
+  "source_support_sha256": "9374c41281a503dbb6bdc6b3965dc11f75006cc526af84e562b3a0ce8465e953",
+  "split_seed": 270921,
+  "total_labels": 24,
+  "unit_id": "libya-flood--s0"
+}

@@ -1,0 +1,621 @@
+{
+  "completed_at": "2026-09-21T09:52:25.250764+00:00",
+  "scope": "droid_pick_place seed 2",
+  "meaning": "Diagnostic reproducibility recheck; no query-selected tuning or replacement of canonical tables.",
+  "source_signature": "f686261411b28fd9e267326aab1dd8c0b92e618d4521d94dae26993e7c638234",
+  "protocol_changed_only_run_root": true,
+  "comparisons": [
+    {
+      "arm": "frozen",
+      "canonical_job_id": "droid_pick_place--s2--frozen",
+      "query_ids_exact_match": true,
+      "query_labels_exact_match": true,
+      "canonical_clean_sha256": "d97d808f82c68eb621e923a0767d755abab7e759602bd480020ad3bdd8b6e673",
+      "recheck_clean_sha256": "d97d808f82c68eb621e923a0767d755abab7e759602bd480020ad3bdd8b6e673",
+      "canonical_score_sha256": "98bbb0e9e8ac2ad7996c8ada1f40d79d86357547da08b1bc1a9f457370af69f1",
+      "recheck_score_sha256": "98bbb0e9e8ac2ad7996c8ada1f40d79d86357547da08b1bc1a9f457370af69f1",
+      "score_hash_exact_match": true,
+      "max_abs_candidate_score_delta": 0.0,
+      "prediction_disagreements": 0,
+      "metrics": {
+        "raw": {
+          "canonical": {
+            "nll": 1.9160285434795536,
+            "macro_f1": 0.15521707315978256,
+            "balanced_accuracy": 0.2725
+          },
+          "recheck": {
+            "nll": 1.9160285434795536,
+            "macro_f1": 0.15521707315978256,
+            "balanced_accuracy": 0.2725
+          },
+          "delta_recheck_minus_canonical": {
+            "nll": 0.0,
+            "macro_f1": 0.0,
+            "balanced_accuracy": 0.0
+          },
+          "canonical_confusion": [
+            [
+              97,
+              1,
+              0,
+              2
+            ],
+            [
+              92,
+              0,
+              1,
+              7
+            ],
+            [
+              85,
+              0,
+              5,
+              10
+            ],
+            [
+              93,
+              0,
+              0,
+              7
+            ]
+          ],
+          "recheck_confusion": [
+            [
+              97,
+              1,
+              0,
+              2
+            ],
+            [
+              92,
+              0,
+              1,
+              7
+            ],
+            [
+              85,
+              0,
+              5,
+              10
+            ],
+            [
+              93,
+              0,
+              0,
+              7
+            ]
+          ]
+        },
+        "temperature": {
+          "canonical": {
+            "nll": 1.384323635675223,
+            "macro_f1": 0.15521707315978256,
+            "balanced_accuracy": 0.2725
+          },
+          "recheck": {
+            "nll": 1.384323635675223,
+            "macro_f1": 0.15521707315978256,
+            "balanced_accuracy": 0.2725
+          },
+          "delta_recheck_minus_canonical": {
+            "nll": 0.0,
+            "macro_f1": 0.0,
+            "balanced_accuracy": 0.0
+          },
+          "canonical_confusion": [
+            [
+              97,
+              1,
+              0,
+              2
+            ],
+            [
+              92,
+              0,
+              1,
+              7
+            ],
+            [
+              85,
+              0,
+              5,
+              10
+            ],
+            [
+              93,
+              0,
+              0,
+              7
+            ]
+          ],
+          "recheck_confusion": [
+            [
+              97,
+              1,
+              0,
+              2
+            ],
+            [
+              92,
+              0,
+              1,
+              7
+            ],
+            [
+              85,
+              0,
+              5,
+              10
+            ],
+            [
+              93,
+              0,
+              0,
+              7
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "arm": "lora1",
+      "canonical_job_id": "droid_pick_place--s2--lora1",
+      "query_ids_exact_match": true,
+      "query_labels_exact_match": true,
+      "canonical_clean_sha256": "458106df0e9394ac98f485d141d2a53a50663a4bb7f264176eb4a14822759489",
+      "recheck_clean_sha256": "11d37109e958ed8fe63dd2ed2337cc7aa246011f994416154dddc484f576979a",
+      "canonical_score_sha256": "869ec44bcffb4f088cc9e0fe6de75927b8dd18ad06e3512f3cc3d6f48a680b2d",
+      "recheck_score_sha256": "d94ab46c7b7f0b6c8af9cfb92693fdcb10a3ad27c7045c09f6c5cc4be0d13c6c",
+      "score_hash_exact_match": false,
+      "max_abs_candidate_score_delta": 1.740795373916626,
+      "prediction_disagreements": 24,
+      "metrics": {
+        "raw": {
+          "canonical": {
+            "nll": 1.1050006171946563,
+            "macro_f1": 0.6486561672724009,
+            "balanced_accuracy": 0.65
+          },
+          "recheck": {
+            "nll": 1.0781177000505888,
+            "macro_f1": 0.64438267510849,
+            "balanced_accuracy": 0.645
+          },
+          "delta_recheck_minus_canonical": {
+            "nll": -0.02688291714406743,
+            "macro_f1": -0.00427349216391093,
+            "balanced_accuracy": -0.0050000000000000044
+          },
+          "canonical_confusion": [
+            [
+              74,
+              12,
+              11,
+              3
+            ],
+            [
+              16,
+              59,
+              11,
+              14
+            ],
+            [
+              16,
+              6,
+              69,
+              9
+            ],
+            [
+              16,
+              13,
+              13,
+              58
+            ]
+          ],
+          "recheck_confusion": [
+            [
+              70,
+              14,
+              13,
+              3
+            ],
+            [
+              14,
+              60,
+              11,
+              15
+            ],
+            [
+              15,
+              7,
+              68,
+              10
+            ],
+            [
+              14,
+              12,
+              14,
+              60
+            ]
+          ]
+        },
+        "temperature": {
+          "canonical": {
+            "nll": 1.0159036600390494,
+            "macro_f1": 0.6486561672724009,
+            "balanced_accuracy": 0.65
+          },
+          "recheck": {
+            "nll": 1.0215291311540666,
+            "macro_f1": 0.64438267510849,
+            "balanced_accuracy": 0.645
+          },
+          "delta_recheck_minus_canonical": {
+            "nll": 0.005625471115017211,
+            "macro_f1": -0.00427349216391093,
+            "balanced_accuracy": -0.0050000000000000044
+          },
+          "canonical_confusion": [
+            [
+              74,
+              12,
+              11,
+              3
+            ],
+            [
+              16,
+              59,
+              11,
+              14
+            ],
+            [
+              16,
+              6,
+              69,
+              9
+            ],
+            [
+              16,
+              13,
+              13,
+              58
+            ]
+          ],
+          "recheck_confusion": [
+            [
+              70,
+              14,
+              13,
+              3
+            ],
+            [
+              14,
+              60,
+              11,
+              15
+            ],
+            [
+              15,
+              7,
+              68,
+              10
+            ],
+            [
+              14,
+              12,
+              14,
+              60
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "arm": "lora4",
+      "canonical_job_id": "droid_pick_place--s2--lora4",
+      "query_ids_exact_match": true,
+      "query_labels_exact_match": true,
+      "canonical_clean_sha256": "8e2b99a086fca9c9063155067985848b918bc0ec83bbcfbd398305af189c75b9",
+      "recheck_clean_sha256": "4eca5c4dfeba0931a7851017ab40caf6e5b896d2756ab8707892ffe338d95d96",
+      "canonical_score_sha256": "47c447522264ebf21c1eb9a599dfb31f58ddb89df94a9bdbe8a20640035fc59a",
+      "recheck_score_sha256": "1c5d9151a6b6e93fdc3ea77478a81409b634bb494e1ed50cc11b3b41b18851aa",
+      "score_hash_exact_match": false,
+      "max_abs_candidate_score_delta": 9.185728698968887,
+      "prediction_disagreements": 71,
+      "metrics": {
+        "raw": {
+          "canonical": {
+            "nll": 1.190667989556696,
+            "macro_f1": 0.6947762798205694,
+            "balanced_accuracy": 0.6975
+          },
+          "recheck": {
+            "nll": 1.140192048262413,
+            "macro_f1": 0.741968932651285,
+            "balanced_accuracy": 0.7424999999999999
+          },
+          "delta_recheck_minus_canonical": {
+            "nll": -0.05047594129428301,
+            "macro_f1": 0.04719265283071561,
+            "balanced_accuracy": 0.04499999999999993
+          },
+          "canonical_confusion": [
+            [
+              72,
+              8,
+              10,
+              10
+            ],
+            [
+              19,
+              56,
+              11,
+              14
+            ],
+            [
+              12,
+              5,
+              70,
+              13
+            ],
+            [
+              5,
+              5,
+              9,
+              81
+            ]
+          ],
+          "recheck_confusion": [
+            [
+              80,
+              9,
+              5,
+              6
+            ],
+            [
+              9,
+              68,
+              11,
+              12
+            ],
+            [
+              13,
+              7,
+              73,
+              7
+            ],
+            [
+              10,
+              7,
+              7,
+              76
+            ]
+          ]
+        },
+        "temperature": {
+          "canonical": {
+            "nll": 0.9011256805233202,
+            "macro_f1": 0.6947762798205694,
+            "balanced_accuracy": 0.6975
+          },
+          "recheck": {
+            "nll": 0.837597576062084,
+            "macro_f1": 0.741968932651285,
+            "balanced_accuracy": 0.7424999999999999
+          },
+          "delta_recheck_minus_canonical": {
+            "nll": -0.06352810446123625,
+            "macro_f1": 0.04719265283071561,
+            "balanced_accuracy": 0.04499999999999993
+          },
+          "canonical_confusion": [
+            [
+              72,
+              8,
+              10,
+              10
+            ],
+            [
+              19,
+              56,
+              11,
+              14
+            ],
+            [
+              12,
+              5,
+              70,
+              13
+            ],
+            [
+              5,
+              5,
+              9,
+              81
+            ]
+          ],
+          "recheck_confusion": [
+            [
+              80,
+              9,
+              5,
+              6
+            ],
+            [
+              9,
+              68,
+              11,
+              12
+            ],
+            [
+              13,
+              7,
+              73,
+              7
+            ],
+            [
+              10,
+              7,
+              7,
+              76
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "arm": "aperture",
+      "canonical_job_id": "droid_pick_place--s2--aperture",
+      "query_ids_exact_match": true,
+      "query_labels_exact_match": true,
+      "canonical_clean_sha256": "1d831cd991655760c033dce6f0113efae4964e3c631547e851a009e9d5f7d24e",
+      "recheck_clean_sha256": "96062d2805d69dca0e5f7e40ed9acfe29b22d86128bce705cb9dbedb90374630",
+      "canonical_score_sha256": "ec1362e67739557949b6d14136a50717bbc5dc299ed8b7bb0ea0abb237a0c59a",
+      "recheck_score_sha256": "342bba96a4dce543626b6adb0dcd187f1a08d0b544fd462844d2c0bfbb54f2bf",
+      "score_hash_exact_match": false,
+      "max_abs_candidate_score_delta": 0.7583489418029785,
+      "prediction_disagreements": 21,
+      "metrics": {
+        "raw": {
+          "canonical": {
+            "nll": 1.3813737239157917,
+            "macro_f1": 0.2502832582968255,
+            "balanced_accuracy": 0.3225
+          },
+          "recheck": {
+            "nll": 1.3777946849613536,
+            "macro_f1": 0.2619621086758865,
+            "balanced_accuracy": 0.33499999999999996
+          },
+          "delta_recheck_minus_canonical": {
+            "nll": -0.0035790389544381185,
+            "macro_f1": 0.011678850379060968,
+            "balanced_accuracy": 0.012499999999999956
+          },
+          "canonical_confusion": [
+            [
+              81,
+              2,
+              3,
+              14
+            ],
+            [
+              65,
+              8,
+              0,
+              27
+            ],
+            [
+              69,
+              2,
+              4,
+              25
+            ],
+            [
+              60,
+              4,
+              0,
+              36
+            ]
+          ],
+          "recheck_confusion": [
+            [
+              84,
+              3,
+              2,
+              11
+            ],
+            [
+              65,
+              8,
+              0,
+              27
+            ],
+            [
+              67,
+              4,
+              5,
+              24
+            ],
+            [
+              58,
+              5,
+              0,
+              37
+            ]
+          ]
+        },
+        "temperature": {
+          "canonical": {
+            "nll": 1.3684928266783956,
+            "macro_f1": 0.2502832582968255,
+            "balanced_accuracy": 0.3225
+          },
+          "recheck": {
+            "nll": 1.3670900715867649,
+            "macro_f1": 0.2619621086758865,
+            "balanced_accuracy": 0.33499999999999996
+          },
+          "delta_recheck_minus_canonical": {
+            "nll": -0.0014027550916306808,
+            "macro_f1": 0.011678850379060968,
+            "balanced_accuracy": 0.012499999999999956
+          },
+          "canonical_confusion": [
+            [
+              81,
+              2,
+              3,
+              14
+            ],
+            [
+              65,
+              8,
+              0,
+              27
+            ],
+            [
+              69,
+              2,
+              4,
+              25
+            ],
+            [
+              60,
+              4,
+              0,
+              36
+            ]
+          ],
+          "recheck_confusion": [
+            [
+              84,
+              3,
+              2,
+              11
+            ],
+            [
+              65,
+              8,
+              0,
+              27
+            ],
+            [
+              67,
+              4,
+              5,
+              24
+            ],
+            [
+              58,
+              5,
+              0,
+              37
+            ]
+          ]
+        }
+      }
+    }
+  ]
+}
