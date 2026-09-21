@@ -1,0 +1,43 @@
+{
+  "verified_on": "2026-09-21",
+  "target_repository": "yuhanlydia/StateAdaptation",
+  "source_base_commit": "4465c460350ddf2ce3c8e65f5b2cdb247ac7497d",
+  "publication_branch": "aperture-final-round-20260921",
+  "publication_method": "GitHub Contents API; non-forced fast-forward of main after verification",
+  "gpu_experiments_run": false,
+  "real_vlm_integration_test_run": false,
+  "code_config_and_tests_unchanged_from_delivered_package": true,
+  "cpu_test_command": "PYTHONPATH=src python -m pytest -q tests tests_vigor tests_lens tests_aperture_final",
+  "cpu_test_counts": {
+    "tests": 131,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "new_package_tests": 39,
+  "legacy_compatibility_tests": 92,
+  "checks": {
+    "payload_manifest_sha256": true,
+    "compileall": true,
+    "bash_syntax": true,
+    "plan_states": 96,
+    "comparison_units": 24,
+    "trainable_fits": 72,
+    "remote_package_tree_matches_delivered_code": true,
+    "remote_new_tests_tree_matches_delivered_tests": true
+  },
+  "verified_git_tree_ids": {
+    "src/aperture_final": "a9b0ab5c91409ab6430c987f97adf6ca2928ab29",
+    "tests_aperture_final": "1e05c33744c4e7119ee67e32fc2096258c57d95e",
+    "src/eventttt": "07cf24c2b660d8acc1a0bd649460888ec410725a",
+    "src/vigor_handoff": "58708ddef95a3df0b966750fba951b9afbee233e"
+  },
+  "local_test_source": "Mounted source archive at 0b946c98663dda8ef5c294c0046ca308352304a2 plus delivered additive package; reused eventttt and vigor_handoff package trees match target main exactly. Current repository GPU audits remain mandatory.",
+  "notes": [
+    "CPU tests include explicitly synthetic fixtures; these are not benchmark results.",
+    "Only publication instructions differ from the delivered final-round package; no experimental settings were changed during publication.",
+    "Historical source files, reports, runs, data and manuscript files are not replaced.",
+    "The previous offline-package statement that no GitHub write was possible is superseded by this publication. Pull main instead of applying the patch again.",
+    "No GPU performance gain or paper acceptance is asserted."
+  ]
+}
