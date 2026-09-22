@@ -1,0 +1,15 @@
+# Use a separate CUDA-capable Python environment; do not overwrite old experiment dependencies.
+# Install a compatible CUDA torch/torchvision pair for the execution host separately.
+transformers==4.57.1
+peft==0.17.1
+accelerate>=1.6,<2
+safetensors>=0.5
+huggingface-hub>=0.34,<1
+sentencepiece>=0.2
+Pillow>=10
+numpy>=1.26
+scipy>=1.11
+scikit-learn>=1.4
+pandas>=2.0
+pytest>=8
+packaging>=24
