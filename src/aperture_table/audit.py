@@ -26,6 +26,14 @@ def signature_checks(off, on):
     }
 
 
+def visual_mask_isolation(direct, sites):
+    """Require observations at exactly the selected sites and zero leakage."""
+    expected = {f'{layer}:{kind}' for layer, kind, _ in sites}
+    return bool(expected) and set(direct) == expected and all(
+        observation['outside_max_abs'] == 0. for observation in direct.values()
+    )
+
+
 def execute_audit(job, root):
     deterministic(0)
     roles=read_roles(job,images=True)
@@ -64,12 +72,12 @@ def execute_audit(job, root):
             controller.restore(torch.load(folder/'roundtrip.pt',weights_only=True,map_location='cpu'))
             restored=backend.score(sample[0],controller)
             roundtrip=float(np.max(np.abs(np.array(changed['mean_log_scores'])-restored['mean_log_scores'])))
-            # All four module paths must carry finite gradients through replay.
+            # All selected module paths must carry finite gradients through replay.
             off=gradient_signature(model,backend,sample,sites,controller,False,'mean')
             on=gradient_signature(model,backend,sample,sites,controller,True,'mean')
             checks=signature_checks(off,on)
             checks.update(zero_identity=zero_diff<=.005,save_restore_identity=roundtrip<=.005,
-                visual_mask_isolation=len(direct)==4 and all(d['outside_max_abs']==0. for d in direct.values()),
+                visual_mask_isolation=visual_mask_isolation(direct,sites),
                 residual_is_nonzero=any(d['inside_norm']>0 for d in direct.values()))
             model.gradient_checkpointing_disable();model.eval()
             durations=[]
