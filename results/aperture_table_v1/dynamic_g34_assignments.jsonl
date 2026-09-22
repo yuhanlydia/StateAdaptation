@@ -1,0 +1,16 @@
+{"event": "start", "gpu": "0", "job_id": "g34--path--s0--frozen", "utc": 1790051068.8230119}
+{"event": "start", "gpu": "2", "job_id": "g34--path--s0--lora1", "utc": 1790051464.8736165}
+{"event": "start", "gpu": "3", "job_id": "g34--path--s0--lora4", "utc": 1790051594.888144}
+{"event": "done", "gpu": "0", "job_id": "g34--path--s0--frozen", "seconds": 897.6396539211273, "utc": 1790051966.462667}
+{"event": "start", "gpu": "0", "job_id": "g34--path--s0--aperture", "utc": 1790051966.4628956}
+{"event": "done", "gpu": "2", "job_id": "g34--path--s0--lora1", "seconds": 930.1013581752777, "utc": 1790052394.9749765}
+{"event": "start", "gpu": "2", "job_id": "g34--path--s1--frozen", "utc": 1790052394.9754157}
+{"event": "done", "gpu": "3", "job_id": "g34--path--s0--lora4", "seconds": 984.9549512863159, "utc": 1790052579.8430967}
+{"event": "start", "gpu": "3", "job_id": "g34--path--s1--lora1", "utc": 1790052579.843591}
+{"event": "done", "gpu": "0", "job_id": "g34--path--s0--aperture", "seconds": 949.6282923221588, "utc": 1790052916.0911896}
+{"event": "start", "gpu": "0", "job_id": "g34--path--s1--lora4", "utc": 1790052916.0916595}
+{"event": "start", "gpu": "1", "job_id": "g34--path--s1--aperture", "utc": 1790053221.0946364}
+{"event": "done", "gpu": "2", "job_id": "g34--path--s1--frozen", "seconds": 874.5219314098358, "utc": 1790053269.4973476}
+{"event": "done", "gpu": "3", "job_id": "g34--path--s1--lora1", "seconds": 1018.8351299762726, "utc": 1790053598.678722}
+{"event": "done", "gpu": "0", "job_id": "g34--path--s1--lora4", "seconds": 946.6411392688751, "utc": 1790053862.7328}
+{"event": "done", "gpu": "1", "job_id": "g34--path--s1--aperture", "seconds": 887.1272604465485, "utc": 1790054108.2218974}

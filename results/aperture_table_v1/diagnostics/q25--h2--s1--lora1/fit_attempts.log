@@ -1,0 +1,41 @@
+The image processor of type `Qwen2VLImageProcessor` is now loaded as a fast processor by default, even if the model checkpoint was saved with a slow processor. This is a breaking change and may produce slightly different outputs. To continue using the slow processor, instantiate this class with `use_fast=False`. Note that this behavior will be extended to all models in a future release.
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:00<00:02,  1.94it/s]Loading checkpoint shards:  40%|████      | 2/5 [00:00<00:01,  2.10it/s]Loading checkpoint shards:  60%|██████    | 3/5 [00:01<00:00,  2.14it/s]Loading checkpoint shards:  80%|████████  | 4/5 [00:01<00:00,  2.18it/s]Loading checkpoint shards:  80%|████████  | 4/5 [00:01<00:00,  2.14it/s]
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/root123/.local/share/stateadaptation/aperture_table_20260922/StateAdaptation/src/aperture_table/cli.py", line 151, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/home/root123/.local/share/stateadaptation/aperture_table_20260922/StateAdaptation/src/aperture_table/cli.py", line 145, in main
+    print(execute_fit(job,root))
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/root123/.local/share/stateadaptation/aperture_table_20260922/StateAdaptation/src/aperture_table/worker.py", line 198, in execute_fit
+    with store.lock(), loaded(job) as (model,backend,_):
+  File "/usr/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/home/root123/.local/share/stateadaptation/aperture_table_20260922/StateAdaptation/src/aperture_table/backend.py", line 161, in loaded
+    model=cls.from_pretrained(job['model_path'],local_files_only=True,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/stateadaptation_aperture_table_20260922/venv/lib/python3.12/site-packages/transformers/modeling_utils.py", line 277, in _wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/stateadaptation_aperture_table_20260922/venv/lib/python3.12/site-packages/transformers/modeling_utils.py", line 5048, in from_pretrained
+    ) = cls._load_pretrained_model(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/stateadaptation_aperture_table_20260922/venv/lib/python3.12/site-packages/transformers/modeling_utils.py", line 5468, in _load_pretrained_model
+    _error_msgs, disk_offload_index = load_shard_file(args)
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/stateadaptation_aperture_table_20260922/venv/lib/python3.12/site-packages/transformers/modeling_utils.py", line 843, in load_shard_file
+    disk_offload_index = _load_state_dict_into_meta_model(
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/stateadaptation_aperture_table_20260922/venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/stateadaptation_aperture_table_20260922/venv/lib/python3.12/site-packages/transformers/modeling_utils.py", line 748, in _load_state_dict_into_meta_model
+    param = param[...]
+            ~~~~~^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1.02 GiB. GPU 0 has a total capacity of 23.52 GiB of which 182.62 MiB is free. Process 515388 has 8.42 GiB memory in use. Including non-PyTorch memory, this process has 14.89 GiB memory in use. Of the allocated memory 14.43 GiB is allocated by PyTorch, and 17.93 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+The image processor of type `Qwen2VLImageProcessor` is now loaded as a fast processor by default, even if the model checkpoint was saved with a slow processor. This is a breaking change and may produce slightly different outputs. To continue using the slow processor, instantiate this class with `use_fast=False`. Note that this behavior will be extended to all models in a future release.
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:00<00:02,  1.99it/s]Loading checkpoint shards:  40%|████      | 2/5 [00:00<00:01,  2.17it/s]Loading checkpoint shards:  60%|██████    | 3/5 [00:01<00:00,  2.20it/s]Loading checkpoint shards:  80%|████████  | 4/5 [00:01<00:00,  2.22it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:01<00:00,  3.02it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:01<00:00,  2.57it/s]
+done

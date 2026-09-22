@@ -1,0 +1,11 @@
+{
+  "filename": "pathmnist_224.npz",
+  "md5": "2c51a510bcdc9cf8ddb2af93af1eadec",
+  "official_checksum_md5": "2c51a510bcdc9cf8ddb2af93af1eadec",
+  "official_record": "https://zenodo.org/records/10519652",
+  "revision": "d1704ce40aabca4121bb3e7d211f121ec466458c",
+  "sha256": "f167745634a90a47cd04e55aa69186ff0d0c4d5d1898045261ee12f83e22dd3e",
+  "size_bytes": 12629854322,
+  "source": "https://huggingface.co/datasets/convergedmachine/Enhanced-MedMNIST",
+  "verification": "full-file MD5 matches official Zenodo checksum; 224px NPZ; no 28px substitution"
+}

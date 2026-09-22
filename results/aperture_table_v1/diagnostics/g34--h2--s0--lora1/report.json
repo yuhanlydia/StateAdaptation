@@ -1,0 +1,73 @@
+{
+  "calibration_score_max_abs_delta": 0.0,
+  "job_id": "g34--h2--s0--lora1",
+  "original_raw": {
+    "accuracy": 0.5,
+    "brier": 0.9448059117064632,
+    "confusion_matrix": [
+      [
+        0,
+        100
+      ],
+      [
+        0,
+        100
+      ]
+    ],
+    "ece": 0.4766701664405857,
+    "macro_f1": 0.3333333333333333,
+    "nll": 1.8611922972165105
+  },
+  "original_temperature": {
+    "accuracy": 0.5,
+    "brier": 0.5270739917076226,
+    "confusion_matrix": [
+      [
+        0,
+        100
+      ],
+      [
+        0,
+        100
+      ]
+    ],
+    "ece": 0.13992920506328013,
+    "macro_f1": 0.3333333333333333,
+    "nll": 0.7210392377804353
+  },
+  "query_metrics_used_for_selection": false,
+  "replay_raw": {
+    "accuracy": 0.5,
+    "brier": 0.9448059117064632,
+    "confusion_matrix": [
+      [
+        0,
+        100
+      ],
+      [
+        0,
+        100
+      ]
+    ],
+    "ece": 0.4766701664405857,
+    "macro_f1": 0.3333333333333333,
+    "nll": 1.8611922972165105
+  },
+  "replay_temperature": {
+    "accuracy": 0.5,
+    "brier": 0.5270739917076226,
+    "confusion_matrix": [
+      [
+        0,
+        100
+      ],
+      [
+        0,
+        100
+      ]
+    ],
+    "ece": 0.13992920506328013,
+    "macro_f1": 0.3333333333333333,
+    "nll": 0.7210392377804353
+  }
+}

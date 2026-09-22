@@ -1,0 +1,11 @@
+{
+  "first_output": "/home/root123/.local/share/stateadaptation/aperture_table_20260922/run_storage/states/q34--h2--s0--aperture",
+  "first_seal": "e7594ed88057bda66b8512e246e002ae706bcb1e916d6097c61a20ae54f193ca",
+  "max_abs_calibration_score_delta": 0.0,
+  "passed": true,
+  "query_metrics_used": false,
+  "repeat_output": "/home/root123/.local/share/stateadaptation/aperture_table_20260922/run_storage/repeat/q34/state",
+  "repeat_seal": "4471213ddafb082279fbeb3897ac84e1ee7004061ac4727339ba6aab4b9b33d5",
+  "source": "2b96b4871bdb78e9196368507fc00dc8e7a75f8e54e758a09629cd86c1d8c091",
+  "tolerance": 0.005
+}

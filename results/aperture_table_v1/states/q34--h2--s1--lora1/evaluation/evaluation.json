@@ -1,0 +1,206 @@
+{
+  "arm": "lora1",
+  "domain_key": "h2",
+  "elapsed_this_invocation_seconds": 53.710606519000066,
+  "job_id": "q34--h2--s1--lora1",
+  "model_id": "Qwen/Qwen3-VL-4B-Instruct",
+  "model_key": "q34",
+  "query_ids_sha256": "d60e2f5476aeb001b529615d76cfc346654baf652762ad561d3b9922011d5fb9",
+  "query_label_sha256": "0f4c00e33f8b8c57ca5d68c1bddd40f9a6ac2a35e9c9477e3cba36d7c5743d31",
+  "raw": {
+    "accuracy": 0.535,
+    "balanced_accuracy": 0.535,
+    "brier": 0.8590463650261104,
+    "confusion_matrix": [
+      [
+        7,
+        93
+      ],
+      [
+        0,
+        100
+      ]
+    ],
+    "count": 200,
+    "ece": 0.4341834813413138,
+    "ece_bins": [
+      {
+        "accuracy": null,
+        "confidence": null,
+        "count": 0,
+        "lower": 0.0,
+        "upper": 0.1
+      },
+      {
+        "accuracy": null,
+        "confidence": null,
+        "count": 0,
+        "lower": 0.1,
+        "upper": 0.2
+      },
+      {
+        "accuracy": null,
+        "confidence": null,
+        "count": 0,
+        "lower": 0.2,
+        "upper": 0.30000000000000004
+      },
+      {
+        "accuracy": null,
+        "confidence": null,
+        "count": 0,
+        "lower": 0.30000000000000004,
+        "upper": 0.4
+      },
+      {
+        "accuracy": null,
+        "confidence": null,
+        "count": 0,
+        "lower": 0.4,
+        "upper": 0.5
+      },
+      {
+        "accuracy": 1.0,
+        "confidence": 0.5621795817376598,
+        "count": 1,
+        "lower": 0.5,
+        "upper": 0.6000000000000001
+      },
+      {
+        "accuracy": 0.5,
+        "confidence": 0.6697248909820837,
+        "count": 6,
+        "lower": 0.6000000000000001,
+        "upper": 0.7000000000000001
+      },
+      {
+        "accuracy": 0.25,
+        "confidence": 0.7426180173881269,
+        "count": 4,
+        "lower": 0.7000000000000001,
+        "upper": 0.8
+      },
+      {
+        "accuracy": 0.2,
+        "confidence": 0.8439693554429274,
+        "count": 10,
+        "lower": 0.8,
+        "upper": 0.9
+      },
+      {
+        "accuracy": 0.5586592178770949,
+        "confidence": 0.9886612339671851,
+        "count": 179,
+        "lower": 0.9,
+        "upper": 1.0
+      }
+    ],
+    "macro_f1": 0.40671748907530864,
+    "nll": 1.9853589047558557,
+    "nll_clipped_legacy": 1.9853589047558557,
+    "score_contract": "sum_answer_token_log_probabilities; candidate softmax; stable unclipped NLL",
+    "temperature": 1.0
+  },
+  "saved_state_replay_max_abs": 0.0,
+  "selection": {
+    "selected_lora_raw": "lora4",
+    "selected_lora_temperature": "lora4"
+  },
+  "source": "2b96b4871bdb78e9196368507fc00dc8e7a75f8e54e758a09629cd86c1d8c091",
+  "support_seed": 1,
+  "temperature": {
+    "accuracy": 0.535,
+    "balanced_accuracy": 0.535,
+    "brier": 0.538176258900023,
+    "confusion_matrix": [
+      [
+        7,
+        93
+      ],
+      [
+        0,
+        100
+      ]
+    ],
+    "count": 200,
+    "ece": 0.21147973956493288,
+    "ece_bins": [
+      {
+        "accuracy": null,
+        "confidence": null,
+        "count": 0,
+        "lower": 0.0,
+        "upper": 0.1
+      },
+      {
+        "accuracy": null,
+        "confidence": null,
+        "count": 0,
+        "lower": 0.1,
+        "upper": 0.2
+      },
+      {
+        "accuracy": null,
+        "confidence": null,
+        "count": 0,
+        "lower": 0.2,
+        "upper": 0.30000000000000004
+      },
+      {
+        "accuracy": null,
+        "confidence": null,
+        "count": 0,
+        "lower": 0.30000000000000004,
+        "upper": 0.4
+      },
+      {
+        "accuracy": null,
+        "confidence": null,
+        "count": 0,
+        "lower": 0.4,
+        "upper": 0.5
+      },
+      {
+        "accuracy": 0.3157894736842105,
+        "confidence": 0.5599127111642574,
+        "count": 19,
+        "lower": 0.5,
+        "upper": 0.6000000000000001
+      },
+      {
+        "accuracy": 0.27586206896551724,
+        "confidence": 0.6597099975897186,
+        "count": 29,
+        "lower": 0.6000000000000001,
+        "upper": 0.7000000000000001
+      },
+      {
+        "accuracy": 0.5815602836879432,
+        "confidence": 0.7548503529353591,
+        "count": 141,
+        "lower": 0.7000000000000001,
+        "upper": 0.8
+      },
+      {
+        "accuracy": 1.0,
+        "confidence": 0.809807572101981,
+        "count": 11,
+        "lower": 0.8,
+        "upper": 0.9
+      },
+      {
+        "accuracy": null,
+        "confidence": null,
+        "count": 0,
+        "lower": 0.9,
+        "upper": 1.0
+      }
+    ],
+    "macro_f1": 0.40671748907530864,
+    "nll": 0.7361906286338956,
+    "nll_clipped_legacy": 0.7361906286338956,
+    "score_contract": "sum_answer_token_log_probabilities; candidate softmax; stable unclipped NLL",
+    "temperature": 4.742747411323311
+  },
+  "unit_id": "q34--h2--s1"
+}

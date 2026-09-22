@@ -1,0 +1,25 @@
+{
+  "observed_at": "2026-09-22T03:26:53.900114+00:00",
+  "boot_at": "2026-09-22 11:17:28 Asia/Shanghai",
+  "sealed_fit_before_resume": 26,
+  "sealed_evaluation_before_resume": 4,
+  "stale_locks": [
+    {
+      "path": "states/g34--path--s0--frozen/fit/RUNNING.lock",
+      "pid": 751958
+    },
+    {
+      "path": "states/q25--h2--s1--lora4/fit/RUNNING.lock",
+      "pid": 760485
+    },
+    {
+      "path": "states/q34--h2--s0--lora1/fit/RUNNING.lock",
+      "pid": 747921
+    },
+    {
+      "path": "states/q38--path--s0--lora4/fit/RUNNING.lock",
+      "pid": 760307
+    }
+  ],
+  "action": "removed stale lock files only; original identity files and completed artifacts preserved"
+}

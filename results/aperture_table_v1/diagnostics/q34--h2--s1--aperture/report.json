@@ -1,0 +1,73 @@
+{
+  "calibration_score_max_abs_delta": 0.0,
+  "job_id": "q34--h2--s1--aperture",
+  "original_raw": {
+    "accuracy": 0.63,
+    "brier": 0.5613095681462711,
+    "confusion_matrix": [
+      [
+        86,
+        14
+      ],
+      [
+        60,
+        40
+      ]
+    ],
+    "ece": 0.23461714897662633,
+    "macro_f1": 0.6093337556752191,
+    "nll": 1.2260948214186806
+  },
+  "original_temperature": {
+    "accuracy": 0.63,
+    "brier": 0.6547778369424122,
+    "confusion_matrix": [
+      [
+        86,
+        14
+      ],
+      [
+        60,
+        40
+      ]
+    ],
+    "ece": 0.3233626716980454,
+    "macro_f1": 0.6093337556752191,
+    "nll": 3.812920017860404
+  },
+  "query_metrics_used_for_selection": false,
+  "replay_raw": {
+    "accuracy": 0.63,
+    "brier": 0.5613095681462711,
+    "confusion_matrix": [
+      [
+        86,
+        14
+      ],
+      [
+        60,
+        40
+      ]
+    ],
+    "ece": 0.23461714897662633,
+    "macro_f1": 0.6093337556752191,
+    "nll": 1.2260948214186806
+  },
+  "replay_temperature": {
+    "accuracy": 0.63,
+    "brier": 0.6547778369424122,
+    "confusion_matrix": [
+      [
+        86,
+        14
+      ],
+      [
+        60,
+        40
+      ]
+    ],
+    "ece": 0.3233626716980454,
+    "macro_f1": 0.6093337556752191,
+    "nll": 3.812920017860404
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "cells_sha256": "856c03d4343e4249ba0897178a08e60300cc089f2a0c448b210e25d718a6f477",
+  "completed_states": 64,
+  "exports": {
+    "clean_mean_sd.csv": "755075d72c703586d3b7308f794fc5069c6e3b34ce9a4704282dd9632df2a070",
+    "full_results.json": "0e7416f38a42a1d8aa045e7dfb0d2ae1d4c51ab50dc908e310834f5c4d33db7f",
+    "main_table.tex": "8a2d8a66a95458f890fa403f7d1da9e82da9052610e32478cda00c033805d6eb",
+    "main_table_cells.json": "856c03d4343e4249ba0897178a08e60300cc089f2a0c448b210e25d718a6f477",
+    "resources.json": "7b2c9bf80925a8b9182a0322e09c455495f989ac55918472126810231fbb6132"
+  },
+  "paper_ready": true,
+  "planned_states": 64,
+  "source": "2b96b4871bdb78e9196368507fc00dc8e7a75f8e54e758a09629cd86c1d8c091"
+}

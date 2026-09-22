@@ -1,0 +1,206 @@
+{
+  "arm": "lora4",
+  "domain_key": "h2",
+  "elapsed_this_invocation_seconds": 206.83662671399998,
+  "job_id": "g34--h2--s1--lora4",
+  "model_id": "google/gemma-3-4b-it",
+  "model_key": "g34",
+  "query_ids_sha256": "d60e2f5476aeb001b529615d76cfc346654baf652762ad561d3b9922011d5fb9",
+  "query_label_sha256": "0f4c00e33f8b8c57ca5d68c1bddd40f9a6ac2a35e9c9477e3cba36d7c5743d31",
+  "raw": {
+    "accuracy": 0.51,
+    "balanced_accuracy": 0.51,
+    "brier": 0.9545276732965797,
+    "confusion_matrix": [
+      [
+        98,
+        2
+      ],
+      [
+        96,
+        4
+      ]
+    ],
+    "count": 200,
+    "ece": 0.480328437283182,
+    "ece_bins": [
+      {
+        "accuracy": null,
+        "confidence": null,
+        "count": 0,
+        "lower": 0.0,
+        "upper": 0.1
+      },
+      {
+        "accuracy": null,
+        "confidence": null,
+        "count": 0,
+        "lower": 0.1,
+        "upper": 0.2
+      },
+      {
+        "accuracy": null,
+        "confidence": null,
+        "count": 0,
+        "lower": 0.2,
+        "upper": 0.30000000000000004
+      },
+      {
+        "accuracy": null,
+        "confidence": null,
+        "count": 0,
+        "lower": 0.30000000000000004,
+        "upper": 0.4
+      },
+      {
+        "accuracy": null,
+        "confidence": null,
+        "count": 0,
+        "lower": 0.4,
+        "upper": 0.5
+      },
+      {
+        "accuracy": 1.0,
+        "confidence": 0.5621765008857981,
+        "count": 1,
+        "lower": 0.5,
+        "upper": 0.6000000000000001
+      },
+      {
+        "accuracy": 0.5,
+        "confidence": 0.6791787056691697,
+        "count": 2,
+        "lower": 0.6000000000000001,
+        "upper": 0.7000000000000001
+      },
+      {
+        "accuracy": 1.0,
+        "confidence": 0.7772998508568417,
+        "count": 1,
+        "lower": 0.7000000000000001,
+        "upper": 0.8
+      },
+      {
+        "accuracy": 0.2,
+        "confidence": 0.844799876661312,
+        "count": 5,
+        "lower": 0.8,
+        "upper": 0.9
+      },
+      {
+        "accuracy": 0.5130890052356021,
+        "confidence": 0.9938366859357808,
+        "count": 191,
+        "lower": 0.9,
+        "upper": 1.0
+      }
+    ],
+    "macro_f1": 0.3710691823899371,
+    "nll": 3.8651437022487887,
+    "nll_clipped_legacy": 3.865143702248803,
+    "score_contract": "sum_answer_token_log_probabilities; candidate softmax; stable unclipped NLL",
+    "temperature": 1.0
+  },
+  "saved_state_replay_max_abs": 0.0,
+  "selection": {
+    "selected_lora_raw": "lora1",
+    "selected_lora_temperature": "lora4"
+  },
+  "source": "2b96b4871bdb78e9196368507fc00dc8e7a75f8e54e758a09629cd86c1d8c091",
+  "support_seed": 1,
+  "temperature": {
+    "accuracy": 0.51,
+    "balanced_accuracy": 0.51,
+    "brier": 0.4860767709101944,
+    "confusion_matrix": [
+      [
+        98,
+        2
+      ],
+      [
+        96,
+        4
+      ]
+    ],
+    "count": 200,
+    "ece": 0.15070570723350274,
+    "ece_bins": [
+      {
+        "accuracy": null,
+        "confidence": null,
+        "count": 0,
+        "lower": 0.0,
+        "upper": 0.1
+      },
+      {
+        "accuracy": null,
+        "confidence": null,
+        "count": 0,
+        "lower": 0.1,
+        "upper": 0.2
+      },
+      {
+        "accuracy": null,
+        "confidence": null,
+        "count": 0,
+        "lower": 0.2,
+        "upper": 0.30000000000000004
+      },
+      {
+        "accuracy": null,
+        "confidence": null,
+        "count": 0,
+        "lower": 0.30000000000000004,
+        "upper": 0.4
+      },
+      {
+        "accuracy": null,
+        "confidence": null,
+        "count": 0,
+        "lower": 0.4,
+        "upper": 0.5
+      },
+      {
+        "accuracy": 0.2777777777777778,
+        "confidence": 0.5639465556100962,
+        "count": 72,
+        "lower": 0.5,
+        "upper": 0.6000000000000001
+      },
+      {
+        "accuracy": 0.5555555555555556,
+        "confidence": 0.6495142404646309,
+        "count": 81,
+        "lower": 0.6000000000000001,
+        "upper": 0.7000000000000001
+      },
+      {
+        "accuracy": 0.7297297297297297,
+        "confidence": 0.7383371874485977,
+        "count": 37,
+        "lower": 0.7000000000000001,
+        "upper": 0.8
+      },
+      {
+        "accuracy": 1.0,
+        "confidence": 0.839213997045959,
+        "count": 10,
+        "lower": 0.8,
+        "upper": 0.9
+      },
+      {
+        "accuracy": null,
+        "confidence": null,
+        "count": 0,
+        "lower": 0.9,
+        "upper": 1.0
+      }
+    ],
+    "macro_f1": 0.3710691823899371,
+    "nll": 0.6753526639115247,
+    "nll_clipped_legacy": 0.6753526639115247,
+    "score_contract": "sum_answer_token_log_probabilities; candidate softmax; stable unclipped NLL",
+    "temperature": 16.827902832903906
+  },
+  "unit_id": "g34--h2--s1"
+}

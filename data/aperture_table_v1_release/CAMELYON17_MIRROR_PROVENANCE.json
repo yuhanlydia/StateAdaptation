@@ -1,0 +1,24 @@
+{
+  "labels": {
+    "0": 42527,
+    "1": 42527
+  },
+  "metadata_csv_sha256": "d64f3f92675755120e5e70f4d5b9078f80192d8d4d16159466b6701f82d44992",
+  "new_png_count": 592,
+  "old_prepared_pixel_overlap_verified": 324,
+  "parquet_sha256": {
+    "test-00000-of-00004.parquet": "da59d8c9c7aa9afa19a64fc26ed787d0fac601155b6105774182d07e042c86f2",
+    "test-00001-of-00004.parquet": "0b0cddb69bf79b9f7522000a5fd972049836ca0098d09398e5cbd8c7ead8655d",
+    "test-00002-of-00004.parquet": "a7ed68c71be07e4492785b6e2c7e74090ecfdf076b1fef57821354d313ed2290",
+    "test-00003-of-00004.parquet": "b79374a5954b694084a14dcefc52adf2eefebd2aae000e410d2feb6d91dbca90"
+  },
+  "patient_format": "zero-padded three digits as WILDS filename convention",
+  "population_rows": 85054,
+  "revision": "d784d5344ba6c967f83f9f3d9b2f1e2a4d6eb78f",
+  "scope": "center2 WILDS test only; metadata reconstructed from HF parquet fields; selected original PNG bytes restored",
+  "selected_path_pixel_sha256": "f0f53d2568e50b8d0dd15cdaa1c667a67fee7c4b1c37d0e63f72babd512ab5d8",
+  "selected_png_count": 592,
+  "source": "https://huggingface.co/datasets/wltjr1007/Camelyon17-WILDS",
+  "upstream": "https://github.com/p-lambda/wilds/blob/main/wilds/datasets/camelyon17_dataset.py",
+  "upstream_codalab_url": "https://worksheets.codalab.org/rest/bundles/0xe45e15f39fb54e9d9e919556af67aabe/contents/blob/"
+}

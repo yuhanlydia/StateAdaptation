@@ -1,0 +1,66 @@
+{
+  "lora1": {
+    "calibration_score_max_abs_delta": 0.0,
+    "original": {
+      "confusion_matrix": [
+        [
+          100,
+          0
+        ],
+        [
+          100,
+          0
+        ]
+      ],
+      "macro_f1": 0.3333333333333333,
+      "nll": 0.8110719638768845
+    },
+    "query_metrics_used_for_selection": false,
+    "replay": {
+      "confusion_matrix": [
+        [
+          100,
+          0
+        ],
+        [
+          100,
+          0
+        ]
+      ],
+      "macro_f1": 0.3333333333333333,
+      "nll": 0.8110719638768845
+    }
+  },
+  "lora4": {
+    "calibration_score_max_abs_delta": 0.0,
+    "original": {
+      "confusion_matrix": [
+        [
+          17,
+          83
+        ],
+        [
+          5,
+          95
+        ]
+      ],
+      "macro_f1": 0.4810708810001179,
+      "nll": 5.1846674899966025
+    },
+    "query_metrics_used_for_selection": false,
+    "replay": {
+      "confusion_matrix": [
+        [
+          17,
+          83
+        ],
+        [
+          5,
+          95
+        ]
+      ],
+      "macro_f1": 0.4810708810001179,
+      "nll": 5.1846674899966025
+    }
+  }
+}

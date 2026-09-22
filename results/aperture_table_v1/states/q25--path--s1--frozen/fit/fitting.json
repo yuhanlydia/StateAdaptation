@@ -1,0 +1,19 @@
+{
+  "basis_extraction_seconds": 0.0,
+  "basis_scalars": 0,
+  "basis_visits": 0,
+  "cal_count": 18,
+  "execution_gpu_id": "1",
+  "fit_count": 54,
+  "fit_wall_seconds": 1.3341999874683097e-05,
+  "fitting_visits": 0,
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "history": [],
+  "optimized_scalars": 0,
+  "optimizer_updates": 0,
+  "peak_allocated_bytes": 16816824320,
+  "query_forwards": 0,
+  "serialized_state_bytes": 0,
+  "total_labels": 72,
+  "total_model_parameters": 8292166656
+}
