@@ -1,0 +1,122 @@
+{
+  "candidates": [
+    {
+      "candidate": "a0",
+      "job_id": "q34--h2--s1--aperture--a0",
+      "macro_f1": 1.0,
+      "method": "aperture",
+      "nll": 0.09806995954589157,
+      "split": "calibration"
+    },
+    {
+      "candidate": "a1",
+      "job_id": "q34--h2--s1--aperture--a1",
+      "macro_f1": 1.0,
+      "method": "aperture",
+      "nll": 0.10436423925745757,
+      "split": "calibration"
+    },
+    {
+      "candidate": "a2",
+      "job_id": "q34--h2--s1--aperture--a2",
+      "macro_f1": 1.0,
+      "method": "aperture",
+      "nll": 0.09586503656258107,
+      "split": "calibration"
+    },
+    {
+      "candidate": "a3",
+      "job_id": "q34--h2--s1--aperture--a3",
+      "macro_f1": 1.0,
+      "method": "aperture",
+      "nll": 0.00416037349417457,
+      "split": "calibration"
+    },
+    {
+      "candidate": "a4",
+      "job_id": "q34--h2--s1--aperture--a4",
+      "macro_f1": 1.0,
+      "method": "aperture",
+      "nll": 0.04459400730348043,
+      "split": "calibration"
+    },
+    {
+      "candidate": "a5",
+      "job_id": "q34--h2--s1--aperture--a5",
+      "macro_f1": 1.0,
+      "method": "aperture",
+      "nll": 0.11653464203966434,
+      "split": "calibration"
+    },
+    {
+      "candidate": "l0",
+      "job_id": "q34--h2--s1--lora--l0",
+      "macro_f1": 1.0,
+      "method": "lora",
+      "nll": 0.006249636126781883,
+      "split": "calibration"
+    },
+    {
+      "candidate": "l1",
+      "job_id": "q34--h2--s1--lora--l1",
+      "macro_f1": 1.0,
+      "method": "lora",
+      "nll": 0.013078597875990972,
+      "split": "calibration"
+    },
+    {
+      "candidate": "l2",
+      "job_id": "q34--h2--s1--lora--l2",
+      "macro_f1": 0.3333333333333333,
+      "method": "lora",
+      "nll": 1.3487440178498895,
+      "split": "calibration"
+    },
+    {
+      "candidate": "l3",
+      "job_id": "q34--h2--s1--lora--l3",
+      "macro_f1": 1.0,
+      "method": "lora",
+      "nll": 8.060460436005372e-09,
+      "split": "calibration"
+    },
+    {
+      "candidate": "l4",
+      "job_id": "q34--h2--s1--lora--l4",
+      "macro_f1": 0.3333333333333333,
+      "method": "lora",
+      "nll": 0.6780048205055988,
+      "split": "calibration"
+    },
+    {
+      "candidate": "l5",
+      "job_id": "q34--h2--s1--lora--l5",
+      "macro_f1": 0.3333333333333333,
+      "method": "lora",
+      "nll": 0.7113832486622912,
+      "split": "calibration"
+    }
+  ],
+  "fit_seals": {
+    "q34--h2--s1--aperture--a0": "c61f4c5255cc7a2bce1a18d03e20dc1aededc8359c4cc842f47d0647a3b361d7",
+    "q34--h2--s1--aperture--a1": "9c7f147f53b3251fbb1ab946149c20f62f8414827f0f02589c26097d9f6f650a",
+    "q34--h2--s1--aperture--a2": "bdb1c6e5e662f75b22dff9ed0e18cd130ef4a108fcf122dd893fc7118831cfb6",
+    "q34--h2--s1--aperture--a3": "8b0ece8f968bce1b72184c5e969d3c5a1a6a83e8ac50e8295facd3f9af0fab84",
+    "q34--h2--s1--aperture--a4": "231bac0f356a71939fae7e995f7bb8eebca03d8cc322556620111ededf560e3b",
+    "q34--h2--s1--aperture--a5": "19f6bf3b351e037359f8a746552913acbfd4d96efc8c1ac7412eaf8d4670f05a",
+    "q34--h2--s1--lora--l0": "18e78f7bfa3274dabfe53f04da8d9e9a55fa61e3a3152c7402929bf39e0338b1",
+    "q34--h2--s1--lora--l1": "2cb34e0007ee8c489d4ee485a4e9119f0f8bd5d0a594f16f68ae688eefd48573",
+    "q34--h2--s1--lora--l2": "71e192a8a7de877e10e3a8d6583e12088711bc65abe3119890fc0d2c24b8198f",
+    "q34--h2--s1--lora--l3": "3ca7db89e22e9801eb1044847a4e8d16c90cce0380411144509180ce0d2343bc",
+    "q34--h2--s1--lora--l4": "50014fbf19e0176e0cbbad63ede1644ddca972a133af291b7f325c0b130f3f73",
+    "q34--h2--s1--lora--l5": "c25c621b57347c42fa98d01f4321b5d1a720ba0661e20ca407dc22bb8d548a39"
+  },
+  "query_used_for_selection": false,
+  "rule": "max calibration macro_f1, then min raw NLL, then candidate ID",
+  "tuning_source": "73599c43faec5b555b213ceb80a32411d94fb3cba6f66512ca10bb086027b92b",
+  "unit_id": "q34--h2--s1",
+  "winners": {
+    "aperture": "a3",
+    "lora": "l3"
+  }
+}

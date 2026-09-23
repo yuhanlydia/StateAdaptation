@@ -1,0 +1,52 @@
+{
+  "basis_extraction_seconds": 32.92732125800103,
+  "basis_scalars": 65536,
+  "basis_visits": 54,
+  "cal_count": 18,
+  "execution_gpu_id": "1",
+  "fit_count": 54,
+  "fit_wall_seconds": 170.2927556229988,
+  "fitting_visits": 216,
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "history": [
+    {
+      "data_loss_mean": 14.461614663895928,
+      "gradient_norm_before_clip": 336.63861083984375,
+      "objective": 780.92719185038,
+      "penalty": 0.0,
+      "reduction": "sum",
+      "step": 1
+    },
+    {
+      "data_loss_mean": 10.913495114819078,
+      "gradient_norm_before_clip": 466.6356201171875,
+      "objective": 589.3312961249612,
+      "penalty": 0.0025599247310310602,
+      "reduction": "sum",
+      "step": 2
+    },
+    {
+      "data_loss_mean": 7.015011903743639,
+      "gradient_norm_before_clip": 439.33221435546875,
+      "objective": 378.81664200127125,
+      "penalty": 0.005999199114739895,
+      "reduction": "sum",
+      "step": 3
+    },
+    {
+      "data_loss_mean": 4.918084116100713,
+      "gradient_norm_before_clip": 277.5462951660156,
+      "objective": 265.58609109930694,
+      "penalty": 0.00954882986843586,
+      "reduction": "sum",
+      "step": 4
+    }
+  ],
+  "optimized_scalars": 1024,
+  "optimizer_updates": 4,
+  "peak_allocated_bytes": 11226297344,
+  "query_forwards": 0,
+  "serialized_state_bytes": 269751,
+  "total_labels": 72,
+  "total_model_parameters": 4300079472
+}

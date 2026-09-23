@@ -1,0 +1,122 @@
+{
+  "candidates": [
+    {
+      "candidate": "a0",
+      "job_id": "q38--path--s1--aperture--a0",
+      "macro_f1": 0.4555555555555555,
+      "method": "aperture",
+      "nll": 2.3786262623258345,
+      "split": "calibration"
+    },
+    {
+      "candidate": "a1",
+      "job_id": "q38--path--s1--aperture--a1",
+      "macro_f1": 0.5703703703703704,
+      "method": "aperture",
+      "nll": 2.3352641197426305,
+      "split": "calibration"
+    },
+    {
+      "candidate": "a2",
+      "job_id": "q38--path--s1--aperture--a2",
+      "macro_f1": 0.5259259259259259,
+      "method": "aperture",
+      "nll": 1.5435484219331392,
+      "split": "calibration"
+    },
+    {
+      "candidate": "a3",
+      "job_id": "q38--path--s1--aperture--a3",
+      "macro_f1": 0.31481481481481477,
+      "method": "aperture",
+      "nll": 4.542754015979242,
+      "split": "calibration"
+    },
+    {
+      "candidate": "a4",
+      "job_id": "q38--path--s1--aperture--a4",
+      "macro_f1": 0.36137566137566135,
+      "method": "aperture",
+      "nll": 2.8624615224292023,
+      "split": "calibration"
+    },
+    {
+      "candidate": "a5",
+      "job_id": "q38--path--s1--aperture--a5",
+      "macro_f1": 0.5740740740740741,
+      "method": "aperture",
+      "nll": 1.584608581654864,
+      "split": "calibration"
+    },
+    {
+      "candidate": "l0",
+      "job_id": "q38--path--s1--lora--l0",
+      "macro_f1": 0.5370370370370371,
+      "method": "lora",
+      "nll": 1.751681780367621,
+      "split": "calibration"
+    },
+    {
+      "candidate": "l1",
+      "job_id": "q38--path--s1--lora--l1",
+      "macro_f1": 0.725925925925926,
+      "method": "lora",
+      "nll": 1.5604488476097589,
+      "split": "calibration"
+    },
+    {
+      "candidate": "l2",
+      "job_id": "q38--path--s1--lora--l2",
+      "macro_f1": 0.4894179894179895,
+      "method": "lora",
+      "nll": 1.5599502693923764,
+      "split": "calibration"
+    },
+    {
+      "candidate": "l3",
+      "job_id": "q38--path--s1--lora--l3",
+      "macro_f1": 0.6857142857142857,
+      "method": "lora",
+      "nll": 1.0746205746390052,
+      "split": "calibration"
+    },
+    {
+      "candidate": "l4",
+      "job_id": "q38--path--s1--lora--l4",
+      "macro_f1": 0.022222222222222223,
+      "method": "lora",
+      "nll": 2.711025466716461,
+      "split": "calibration"
+    },
+    {
+      "candidate": "l5",
+      "job_id": "q38--path--s1--lora--l5",
+      "macro_f1": 0.022222222222222223,
+      "method": "lora",
+      "nll": 2.3551169856825314,
+      "split": "calibration"
+    }
+  ],
+  "fit_seals": {
+    "q38--path--s1--aperture--a0": "67b8ecfe910a0a543dfbb50ae4fe033c562ecd904ba49c8026c4b62133e4fd62",
+    "q38--path--s1--aperture--a1": "21382616422d62f9f9d46b2b76db693fe67038cba6cc24e922359c16f3902136",
+    "q38--path--s1--aperture--a2": "51cfd90fb40f464c3fc9fdbbd94ca479046294f06ca1530a95736499b533c87a",
+    "q38--path--s1--aperture--a3": "825b0ae5bb3ce4cc21fb895b056b9bdaa577a4743ce5988a86002ff05e7671e7",
+    "q38--path--s1--aperture--a4": "5766acb73ba58ea73db21f90de32074efa1c840b83d548e8a1e1ef727619dc54",
+    "q38--path--s1--aperture--a5": "887eb5dea773d5ec61da70d3aa10e2df9ed084f049cabc8b707eaac61d212747",
+    "q38--path--s1--lora--l0": "042a12829827d9efd68ffc2d779b96dc035ce906be40d89cdf7d8ae8796609df",
+    "q38--path--s1--lora--l1": "acdbae1d49b9227e1c1642427723f3dde1c94de7922b1cbce7a1998ac7539b31",
+    "q38--path--s1--lora--l2": "8a87c75fdb879eea069589d48f12f112da67214abe621fb94458fc1f17e58487",
+    "q38--path--s1--lora--l3": "e188eed908b3a0c9bde3ecc6fdba30c6748c8b4a4962454d98e5488285d91915",
+    "q38--path--s1--lora--l4": "215140d60ddc2674ef43db67bb73a07b3e8f0736532f4b813ccef3693dc3beb3",
+    "q38--path--s1--lora--l5": "754e5106f891c6bf4e4d4456f35499c8466fee9ce1a3898fa01016e66e5627d8"
+  },
+  "query_used_for_selection": false,
+  "rule": "max calibration macro_f1, then min raw NLL, then candidate ID",
+  "tuning_source": "73599c43faec5b555b213ceb80a32411d94fb3cba6f66512ca10bb086027b92b",
+  "unit_id": "q38--path--s1",
+  "winners": {
+    "aperture": "a5",
+    "lora": "l1"
+  }
+}

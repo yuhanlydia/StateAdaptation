@@ -1,0 +1,11 @@
+{
+  "first_output": "/home/root123/.local/share/stateadaptation/aperture_tuning_20260922/run_storage/aperture_tuning_v1/states/q25--h2--s0--lora--l1",
+  "first_seal": "2373a6feddb9c5dc4f03c7c9bc7d56775f0b7e5f471bdb52a20ba716b5688c95",
+  "max_abs_calibration_score_delta": 0.0,
+  "passed": true,
+  "query_metrics_used": false,
+  "repeat_output": "/home/root123/.local/share/stateadaptation/aperture_tuning_20260922/run_storage/aperture_tuning_v1/states/q25--h2--s0--lora--l1--repeat",
+  "repeat_seal": "72ca505e7cfca777f9087ad5d907d88613850c68e152b3f8052a07f9dc46b3ff",
+  "source": "0dd0f5a992634b396cd131da88b2e2c9a5708be4b087461a01eb13416c76ef77",
+  "tolerance": 0.005
+}

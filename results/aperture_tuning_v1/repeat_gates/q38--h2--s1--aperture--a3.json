@@ -1,0 +1,11 @@
+{
+  "first_output": "/home/root123/.local/share/stateadaptation/aperture_tuning_20260922/run_storage/aperture_tuning_v1/states/q38--h2--s1--aperture--a3",
+  "first_seal": "a590594ac1ac9e9cca1929ead216a2b73e91966f02fba2013afdb17a4f60c613",
+  "max_abs_calibration_score_delta": 0.0,
+  "passed": true,
+  "query_metrics_used": false,
+  "repeat_output": "/home/root123/.local/share/stateadaptation/aperture_tuning_20260922/run_storage/aperture_tuning_v1/states/q38--h2--s1--aperture--a3--repeat",
+  "repeat_seal": "9d1dd5e88c5b818d79d33209f5b7119481db567d1627d229b55a37aa3956a207",
+  "source": "0dd0f5a992634b396cd131da88b2e2c9a5708be4b087461a01eb13416c76ef77",
+  "tolerance": 0.005
+}

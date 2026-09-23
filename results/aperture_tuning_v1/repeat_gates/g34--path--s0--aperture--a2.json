@@ -1,0 +1,11 @@
+{
+  "first_output": "/home/root123/.local/share/stateadaptation/aperture_tuning_20260922/run_storage/aperture_tuning_v1/states/g34--path--s0--aperture--a2",
+  "first_seal": "d00cc60eaab21b29ff8e88f7c4e7016e7cfd2d04da1a5943444f31d5a683d102",
+  "max_abs_calibration_score_delta": 0.0,
+  "passed": true,
+  "query_metrics_used": false,
+  "repeat_output": "/home/root123/.local/share/stateadaptation/aperture_tuning_20260922/run_storage/aperture_tuning_v1/states/g34--path--s0--aperture--a2--repeat",
+  "repeat_seal": "f2208281623690d3dd5deb45dfe547a12137e3c0a8052dd21189acecea2963c4",
+  "source": "0dd0f5a992634b396cd131da88b2e2c9a5708be4b087461a01eb13416c76ef77",
+  "tolerance": 0.005
+}

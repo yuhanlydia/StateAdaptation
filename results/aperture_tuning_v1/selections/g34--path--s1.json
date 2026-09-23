@@ -1,0 +1,122 @@
+{
+  "candidates": [
+    {
+      "candidate": "a0",
+      "job_id": "g34--path--s1--aperture--a0",
+      "macro_f1": 0.20105820105820105,
+      "method": "aperture",
+      "nll": 4.019352641246979,
+      "split": "calibration"
+    },
+    {
+      "candidate": "a1",
+      "job_id": "g34--path--s1--aperture--a1",
+      "macro_f1": 0.17901234567901234,
+      "method": "aperture",
+      "nll": 4.754158048783274,
+      "split": "calibration"
+    },
+    {
+      "candidate": "a2",
+      "job_id": "g34--path--s1--aperture--a2",
+      "macro_f1": 0.09259259259259259,
+      "method": "aperture",
+      "nll": 2.911606657286758,
+      "split": "calibration"
+    },
+    {
+      "candidate": "a3",
+      "job_id": "g34--path--s1--aperture--a3",
+      "macro_f1": 0.12962962962962962,
+      "method": "aperture",
+      "nll": 10.909861760321867,
+      "split": "calibration"
+    },
+    {
+      "candidate": "a4",
+      "job_id": "g34--path--s1--aperture--a4",
+      "macro_f1": 0.08148148148148149,
+      "method": "aperture",
+      "nll": 6.999005283561029,
+      "split": "calibration"
+    },
+    {
+      "candidate": "a5",
+      "job_id": "g34--path--s1--aperture--a5",
+      "macro_f1": 0.11904761904761904,
+      "method": "aperture",
+      "nll": 2.9440142338389794,
+      "split": "calibration"
+    },
+    {
+      "candidate": "l0",
+      "job_id": "g34--path--s1--lora--l0",
+      "macro_f1": 0.18253968253968253,
+      "method": "lora",
+      "nll": 2.1276341515980173,
+      "split": "calibration"
+    },
+    {
+      "candidate": "l1",
+      "job_id": "g34--path--s1--lora--l1",
+      "macro_f1": 0.319047619047619,
+      "method": "lora",
+      "nll": 3.1067010526379972,
+      "split": "calibration"
+    },
+    {
+      "candidate": "l2",
+      "job_id": "g34--path--s1--lora--l2",
+      "macro_f1": 0.3333333333333333,
+      "method": "lora",
+      "nll": 1.852853800641084,
+      "split": "calibration"
+    },
+    {
+      "candidate": "l3",
+      "job_id": "g34--path--s1--lora--l3",
+      "macro_f1": 0.27222222222222225,
+      "method": "lora",
+      "nll": 2.9948467752159385,
+      "split": "calibration"
+    },
+    {
+      "candidate": "l4",
+      "job_id": "g34--path--s1--lora--l4",
+      "macro_f1": 0.022222222222222223,
+      "method": "lora",
+      "nll": 2.4970894462917808,
+      "split": "calibration"
+    },
+    {
+      "candidate": "l5",
+      "job_id": "g34--path--s1--lora--l5",
+      "macro_f1": 0.022222222222222223,
+      "method": "lora",
+      "nll": 2.7096668025562725,
+      "split": "calibration"
+    }
+  ],
+  "fit_seals": {
+    "g34--path--s1--aperture--a0": "28da58083fb0ca97a412a6cdc8921d19eb029b0cd8dd0ec7f7dff51acb440315",
+    "g34--path--s1--aperture--a1": "dde9df9fecf08a0369697b0c3fd53c5cf7759c7dce94ae1ce4fe409073322bf7",
+    "g34--path--s1--aperture--a2": "f3a1026bcf94739ee1c95eaa700e7e35f4a0b5d928c0a6a08263e6b8e1753267",
+    "g34--path--s1--aperture--a3": "919f70488025f3bf3826a30944b3a017fa684a3d9120e8f0a83e0d5c40869090",
+    "g34--path--s1--aperture--a4": "db6dc28cdc2b3d1a80f631035349cd3e8f713280a0b6d75cb5a56e5156bedb03",
+    "g34--path--s1--aperture--a5": "11a419311207e62664552da1da7d4904a7b04e2b81c07f93f1481cc7bae49e4f",
+    "g34--path--s1--lora--l0": "0840542fde9403e5e1a637d3c4a1ec98833f0cad77304ca8ae66bfb12228955b",
+    "g34--path--s1--lora--l1": "76b2f04aad66002a7c10016acd1d8e58da4d9b65f9d52f65ad6adfa2effbc251",
+    "g34--path--s1--lora--l2": "49537fedd22b41950bd02a82a1b23188071ce2b4898bb958af86dfcb8fcf79de",
+    "g34--path--s1--lora--l3": "416b14f5484545e4f676458fb4c205f356e28f909f44a1f7d8d4f2904fd91b0e",
+    "g34--path--s1--lora--l4": "66545024567b50ef30cf6dc0ba4e555859e387646f20c74afe4224809f103931",
+    "g34--path--s1--lora--l5": "eea44440c7d38e8253b41655f49e3023a8dbd1bf6becb294eace36711bb2c28a"
+  },
+  "query_used_for_selection": false,
+  "rule": "max calibration macro_f1, then min raw NLL, then candidate ID",
+  "tuning_source": "73599c43faec5b555b213ceb80a32411d94fb3cba6f66512ca10bb086027b92b",
+  "unit_id": "g34--path--s1",
+  "winners": {
+    "aperture": "a0",
+    "lora": "l2"
+  }
+}
