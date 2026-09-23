@@ -1,0 +1,77 @@
+{
+  "fingerprint": "11c5409c1466d609a63e1efe829b97f4ca46a8a04acddec3acc98fb621fc2fb9",
+  "identity": {
+    "barrier": "4278f693cceaf4fcc21a839e3b43dd07047f39a89d547d4964799fc9b577a400",
+    "fit_seal": "6c6780a753bd30a1508f6d0903f47101889e752b9ee70fc9abf0522be7dacff1",
+    "identity": {
+      "environment": {
+        "Pillow": "12.3.0",
+        "numpy": "2.5.3",
+        "peft": "0.17.1",
+        "safetensors": "0.8.0",
+        "scipy": "1.18.1",
+        "torch": "2.8.0",
+        "transformers": "4.57.1"
+      },
+      "job": {
+        "alpha": 3,
+        "arm": "aperture",
+        "attention": "sdpa_math",
+        "bias_l2": 0.001,
+        "cal_count": 18,
+        "calibration": "/data/cwj/Aperture_Table_Code_20260922/data/prepared/aperture_table_v1/path/seed_1/calibration.jsonl",
+        "candidate": "a5",
+        "classes": 9,
+        "context": "/home/root123/.local/share/stateadaptation/aperture_targeted_20260923/run_storage/aperture_debug_v2/contexts/8c95bc306366a243",
+        "debug_protocol": "aperture_debug_v2",
+        "debug_source": "d1df72611ea645035d7e3d7ce2699988fcc4cd1fafd0ef9ad46edc4822ea3337",
+        "domain": "pathmnist_crc",
+        "domain_key": "path",
+        "family": "gemma3",
+        "fit_count": 54,
+        "image_size": 896,
+        "job_id": "g34--path--s1--aperture--a5--final",
+        "l2": 0.001,
+        "layers": [
+          17,
+          29
+        ],
+        "lora_accumulation": 1,
+        "lora_alpha": 32,
+        "lora_dropout": 0.05,
+        "lora_lr": 0.0002,
+        "lora_passes": 1,
+        "lora_rank": 16,
+        "loss_reduction": "sum",
+        "lr": 0.02,
+        "method": "aperture",
+        "model_id": "google/gemma-3-4b-it",
+        "model_key": "g34",
+        "model_path": "/home/root123/.local/share/stateadaptation/aperture_table_20260922/models/gemma-3-4b-it",
+        "optimization_seed": 0,
+        "output": "/home/root123/.local/share/stateadaptation/aperture_targeted_20260923/run_storage/aperture_debug_v2/final/g34--path--s1--aperture--a5--final",
+        "protocol": "aperture_table_v1",
+        "query": "/data/cwj/Aperture_Table_Code_20260922/data/prepared/aperture_table_v1/path/query.jsonl",
+        "query_count": 180,
+        "rank": 16,
+        "role": "final",
+        "split_record": "/data/cwj/Aperture_Table_Code_20260922/data/prepared/aperture_table_v1/path/seed_1/split.json",
+        "steps": 8,
+        "support": "/data/cwj/Aperture_Table_Code_20260922/data/prepared/aperture_table_v1/path/seed_1/fit.jsonl",
+        "support_seed": 1,
+        "temperature_penalty": 0.01,
+        "total_labels": 72,
+        "unit_id": "g34--path--s1",
+        "weight_dtype": "bfloat16"
+      },
+      "manifests": {
+        "calibration": "1eeb35bb8f4e9ac543721ee7a3af430329c1b1b83fa0fb8f00b192b11942aed4",
+        "query": "972c6a6b164fd84d9761fe8f0e1655e70f43612fb0427b8053d6bc2b61f120f8",
+        "support": "205804422e47b98a226957cefad2504fa7e1e511a97817aa50c88ea0bfd005bc"
+      },
+      "model_assets": "0a83b88d3ff8c1edde165376441ba1bc1cea87235a28169b396979697ecef0a9",
+      "source": "0dd0f5a992634b396cd131da88b2e2c9a5708be4b087461a01eb13416c76ef77",
+      "split_sha256": "7a04b47249d6ff3b3b5838ceda4e16ea57988fa5290aa98f8d0546a8ae890556"
+    }
+  }
+}

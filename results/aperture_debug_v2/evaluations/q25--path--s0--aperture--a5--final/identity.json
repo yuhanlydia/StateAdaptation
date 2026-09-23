@@ -1,0 +1,77 @@
+{
+  "fingerprint": "92bb38b763ef537c27381804ca50fb1da2a9eab265661600a9988aba92c5f0ad",
+  "identity": {
+    "barrier": "4278f693cceaf4fcc21a839e3b43dd07047f39a89d547d4964799fc9b577a400",
+    "fit_seal": "02f2177a64f70e04a77f47162f8c956ac0f7f6070130eb2920f2f36847aff2ce",
+    "identity": {
+      "environment": {
+        "Pillow": "12.3.0",
+        "numpy": "2.5.3",
+        "peft": "0.17.1",
+        "safetensors": "0.8.0",
+        "scipy": "1.18.1",
+        "torch": "2.8.0",
+        "transformers": "4.57.1"
+      },
+      "job": {
+        "alpha": 3,
+        "arm": "aperture",
+        "attention": "sdpa_math",
+        "bias_l2": 0.001,
+        "cal_count": 18,
+        "calibration": "/data/cwj/Aperture_Table_Code_20260922/data/prepared/aperture_table_v1/path/seed_0/calibration.jsonl",
+        "candidate": "a5",
+        "classes": 9,
+        "context": "/home/root123/.local/share/stateadaptation/aperture_targeted_20260923/run_storage/aperture_debug_v2/contexts/0a900e3e23ec52fa",
+        "debug_protocol": "aperture_debug_v2",
+        "debug_source": "d1df72611ea645035d7e3d7ce2699988fcc4cd1fafd0ef9ad46edc4822ea3337",
+        "domain": "pathmnist_crc",
+        "domain_key": "path",
+        "family": "qwen2_5_vl",
+        "fit_count": 54,
+        "image_size": 448,
+        "job_id": "q25--path--s0--aperture--a5--final",
+        "l2": 0.001,
+        "layers": [
+          7,
+          21
+        ],
+        "lora_accumulation": 1,
+        "lora_alpha": 32,
+        "lora_dropout": 0.05,
+        "lora_lr": 0.0002,
+        "lora_passes": 1,
+        "lora_rank": 16,
+        "loss_reduction": "sum",
+        "lr": 0.02,
+        "method": "aperture",
+        "model_id": "Qwen/Qwen2.5-VL-7B-Instruct",
+        "model_key": "q25",
+        "model_path": "/home/root123/.local/share/stateadaptation/aperture-final-round-20260921/models/Qwen2.5-VL-7B-Instruct",
+        "optimization_seed": 0,
+        "output": "/home/root123/.local/share/stateadaptation/aperture_targeted_20260923/run_storage/aperture_debug_v2/final/q25--path--s0--aperture--a5--final",
+        "protocol": "aperture_table_v1",
+        "query": "/data/cwj/Aperture_Table_Code_20260922/data/prepared/aperture_table_v1/path/query.jsonl",
+        "query_count": 180,
+        "rank": 16,
+        "role": "final",
+        "split_record": "/data/cwj/Aperture_Table_Code_20260922/data/prepared/aperture_table_v1/path/seed_0/split.json",
+        "steps": 8,
+        "support": "/data/cwj/Aperture_Table_Code_20260922/data/prepared/aperture_table_v1/path/seed_0/fit.jsonl",
+        "support_seed": 0,
+        "temperature_penalty": 0.01,
+        "total_labels": 72,
+        "unit_id": "q25--path--s0",
+        "weight_dtype": "bfloat16"
+      },
+      "manifests": {
+        "calibration": "c2dafa42176f9c8198c1c7657d097b9769667b4866f3003c8c3881c0c55a4279",
+        "query": "972c6a6b164fd84d9761fe8f0e1655e70f43612fb0427b8053d6bc2b61f120f8",
+        "support": "ec02674a5c4c9246a2f5e84a5a3aaaa0e93910d1db7f0a9d78415b80d4ca9c05"
+      },
+      "model_assets": "6d0a75c409ee299a9ecea88f863f245bec5cc3ae222e198149725b932f2dc6a2",
+      "source": "0dd0f5a992634b396cd131da88b2e2c9a5708be4b087461a01eb13416c76ef77",
+      "split_sha256": "cec38601e3554c15bc7d2a7b3f973be410c3d9c6d16833b78541b9d98d68b639"
+    }
+  }
+}

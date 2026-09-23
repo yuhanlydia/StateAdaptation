@@ -1,0 +1,197 @@
+{
+  "groups": [
+    {
+      "domain": "h2",
+      "f1_mean": 0.5475705913099568,
+      "f1_sd": 0.011292444731190076,
+      "method": "aperture",
+      "model": "q25",
+      "nll_mean": 0.8424693905909191,
+      "selected_candidates": [
+        "a5",
+        "a4"
+      ]
+    },
+    {
+      "domain": "h2",
+      "f1_mean": 0.6434682695105657,
+      "f1_sd": 0.0358353772181429,
+      "method": "lora",
+      "model": "q25",
+      "nll_mean": 1.1062716106469874,
+      "selected_candidates": [
+        "l1",
+        "l1"
+      ]
+    },
+    {
+      "domain": "path",
+      "f1_mean": 0.37481986848612736,
+      "f1_sd": 0.013638199834477675,
+      "method": "aperture",
+      "model": "q25",
+      "nll_mean": 1.5231740534091311,
+      "selected_candidates": [
+        "a2",
+        "a1"
+      ]
+    },
+    {
+      "domain": "path",
+      "f1_mean": 0.6435028766927546,
+      "f1_sd": 0.02199403911077417,
+      "method": "lora",
+      "model": "q25",
+      "nll_mean": 1.5896470242512346,
+      "selected_candidates": [
+        "l3",
+        "l3"
+      ]
+    },
+    {
+      "domain": "h2",
+      "f1_mean": 0.6119457573508318,
+      "f1_sd": 0.0461299978189619,
+      "method": "aperture",
+      "model": "q34",
+      "nll_mean": 1.6512390276799007,
+      "selected_candidates": [
+        "a4",
+        "a3"
+      ]
+    },
+    {
+      "domain": "h2",
+      "f1_mean": 0.756119498389507,
+      "f1_sd": 0.12325235530475843,
+      "method": "lora",
+      "model": "q34",
+      "nll_mean": 3.0068948371623065,
+      "selected_candidates": [
+        "l1",
+        "l3"
+      ]
+    },
+    {
+      "domain": "path",
+      "f1_mean": 0.6301562218402481,
+      "f1_sd": 0.09585633697533533,
+      "method": "aperture",
+      "model": "q34",
+      "nll_mean": 1.5757201124754596,
+      "selected_candidates": [
+        "a5",
+        "a0"
+      ]
+    },
+    {
+      "domain": "path",
+      "f1_mean": 0.67614130373273,
+      "f1_sd": 0.10092616657318677,
+      "method": "lora",
+      "model": "q34",
+      "nll_mean": 1.2311549715242918,
+      "selected_candidates": [
+        "l1",
+        "l2"
+      ]
+    },
+    {
+      "domain": "h2",
+      "f1_mean": 0.5933412228514472,
+      "f1_sd": 0.08637349301954339,
+      "method": "aperture",
+      "model": "q38",
+      "nll_mean": 1.1392907368525447,
+      "selected_candidates": [
+        "a4",
+        "a3"
+      ]
+    },
+    {
+      "domain": "h2",
+      "f1_mean": 0.6817252149446247,
+      "f1_sd": 0.027324194007292735,
+      "method": "lora",
+      "model": "q38",
+      "nll_mean": 1.05718990093128,
+      "selected_candidates": [
+        "l1",
+        "l0"
+      ]
+    },
+    {
+      "domain": "path",
+      "f1_mean": 0.6545570659424929,
+      "f1_sd": 0.0050092371298040205,
+      "method": "aperture",
+      "model": "q38",
+      "nll_mean": 1.1567905318180003,
+      "selected_candidates": [
+        "a2",
+        "a5"
+      ]
+    },
+    {
+      "domain": "path",
+      "f1_mean": 0.8349504501723488,
+      "f1_sd": 0.019903334014247088,
+      "method": "lora",
+      "model": "q38",
+      "nll_mean": 0.7707570370946752,
+      "selected_candidates": [
+        "l3",
+        "l1"
+      ]
+    },
+    {
+      "domain": "h2",
+      "f1_mean": 0.6872381229149507,
+      "f1_sd": 0.030170662290973968,
+      "method": "aperture",
+      "model": "g34",
+      "nll_mean": 0.9292589237337092,
+      "selected_candidates": [
+        "a4",
+        "a2"
+      ]
+    },
+    {
+      "domain": "h2",
+      "f1_mean": 0.6769909444115254,
+      "f1_sd": 0.004210187863223525,
+      "method": "lora",
+      "model": "g34",
+      "nll_mean": 1.4122161501145742,
+      "selected_candidates": [
+        "l1",
+        "l0"
+      ]
+    },
+    {
+      "domain": "path",
+      "f1_mean": 0.299676478874923,
+      "f1_sd": 0.05023471106726381,
+      "method": "aperture",
+      "model": "g34",
+      "nll_mean": 2.776100879875083,
+      "selected_candidates": [
+        "a2",
+        "a0"
+      ]
+    },
+    {
+      "domain": "path",
+      "f1_mean": 0.3412220474901095,
+      "f1_sd": 0.12190335533374112,
+      "method": "lora",
+      "model": "g34",
+      "nll_mean": 1.9413615023937631,
+      "selected_candidates": [
+        "l1",
+        "l2"
+      ]
+    }
+  ],
+  "use": "historical comparison only, not v2 candidate selection"
+}

@@ -1,0 +1,189 @@
+{
+  "metrics": {
+    "accuracy": 0.2777777777777778,
+    "balanced_accuracy": 0.2777777777777778,
+    "brier": 0.961212076298095,
+    "confusion_matrix": [
+      [
+        0,
+        0,
+        4,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        4,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        3,
+        1,
+        0,
+        0,
+        0,
+        0,
+        2
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        6
+      ],
+      [
+        0,
+        0,
+        2,
+        1,
+        0,
+        2,
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        6,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        6
+      ],
+      [
+        0,
+        0,
+        0,
+        1,
+        0,
+        4,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        5
+      ]
+    ],
+    "count": 54,
+    "ece": 0.3470156370163717,
+    "ece_bins": [
+      {
+        "accuracy": null,
+        "confidence": null,
+        "count": 0,
+        "lower": 0.0,
+        "upper": 0.1
+      },
+      {
+        "accuracy": null,
+        "confidence": null,
+        "count": 0,
+        "lower": 0.1,
+        "upper": 0.2
+      },
+      {
+        "accuracy": 0.25,
+        "confidence": 0.2654830490581903,
+        "count": 4,
+        "lower": 0.2,
+        "upper": 0.30000000000000004
+      },
+      {
+        "accuracy": 0.18181818181818182,
+        "confidence": 0.3431162176156341,
+        "count": 11,
+        "lower": 0.30000000000000004,
+        "upper": 0.4
+      },
+      {
+        "accuracy": 0.0,
+        "confidence": 0.45715368986349536,
+        "count": 8,
+        "lower": 0.4,
+        "upper": 0.5
+      },
+      {
+        "accuracy": 0.0,
+        "confidence": 0.5462540276887977,
+        "count": 4,
+        "lower": 0.5,
+        "upper": 0.6000000000000001
+      },
+      {
+        "accuracy": 0.25,
+        "confidence": 0.6714551528584658,
+        "count": 4,
+        "lower": 0.6000000000000001,
+        "upper": 0.7000000000000001
+      },
+      {
+        "accuracy": 0.5,
+        "confidence": 0.7681330699369692,
+        "count": 6,
+        "lower": 0.7000000000000001,
+        "upper": 0.8
+      },
+      {
+        "accuracy": 0.3333333333333333,
+        "confidence": 0.8525447561269012,
+        "count": 6,
+        "lower": 0.8,
+        "upper": 0.9
+      },
+      {
+        "accuracy": 0.5454545454545454,
+        "confidence": 0.968227328309009,
+        "count": 11,
+        "lower": 0.9,
+        "upper": 1.0
+      }
+    ],
+    "macro_f1": 0.1796746138851402,
+    "nll": 2.6844716977852667,
+    "nll_clipped_legacy": 2.6844716977852667,
+    "score_contract": "sum_answer_token_log_probabilities; candidate softmax; stable unclipped NLL",
+    "temperature": 1.0
+  },
+  "predicted_class_count": 7,
+  "scope": "final saved state, original fit support only"
+}

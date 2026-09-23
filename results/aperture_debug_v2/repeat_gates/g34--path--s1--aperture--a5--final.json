@@ -1,0 +1,11 @@
+{
+  "first_output": "/home/root123/.local/share/stateadaptation/aperture_targeted_20260923/run_storage/aperture_debug_v2/final/g34--path--s1--aperture--a5--final",
+  "first_seal": "6c6780a753bd30a1508f6d0903f47101889e752b9ee70fc9abf0522be7dacff1",
+  "max_abs_calibration_score_delta": 0.0,
+  "passed": true,
+  "query_metrics_used": false,
+  "repeat_output": "/home/root123/.local/share/stateadaptation/aperture_targeted_20260923/run_storage/aperture_debug_v2/final/g34--path--s1--aperture--a5--final--repeat",
+  "repeat_seal": "ed6d71cc981f0adbe617be7e69b896fd17bdc9e5a8b12aa812863de87c6e2a17",
+  "source": "0dd0f5a992634b396cd131da88b2e2c9a5708be4b087461a01eb13416c76ef77",
+  "tolerance": 0.005
+}
