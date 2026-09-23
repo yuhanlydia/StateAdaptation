@@ -1,0 +1,514 @@
+{
+  "protocol": "aperture_debug_v2",
+  "targets": [
+    {
+      "model": "q25",
+      "domain": "h2",
+      "candidates": {
+        "aperture": [
+          {
+            "id": "a0",
+            "parameters": {
+              "layers": [
+                14,
+                27
+              ],
+              "alpha": 1,
+              "lr": 0.01,
+              "steps": 4
+            }
+          },
+          {
+            "id": "a1",
+            "parameters": {
+              "layers": [
+                14,
+                27
+              ],
+              "alpha": 1,
+              "lr": 0.01,
+              "steps": 12
+            }
+          },
+          {
+            "id": "a2",
+            "parameters": {
+              "layers": [
+                14,
+                27
+              ],
+              "alpha": 3,
+              "lr": 0.01,
+              "steps": 4
+            }
+          },
+          {
+            "id": "a3",
+            "parameters": {
+              "layers": [
+                14,
+                27
+              ],
+              "alpha": 3,
+              "lr": 0.01,
+              "steps": 12
+            }
+          }
+        ],
+        "lora": [
+          {
+            "id": "l0",
+            "parameters": {
+              "lora_lr": 5e-05,
+              "lora_passes": 1
+            }
+          },
+          {
+            "id": "l1",
+            "parameters": {
+              "lora_lr": 5e-05,
+              "lora_passes": 4
+            }
+          },
+          {
+            "id": "l2",
+            "parameters": {
+              "lora_lr": 0.0002,
+              "lora_passes": 1
+            }
+          },
+          {
+            "id": "l3",
+            "parameters": {
+              "lora_lr": 0.0002,
+              "lora_passes": 4
+            }
+          }
+        ]
+      }
+    },
+    {
+      "model": "q34",
+      "domain": "h2",
+      "candidates": {
+        "aperture": [
+          {
+            "id": "a0",
+            "parameters": {
+              "layers": [
+                18,
+                35
+              ],
+              "alpha": 0.5,
+              "lr": 0.005,
+              "steps": 2
+            }
+          },
+          {
+            "id": "a1",
+            "parameters": {
+              "layers": [
+                18,
+                35
+              ],
+              "alpha": 0.5,
+              "lr": 0.005,
+              "steps": 8
+            }
+          },
+          {
+            "id": "a2",
+            "parameters": {
+              "layers": [
+                18,
+                35
+              ],
+              "alpha": 1,
+              "lr": 0.01,
+              "steps": 4
+            }
+          },
+          {
+            "id": "a3",
+            "parameters": {
+              "layers": [
+                18,
+                35
+              ],
+              "alpha": 1,
+              "lr": 0.01,
+              "steps": 8
+            }
+          }
+        ],
+        "lora": [
+          {
+            "id": "l0",
+            "parameters": {
+              "lora_lr": 5e-05,
+              "lora_passes": 1
+            }
+          },
+          {
+            "id": "l1",
+            "parameters": {
+              "lora_lr": 5e-05,
+              "lora_passes": 4
+            }
+          },
+          {
+            "id": "l2",
+            "parameters": {
+              "lora_lr": 0.0002,
+              "lora_passes": 1
+            }
+          },
+          {
+            "id": "l3",
+            "parameters": {
+              "lora_lr": 0.0002,
+              "lora_passes": 4
+            }
+          }
+        ]
+      }
+    },
+    {
+      "model": "g34",
+      "domain": "h2",
+      "candidates": {
+        "aperture": [
+          {
+            "id": "a0",
+            "parameters": {
+              "layers": [
+                17,
+                33
+              ],
+              "alpha": 3,
+              "lr": 0.05,
+              "steps": 4
+            }
+          },
+          {
+            "id": "a1",
+            "parameters": {
+              "layers": [
+                17,
+                33
+              ],
+              "alpha": 1,
+              "lr": 0.01,
+              "steps": 4
+            }
+          },
+          {
+            "id": "a2",
+            "parameters": {
+              "layers": [
+                17,
+                33
+              ],
+              "alpha": 1,
+              "lr": 0.01,
+              "steps": 12
+            }
+          },
+          {
+            "id": "a3",
+            "parameters": {
+              "layers": [
+                17,
+                29
+              ],
+              "alpha": 3,
+              "lr": 0.05,
+              "steps": 4
+            }
+          }
+        ],
+        "lora": [
+          {
+            "id": "l0",
+            "parameters": {
+              "lora_lr": 5e-05,
+              "lora_passes": 1
+            }
+          },
+          {
+            "id": "l1",
+            "parameters": {
+              "lora_lr": 5e-05,
+              "lora_passes": 4
+            }
+          },
+          {
+            "id": "l2",
+            "parameters": {
+              "lora_lr": 0.0002,
+              "lora_passes": 1
+            }
+          },
+          {
+            "id": "l3",
+            "parameters": {
+              "lora_lr": 0.0002,
+              "lora_passes": 4
+            }
+          }
+        ]
+      }
+    },
+    {
+      "model": "q25",
+      "domain": "path",
+      "candidates": {
+        "aperture": [
+          {
+            "id": "a0",
+            "parameters": {
+              "layers": [
+                14
+              ],
+              "alpha": 3,
+              "lr": 0.02,
+              "steps": 2
+            }
+          },
+          {
+            "id": "a1",
+            "parameters": {
+              "layers": [
+                14
+              ],
+              "alpha": 3,
+              "lr": 0.02,
+              "steps": 4
+            }
+          },
+          {
+            "id": "a2",
+            "parameters": {
+              "layers": [
+                14
+              ],
+              "alpha": 3,
+              "lr": 0.02,
+              "steps": 8
+            }
+          },
+          {
+            "id": "a3",
+            "parameters": {
+              "layers": [
+                7,
+                21
+              ],
+              "alpha": 3,
+              "lr": 0.02,
+              "steps": 2
+            }
+          },
+          {
+            "id": "a4",
+            "parameters": {
+              "layers": [
+                7,
+                21
+              ],
+              "alpha": 3,
+              "lr": 0.02,
+              "steps": 4
+            }
+          },
+          {
+            "id": "a5",
+            "parameters": {
+              "layers": [
+                7,
+                21
+              ],
+              "alpha": 3,
+              "lr": 0.02,
+              "steps": 8
+            }
+          }
+        ],
+        "lora": [
+          {
+            "id": "l0",
+            "parameters": {
+              "lora_lr": 2e-05,
+              "lora_passes": 1
+            }
+          },
+          {
+            "id": "l1",
+            "parameters": {
+              "lora_lr": 2e-05,
+              "lora_passes": 4
+            }
+          },
+          {
+            "id": "l2",
+            "parameters": {
+              "lora_lr": 5e-05,
+              "lora_passes": 1
+            }
+          },
+          {
+            "id": "l3",
+            "parameters": {
+              "lora_lr": 5e-05,
+              "lora_passes": 4
+            }
+          },
+          {
+            "id": "l4",
+            "parameters": {
+              "lora_lr": 0.0002,
+              "lora_passes": 1
+            }
+          },
+          {
+            "id": "l5",
+            "parameters": {
+              "lora_lr": 0.0002,
+              "lora_passes": 4
+            }
+          }
+        ]
+      }
+    },
+    {
+      "model": "g34",
+      "domain": "path",
+      "candidates": {
+        "aperture": [
+          {
+            "id": "a0",
+            "parameters": {
+              "layers": [
+                17,
+                33
+              ],
+              "alpha": 3,
+              "lr": 0.02,
+              "steps": 4
+            }
+          },
+          {
+            "id": "a1",
+            "parameters": {
+              "layers": [
+                17,
+                33
+              ],
+              "alpha": 3,
+              "lr": 0.02,
+              "steps": 8
+            }
+          },
+          {
+            "id": "a2",
+            "parameters": {
+              "layers": [
+                17,
+                33
+              ],
+              "alpha": 3,
+              "lr": 0.05,
+              "steps": 4
+            }
+          },
+          {
+            "id": "a3",
+            "parameters": {
+              "layers": [
+                17,
+                33
+              ],
+              "alpha": 3,
+              "lr": 0.05,
+              "steps": 8
+            }
+          },
+          {
+            "id": "a4",
+            "parameters": {
+              "layers": [
+                17,
+                29
+              ],
+              "alpha": 3,
+              "lr": 0.02,
+              "steps": 4
+            }
+          },
+          {
+            "id": "a5",
+            "parameters": {
+              "layers": [
+                17,
+                29
+              ],
+              "alpha": 3,
+              "lr": 0.02,
+              "steps": 8
+            }
+          }
+        ],
+        "lora": [
+          {
+            "id": "l0",
+            "parameters": {
+              "lora_lr": 2e-05,
+              "lora_passes": 1
+            }
+          },
+          {
+            "id": "l1",
+            "parameters": {
+              "lora_lr": 2e-05,
+              "lora_passes": 4
+            }
+          },
+          {
+            "id": "l2",
+            "parameters": {
+              "lora_lr": 5e-05,
+              "lora_passes": 1
+            }
+          },
+          {
+            "id": "l3",
+            "parameters": {
+              "lora_lr": 5e-05,
+              "lora_passes": 4
+            }
+          },
+          {
+            "id": "l4",
+            "parameters": {
+              "lora_lr": 0.0002,
+              "lora_passes": 1
+            }
+          },
+          {
+            "id": "l5",
+            "parameters": {
+              "lora_lr": 0.0002,
+              "lora_passes": 4
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "motivation": "support-only agent reviews 2026-09-23; H2 patient coverage and conservative residuals, Path position/stop/coverage diagnostics",
+  "selection": "pooled support-only validation Macro-F1, NLL tie break, candidate ID",
+  "query_status": "Repeated, previously inspected query; adaptive exploratory study only",
+  "final_fit": "original fit split, same label budget and held-out calibration as v1; H2 selection additionally uses grouped support CV",
+  "loss": "unchanged generative mean-token loss, not candidate CE",
+  "rank": 16
+}
