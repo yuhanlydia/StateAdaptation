@@ -1,0 +1,84 @@
+{
+  "basis_extraction_seconds": 33.18072694000148,
+  "basis_scalars": 65536,
+  "basis_visits": 54,
+  "cal_count": 18,
+  "execution_gpu_id": "3",
+  "fit_count": 54,
+  "fit_wall_seconds": 284.49959858399234,
+  "fitting_visits": 432,
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "history": [
+    {
+      "data_loss_mean": 14.177791330147793,
+      "gradient_norm_before_clip": 893.4581909179688,
+      "objective": 765.6007318279808,
+      "penalty": 0.0,
+      "reduction": "sum",
+      "step": 1
+    },
+    {
+      "data_loss_mean": 4.964753745537665,
+      "gradient_norm_before_clip": 402.70098876953125,
+      "objective": 268.0992618293967,
+      "penalty": 0.002559570362791419,
+      "reduction": "sum",
+      "step": 2
+    },
+    {
+      "data_loss_mean": 3.6294252979741604,
+      "gradient_norm_before_clip": 101.66332244873047,
+      "objective": 195.99476920673624,
+      "penalty": 0.0058031161315739155,
+      "reduction": "sum",
+      "step": 3
+    },
+    {
+      "data_loss_mean": 3.0914864546308913,
+      "gradient_norm_before_clip": 41.49920654296875,
+      "objective": 166.9499913295731,
+      "penalty": 0.009722779504954815,
+      "reduction": "sum",
+      "step": 4
+    },
+    {
+      "data_loss_mean": 2.8133935401285135,
+      "gradient_norm_before_clip": 31.509082794189453,
+      "objective": 151.93740070145577,
+      "penalty": 0.01414953451603651,
+      "reduction": "sum",
+      "step": 5
+    },
+    {
+      "data_loss_mean": 2.6060515682178513,
+      "gradient_norm_before_clip": 23.0170841217041,
+      "objective": 140.74604640342295,
+      "penalty": 0.019261719658970833,
+      "reduction": "sum",
+      "step": 6
+    },
+    {
+      "data_loss_mean": 2.442932491225225,
+      "gradient_norm_before_clip": 15.090051651000977,
+      "objective": 131.94332251511514,
+      "penalty": 0.024967988952994347,
+      "reduction": "sum",
+      "step": 7
+    },
+    {
+      "data_loss_mean": 2.3232656640035136,
+      "gradient_norm_before_clip": 13.376891136169434,
+      "objective": 125.48749380744994,
+      "penalty": 0.031147951260209084,
+      "reduction": "sum",
+      "step": 8
+    }
+  ],
+  "optimized_scalars": 1024,
+  "optimizer_updates": 8,
+  "peak_allocated_bytes": 11226297344,
+  "query_forwards": 0,
+  "serialized_state_bytes": 269751,
+  "total_labels": 72,
+  "total_model_parameters": 4300079472
+}

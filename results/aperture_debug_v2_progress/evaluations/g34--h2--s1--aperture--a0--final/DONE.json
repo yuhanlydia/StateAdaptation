@@ -1,0 +1,11 @@
+{
+  "artifacts": {
+    "evaluation.json": "e1f677c333c9281a78269d4b1a44fa8f61a9460582c10e213a04981335019c7c",
+    "metrics.json": "c2101b6dfe6bfbec96abe7084ad1aec5b16c4af76d1cd0f0517f3ded500a81f1",
+    "predictions.jsonl": "612e24a7c9cc800de75534d8b97ed37df39441a762cd3a984dabba9ed4219930",
+    "support_diagnostics.json": "66e1e95721e62a6afa202a13ceb7c3226cd210bb830a24969813feb233fca723",
+    "support_predictions.jsonl": "2e341cf4442e10a3aed2b252661d7cf3dbaf4399a0d32c41f07efd337d982ce1"
+  },
+  "completed_utc": 1790152027.925941,
+  "fingerprint": "145bb9c90cea29d8bff9887292e2e32f5d1635b2241d3e8e08533644e979e336"
+}
